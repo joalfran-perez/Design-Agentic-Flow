@@ -36,6 +36,8 @@ Figma every session.
    raw large array into a file or the chat.
 9. **Close every session that changes state**: update `state/`, add a `decisions/` entry if a new
    pattern/anomaly was found, append a compressed `logs/` entry.
+10. **Keep `logs/` short.** Once it holds >15 numbered entries, run `scripts/archive-logs.ps1` (see
+    `skills/logs-archival.md`, `decisions/007`) before adding more.
 
 ## 3. Preferred Reading Order
 1. This file — always, first.
@@ -55,6 +57,7 @@ Figma every session.
 | Extract a new/updated Figma file-set | `skills/figma-inventory-extraction.md` + external `figma-use` skill |
 | Create/update an inventory's canvas | `skills/canvas-creation.md` + external `canvas` skill |
 | Check/verify an inventory folder is complete | `skills/dod-validation.md` (`scripts/validate-dod.ps1`) |
+| `logs/` has grown large | `skills/logs-archival.md` (`scripts/archive-logs.ps1`) |
 | Cross-system comparison | `context/design.md` pre-computed tables — don't recompute from raw JSON |
 | Diagnose a Figma/MCP tool error | `gotchas/*.md` first, then the external skill's own error table |
 | Record a new architectural/process decision | New `decisions/NNN-slug.md` (date, context, decision,
@@ -100,7 +103,7 @@ state/         current.md (status/blockers), inventories.md (per-system complete
 skills/        reusable step-by-step procedures specific to this repo
 gotchas/       known Figma/Canvas API failures + fixes, one file per symptom
 logs/          compressed per-session summaries, numbered chronologically
-scripts/       validate-dod.ps1 — automated Definition-of-Done checker
+scripts/       validate-dod.ps1 (DoD checker), archive-logs.ps1 (logs/ pruning, decisions/007)
 .cursor/       hooks.json + hooks/ — runs validate-dod.ps1 on every agent stop
 USS*/          the actual inventory deliverables — data, not memory
 ```

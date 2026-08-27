@@ -11,6 +11,7 @@ No dupliques contenido aquí — solo referencia.
 | 004 | No normalizar la arquitectura de color entre sistemas — documentar tal cual | Cada sistema entrega color distinto (variables vs. estilos); normalizar ocultaría el hallazgo real | `decisions/004-preserve-per-file-color-architecture.md` |
 | 005 | Anomalías se marcan (`note`), nunca se corrigen silenciosamente | Este repo audita Figma, no lo corrige | `decisions/005-flag-dont-silently-fix-anomalies.md` |
 | 006 | Automatizar el Definition of Done: script + hook `stop` | Evitar que la estructura se rompa sin que nadie lo note | `decisions/006-automate-dod-validation.md` |
+| 007 | Archivar `logs/` cuando supere 15 entradas (manual, sin hook) | Mantener `logs/` corto y barato de leer | `decisions/007-logs-archival-policy.md` |
 
 ## Cómo añadir una decisión nueva
 1. Crear `decisions/NNN-slug-en-ingles.md` con: fecha, contexto, decisión, consecuencia.
