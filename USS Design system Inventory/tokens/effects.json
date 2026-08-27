@@ -1,0 +1,24 @@
+{
+  "styleCount": 2,
+  "styles": [
+    {
+      "name": "Elevación 1",
+      "effects": [
+        { "type": "DROP_SHADOW", "offset": { "x": 0, "y": 1 }, "radius": 2, "spread": 0, "color": "#0B141F33" },
+        { "type": "DROP_SHADOW", "offset": { "x": 0, "y": 2 }, "radius": 10, "spread": 0, "color": "#2833411A" }
+      ]
+    },
+    {
+      "name": "Elevación 2",
+      "effects": [
+        { "type": "DROP_SHADOW", "offset": { "x": 0, "y": 1 }, "radius": 2, "spread": 0, "color": "#2833411A" },
+        { "type": "DROP_SHADOW", "offset": { "x": 0, "y": 4 }, "radius": 20, "spread": 0, "color": "#28334126" }
+      ]
+    }
+  ],
+  "darkModeElevationColorTokens": {
+    "note": "In dark mode, shadows are replaced by flat surface colors instead of drop shadows.",
+    "Color Tokens/Dark mode elevation/☾ Elevation 1 (reemplazo a sombra)": { "light": "#FFFFFF00", "dark": "#242f3c" },
+    "Color Tokens/Dark mode elevation/☾ Elevation 2 (reemplazo a sombra)": { "light": "#FFFFFF00", "dark": "#202a37" }
+  }
+}

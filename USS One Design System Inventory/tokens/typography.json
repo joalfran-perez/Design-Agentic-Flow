@@ -1,0 +1,130 @@
+{
+  "source": "USS One - Fundamentos de diseño",
+  "variableCollections": {
+    "Tipografia": { "modes": ["Tipografia"], "variableCount": 235 },
+    "Figma-Typography": { "modes": ["Value"], "variableCount": 235, "note": "Sync/mirror of 'Tipografia', same values." }
+  },
+  "fontFamilies": ["Montserrat", "Karla"],
+  "fontWeights": {
+    "Karla": ["Light", "Regular", "Medium", "Bold", "Italic"],
+    "Montserrat": ["Regular", "Medium", "SemiBold", "Bold", "ExtraBold", "Medium Italic", "SemiBold Italic", "Bold Italic"]
+  },
+  "fontSizeScale": [14, 16, 18, 20, 25.008, 32, 36, 40, 48, 60],
+  "letterSpacing": [2, 1, 0],
+  "paragraphSpacing": 0,
+  "paragraphIndent": 0,
+  "lineHeights": {
+    "note": "205 individual line-height variables, one bound per text style/size/family combination rather than a small shared scale. Not enumerated individually here; see resolved values per text style below."
+  },
+  "textStyleRamp_compact": {
+    "note": "A compact, de-duplicated type ramp exists alongside the full verbose style matrix below (Desktop/H1..H6, p/lg-md-sm, a/lg-md-sm, quote/md-xl, intro; Mobile equivalents).",
+    "desktop": [
+      { "name": "Desktop/H1", "font": "Montserrat SemiBold", "size": 48, "lineHeight": 64 },
+      { "name": "Desktop/H2", "font": "Montserrat Medium", "size": 40, "lineHeight": 56 },
+      { "name": "Desktop/H3", "font": "Montserrat SemiBold", "size": 32, "lineHeight": 48 },
+      { "name": "Desktop/H4", "font": "Montserrat Medium", "size": 25.008, "lineHeight": 40 },
+      { "name": "Desktop/H5", "font": "Montserrat SemiBold", "size": 20, "lineHeight": 32 },
+      { "name": "Desktop/H6", "font": "Montserrat SemiBold", "size": 16, "lineHeight": 28 },
+      { "name": "Desktop/intro", "font": "Montserrat Medium", "size": 16, "lineHeight": 28 },
+      { "name": "Desktop/p/lg", "font": "Montserrat Regular", "size": 20, "lineHeight": 32 },
+      { "name": "Desktop/p/md", "font": "Montserrat Regular", "size": 16, "lineHeight": 28 },
+      { "name": "Desktop/p/sm", "font": "Montserrat Regular", "size": 14, "lineHeight": 24 },
+      { "name": "Desktop/a/lg", "font": "Montserrat Regular", "size": 20, "lineHeight": 32 },
+      { "name": "Desktop/a/md", "font": "Montserrat Regular", "size": 16, "lineHeight": 28 },
+      { "name": "Desktop/a/sm", "font": "Montserrat Regular", "size": 14, "lineHeight": 24 },
+      { "name": "Desktop/quote/md", "font": "Montserrat Medium Italic", "size": 20, "lineHeight": 32 },
+      { "name": "Desktop/quote/xl", "font": "Montserrat Medium Italic", "size": 25.008, "lineHeight": 40 }
+    ],
+    "mobile": [
+      { "name": "Mobile/H1", "font": "Montserrat SemiBold", "size": 32, "lineHeight": 48 },
+      { "name": "Mobile/H2", "font": "Montserrat SemiBold", "size": 25.008, "lineHeight": 40 },
+      { "name": "Mobile/H3", "font": "Montserrat SemiBold", "size": 20, "lineHeight": 32 },
+      { "name": "Mobile/H4", "font": "Montserrat SemiBold", "size": 18, "lineHeight": 32 },
+      { "name": "Mobile/H5", "font": "Montserrat SemiBold", "size": 16, "lineHeight": 28 },
+      { "name": "Mobile/H6", "font": "Montserrat Bold", "size": 14, "lineHeight": 24 },
+      { "name": "Mobile/Intro", "font": "Montserrat Medium", "size": 14, "lineHeight": 24 },
+      { "name": "Mobile/p/lg", "font": "Montserrat Regular", "size": 18, "lineHeight": 32 },
+      { "name": "Mobile/p/md", "font": "Montserrat Regular", "size": 16, "lineHeight": 28 },
+      { "name": "Mobile/p/sm", "font": "Montserrat Regular", "size": 14, "lineHeight": 24 },
+      { "name": "Mobile/a/lg", "font": "Montserrat Regular", "size": 18, "lineHeight": 32 },
+      { "name": "Mobile/a/md", "font": "Montserrat Regular", "size": 16, "lineHeight": 28 },
+      { "name": "Mobile/a/sm", "font": "Montserrat Regular", "size": 14, "lineHeight": 24 },
+      { "name": "Mobile/quote/md", "font": "Montserrat Medium Italic", "size": 18, "lineHeight": 32 },
+      { "name": "Mobile/quote/xl", "font": "Montserrat Medium Italic", "size": 20, "lineHeight": 32 }
+    ]
+  },
+  "textStyleRamp_verbose": {
+    "note": "Full weight/italic style matrix (H1-H6 titles x6 weight variants, body copy in 4 sizes x6 weight variants, links in 3 sizes x6 weight variants, Phrase/Otros display styles). Duplicated for Desktop and Mobile viewports. Approximately 200+ local text styles total across both ramps.",
+    "titles": {
+      "family": "Montserrat",
+      "weightVariants": ["Regular", "Medium", "SemiBold", "Bold", "Medium Italic", "SemiBold Italic", "Bold Italic"],
+      "desktop": [
+        { "level": "H1", "size": 48, "lineHeight": 64 },
+        { "level": "H2", "size": 40, "lineHeight": 56 },
+        { "level": "H3", "size": 48, "lineHeight": 48 },
+        { "level": "H4", "size": 40, "lineHeight": 40 },
+        { "level": "H5", "size": 25.008, "lineHeight": 32, "letterSpacing": 2 },
+        { "level": "H6", "size": 18, "lineHeight": 28 }
+      ],
+      "mobile": [
+        { "level": "H1", "size": 48, "lineHeight": 48 },
+        { "level": "H2", "size": 40, "lineHeight": 40 },
+        { "level": "H3", "size": 25.008, "lineHeight": 32 },
+        { "level": "H4", "size": 20, "lineHeight": 32 },
+        { "level": "H5", "size": 18, "lineHeight": 28 },
+        { "level": "H6", "size": 16, "lineHeight": 24 }
+      ]
+    },
+    "body": {
+      "family": "Karla",
+      "weightVariants": ["Light", "Regular", "Medium", "Italic variants of each"],
+      "desktop": [
+        { "name": "Body L", "size": 25.008, "lineHeight": 32 },
+        { "name": "Body", "size": 18, "lineHeight": 28 },
+        { "name": "Body S", "size": 16, "lineHeight": 24 },
+        { "name": "Body XS", "size": 14, "lineHeight": 24 }
+      ],
+      "mobile": [
+        { "name": "Body L", "size": 20, "lineHeight": 32 },
+        { "name": "Body", "size": 18, "lineHeight": 28 },
+        { "name": "Body S", "size": 16, "lineHeight": 24 },
+        { "name": "Body XS", "size": 14, "lineHeight": 24 }
+      ]
+    },
+    "links": {
+      "family": "Karla",
+      "textDecoration": "UNDERLINE",
+      "desktop": [
+        { "name": "Link L", "size": 25.008, "lineHeight": 32 },
+        { "name": "Link", "size": 18, "lineHeight": 28 },
+        { "name": "Link S", "size": 16, "lineHeight": 24 }
+      ],
+      "mobile": [
+        { "name": "Link L", "size": 20, "lineHeight": 32 },
+        { "name": "Link", "size": 18, "lineHeight": 28 },
+        { "name": "Link S", "size": 16, "lineHeight": 24 }
+      ]
+    },
+    "display_and_other": {
+      "family": "Montserrat",
+      "desktop": [
+        { "name": "Phrase 6", "weight": "SemiBold", "size": 16, "lineHeight": 28 },
+        { "name": "Introductorio", "weight": "Medium", "size": 18, "lineHeight": 28 },
+        { "name": "Display Tittle", "weight": "ExtraBold", "size": 60, "lineHeight": 120 },
+        { "name": "Display Subtittle", "weight": "ExtraBold", "size": 48, "lineHeight": 150 },
+        { "name": "Display Content", "weight": "Bold", "size": 25.008, "lineHeight": 150 },
+        { "name": "Cita", "weight": "Medium Italic", "size": 25.008, "lineHeight": 32 },
+        { "name": "Cita destacada", "weight": "Medium Italic", "size": 40, "lineHeight": 40 }
+      ],
+      "mobile": [
+        { "name": "Introductorio", "weight": "Medium", "size": 16, "lineHeight": 24 },
+        { "name": "Display Tittle", "weight": "ExtraBold", "size": 36, "lineHeight": 44 },
+        { "name": "Display Subtittle", "weight": "ExtraBold", "size": 32, "lineHeight": 36 },
+        { "name": "Display Content", "weight": "Bold", "size": 18, "lineHeight": 24 },
+        { "name": "Cita", "weight": "Medium Italic", "size": 20, "lineHeight": 32 },
+        { "name": "Cita destacada", "weight": "Medium Italic", "size": 25.008, "lineHeight": 32 }
+      ]
+    }
+  },
+  "vsUSSFoundations": "Fonts and the base compact ramp match the prior USS system (Montserrat headings, Karla body, same numeric scale). USS One newly exposes a much larger 'Tipografia'/'Figma-Typography' variable collection (235 vars incl. 205 per-style lineHeight bindings) alongside the text styles, suggesting a tokens-sync pipeline (e.g. Tokens Studio) now drives typography, not just manual text styles."
+}

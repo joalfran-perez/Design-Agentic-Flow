@@ -1,0 +1,59 @@
+{
+  "source": "[Extension Library] USS - Fundamentos de diseño",
+  "note": "6 local effect styles — identical structure and shadow math to USS One (2 legacy 2-layer 'Elevación 1/2' styles + 4 new 4-level 'Elevacion/1-4' styles). No drift found here.",
+  "legacy": [
+    {
+      "name": "Elevación 1",
+      "layers": [
+        { "color": "#0b141f", "opacity": 0.2, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 },
+        { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 2 }, "blur": 10, "spread": 0 }
+      ]
+    },
+    {
+      "name": "Elevación 2",
+      "layers": [
+        { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 },
+        { "color": "#283341", "opacity": 0.15, "offset": { "x": 0, "y": 4 }, "blur": 20, "spread": 0 }
+      ]
+    }
+  ],
+  "current": [
+    {
+      "name": "Elevacion/1",
+      "layers": [
+        { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 2 }, "blur": 10, "spread": 0 },
+        { "color": "#0b141f", "opacity": 0.2, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 }
+      ]
+    },
+    {
+      "name": "Elevacion/2",
+      "layers": [
+        { "color": "#283341", "opacity": 0.15, "offset": { "x": 0, "y": 4 }, "blur": 20, "spread": 0 },
+        { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 }
+      ]
+    },
+    {
+      "name": "Elevacion/3",
+      "layers": [
+        { "color": "#283341", "opacity": 0.15, "offset": { "x": 0, "y": 20 }, "blur": 40, "spread": 0 },
+        { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 1 }, "blur": 3, "spread": 0 }
+      ]
+    },
+    {
+      "name": "Elevacion/4",
+      "layers": [
+        { "color": "#283341", "opacity": 0.2, "offset": { "x": 0, "y": 40 }, "blur": 80, "spread": 0 },
+        { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 2 }, "blur": 6, "spread": 0 }
+      ]
+    }
+  ],
+  "darkModeElevationReplacement": {
+    "note": "Differs from USS One: flat, identical color across all 4 levels rather than 2 distinct step tones.",
+    "tokens": [
+      { "name": "elevacion/on-dark/1", "hex": "#121c27" },
+      { "name": "elevacion/on-dark/2", "hex": "#121c27" },
+      { "name": "elevacion/on-dark/3", "hex": "#121c27" },
+      { "name": "elevacion/on-dark/4", "hex": "#121c27" }
+    ]
+  }
+}

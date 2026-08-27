@@ -1,0 +1,26 @@
+{
+  "collection": "Space",
+  "modes": ["Mode 1"],
+  "variableCount": 19,
+  "tokens": {
+    "Espaciado/spacing-04": 4,
+    "Espaciado/spacing-08": 8,
+    "Espaciado/spacing-12": 12,
+    "Espaciado/spacing-16": 16,
+    "Espaciado/spacing-20": 20,
+    "Espaciado/spacing-24": 24,
+    "Espaciado/spacing-28": 28,
+    "Espaciado/spacing-32": 32,
+    "Espaciado/spacing-36": 36,
+    "Espaciado/spacing-44": 44,
+    "Espaciado/spacing-48": 48,
+    "Espaciado/spacing-56": 56,
+    "Espaciado/spacing-64": 64,
+    "Espaciado/spacing-80": 80,
+    "Espaciado/spacing-96": 96,
+    "Espaciado/spacing-112": 112,
+    "Espaciado/spacing-128": 128,
+    "Espaciado/spacing-160": 160,
+    "Espaciado/spacing-216": 220
+  }
+}

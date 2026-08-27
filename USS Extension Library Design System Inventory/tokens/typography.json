@@ -1,0 +1,26 @@
+{
+  "source": "[Extension Library] USS - Fundamentos de diseño",
+  "architectureNote": "No local typography VARIABLES at all (no 'Tipografia'/'Figma-Typography' collections, unlike USS One's 235-variable setup). Typography is delivered purely through 191 local TEXT STYLES — a smaller, style-only surface.",
+  "textStyleTotal": 191,
+  "breakdown": {
+    "verbose": {
+      "Desktop/Títulos": 36,
+      "Desktop/Contenido": 36,
+      "Desktop/Otros": 6,
+      "Mobile/Títulos": 36,
+      "Mobile/Contenido": 36,
+      "Mobile/Otros": 7,
+      "Mobile/Navigation Label": 4,
+      "note": "'Mobile/Navigation Label' (4 styles) is NEW — not present in USS or USS One — likely styling for bottom navigation/tab bar labels. 'Otros' groups are 1 larger on Mobile (7 vs 6) for the same reason.",
+      "subtotal": 161
+    },
+    "compact": {
+      "desktop": ["H1", "H2", "H3", "H4", "H5", "H6", "intro", "p (×3)", "a (×3)", "quote (×2)"],
+      "mobile": ["H1", "H2", "H3", "H4", "H5", "H6", "Intro", "p (×3)", "a (×3)", "quote (×2)"],
+      "subtotal": 30
+    },
+    "total": 191
+  },
+  "fontFamilies": ["Montserrat", "Karla"],
+  "vsUSSOne": "Same compact type ramp structure and font families as USS/USS One (not re-verified pixel-for-pixel here since no drift was found in spacing/effects/color base values), minus the 205-variable line-height-binding layer entirely, plus a new Mobile-only 'Navigation Label' style group."
+}

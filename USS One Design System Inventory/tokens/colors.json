@@ -1,0 +1,203 @@
+{
+  "source": "USS One - Fundamentos de diseño",
+  "collections": {
+    "Color": { "modes": ["Color"], "variableCount": 343, "note": "Canonical collection. Light/dark are baked into variable NAMES ('Light mode/...' vs '☾ Dark mode/...') rather than being true Figma modes." },
+    "Figma-Color": { "modes": ["Light mode", "Dark mode"], "variableCount": 144, "note": "Sync/mirror collection using true Figma modes for the same ~68 semantic tokens + a partial base palette. Same resolved values as 'Color'." },
+    "Tipografia / Figma-Typography": { "note": "See typography.json" }
+  },
+  "semanticTokens": {
+    "note": "68 semantic tokens x2 (Light mode / ☾ Dark mode folders) = 136 of the 343 'Color' variables.",
+    "lightMode": {
+      "Background": {
+        "Background 1": "#ffffff",
+        "Background 2": "#f6f7f7",
+        "Background 3": "#edf8f8",
+        "Background 4": "#d2e4e4"
+      },
+      "Surface": {
+        "Surface ghost - default": "#00000000",
+        "Surface ghost - hover": "#e4e8fc",
+        "Surface ghost - active": "#f4f5fd",
+        "Surface - default": "#e4e8fc",
+        "Surface - hover": "#c5cdf9",
+        "Surface - active": "#f4f5fd",
+        "Surface strong - default": "#001894",
+        "Surface strong - hover": "#0024db",
+        "Surface strong - active": "#001894",
+        "Surface disabled": "#f6f7f7"
+      },
+      "Border": {
+        "Strong": "#888e96",
+        "Default": "#c3c5ca",
+        "Subtle": "#d4d6d9",
+        "Interactive": "#001894",
+        "Interactive subtle": "#c5cdf9",
+        "Disabled": "#c3c5ca"
+      },
+      "Text": {
+        "Strong": "#0b141f",
+        "Subtle": "#58616e",
+        "Inverse": "#ffffff"
+      },
+      "Links": {
+        "Default": "#001894",
+        "Hover": "#0024db",
+        "Visited": "#5e77f8"
+      },
+      "TextInteractive": {
+        "Default": "#001894",
+        "Hover": "#0024db",
+        "Active": "#001eb8",
+        "Subtle - default": "#58616e",
+        "Subtle - hover": "#001894",
+        "Subtle - active": "#001eb8",
+        "Disabled": "#c3c5ca",
+        "Inverse - default": "#e4e8fc",
+        "Inverse - hover": "#f4f5fd",
+        "Inverse - active": "#e4e8fc"
+      },
+      "Icons": {
+        "Strong": "#0b141f",
+        "Subtle": "#58616e",
+        "Decorativo": "#5aa5a5",
+        "Inverse": "#ffffff"
+      },
+      "Feedback": {
+        "Text info": "#00628d",
+        "Text info strong": "#002b41",
+        "Text success": "#007350",
+        "Text success strong": "#004438",
+        "Text warning": "#836100",
+        "Text warning strong": "#452c00",
+        "Text error": "#9d0000",
+        "Text error strong": "#450000",
+        "Surface info": "#e1eef8",
+        "Surface info strong": "#0073a0",
+        "Surface success": "#e1f9ee",
+        "Surface success strong": "#00a85c",
+        "Surface warning": "#ffffbe",
+        "Surface warning strong": "#f4cb00",
+        "Surface error": "#fae4e1",
+        "Surface error strong": "#b22000",
+        "Surface neutral": "#dfe0e3",
+        "Surface neutral inverse": "#38424f"
+      },
+      "Focus": { "Focus": "#001eb8", "Inverse": "#e4e8fc" },
+      "Buttons": {
+        "Primario default": "#001894",
+        "Primario hover": "#0024db",
+        "Primario active": "#001eb8",
+        "Secundario default": "#e4e8fc",
+        "Secundario hover": "#c5cdf9",
+        "Secundario active": "#f4f5fd"
+      }
+    },
+    "darkMode": {
+      "note": "Mirrors the light-mode structure 1:1 (same categories, ☾-prefixed names). See below for the resolved hex values.",
+      "Background": { "Background 1": "#0b141f", "Background 2": "#19222e" },
+      "Surface": {
+        "ghost - default": "#0b141f00",
+        "ghost - hover": "#38424f",
+        "ghost - active": "#283341",
+        "default": "#38424f",
+        "hover": "#283341",
+        "active": "#48515d",
+        "strong - default": "#c5cdf9",
+        "strong - hover": "#e4e8fc",
+        "strong - active": "#c5cdf9",
+        "disabled": "#283341"
+      },
+      "Border": { "Strong": "#888e96", "Default": "#58616e", "Subtle": "#283341", "Interactive": "#93a3f7", "Interactive subtle": "#888e96", "Disabled": "#58616e" },
+      "Text": { "Strong": "#dfe0e3", "Subtle": "#c3c5ca", "Inverse": "#0b141f" },
+      "Links": { "Default": "#e4e8fc", "Hover": "#93a3f7", "Visited": "#5e77f8" },
+      "TextInteractive": { "Default": "#e4e8fc", "Hover": "#93a3f7", "Active": "#c5cdf9", "Subtle default": "#c3c5ca", "Subtle - hover": "#93a3f7", "Subtle - active": "#c5cdf9", "Inverse default": "#001eb8", "Inverse - hover": "#0024db", "Inverse - active": "#001eb8", "Disabled": "#58616e" },
+      "Icons": { "Strong": "#dfe0e3", "Subtle": "#c3c5ca", "Decorativo": "#8ebfbf", "Inverse": "#0b141f" },
+      "Feedback": {
+        "Text info": "#bedbee", "Text info strong": "#bedbee",
+        "Text success": "#57cf98", "Text success strong": "#57cf98",
+        "Text warning": "#f4cb00", "Text warning strong": "#f4cb00",
+        "Text error": "#e7978a", "Text error strong": "#e7978a",
+        "Surface info": "#002b41", "Surface info strong": "#002b41",
+        "Surface success": "#004438", "Surface success strong": "#004438",
+        "Surface warning": "#452c00", "Surface warning strong": "#452c00",
+        "Surface error": "#450000", "Surface error strong": "#450000",
+        "Surface neutral": "#38424f", "Surface neutral inverse": "#dfe0e3"
+      },
+      "Elevation (reemplazo a sombra)": { "Elevation 1": "#202a37", "Elevation 2": "#242f3c" },
+      "Focus": { "Focus": "#e4e8fc", "Inverse": "#001eb8" },
+      "Buttons": { "Primario default": "#c5cdf9", "Primario hover": "#93a3f7", "Primario active": "#e4e8fc", "Secundario default": "#38424f", "Secundario hover": "#283341", "Secundario active": "#48515d" }
+    }
+  },
+  "basePalettes": {
+    "note": "10-step ramps (10=lightest ... 100=darkest), stored under '_Base/<Name>/<Name> NN'. Flat shorthand aliases also exist at the top level ('Neutral/NN', 'Primary/NN', etc.) pointing to the same values.",
+    "Neutral": {
+      "10 (blanco)": "#ffffff", "20": "#f6f7f7", "30": "#dfe0e3", "40": "#d4d6d9", "50": "#c3c5ca",
+      "60": "#888e96", "70": "#58616e", "73": "#48515d", "77": "#38424f", "80": "#283341",
+      "82": "#242f3c", "85": "#202a37", "88": "#1d2633", "90": "#19222e", "100": "#0b141f"
+    },
+    "Primary": {
+      "10": "#f4f5fd", "20": "#e4e8fc", "30": "#c5cdf9", "40": "#93a3f7", "50": "#5e77f8",
+      "60": "#274afb", "70": "#0024db", "80": "#001eb8", "90": "#001894", "100": "#001370"
+    },
+    "Secondary - Verde": {
+      "10": "#edf8f8", "20": "#d2e4e4", "30": "#b1d1d2", "40": "#8ebfbf", "50": "#5aa5a5",
+      "60": "#248c8a", "70": "#1e767c", "80": "#185f6c", "90": "#114252", "100": "#071d27"
+    },
+    "Secondary (2nd ramp - blue/gray, new in USS One)": {
+      "10": "#f6f8fb", "20": "#eaeff5", "30": "#d2dee9", "40": "#aec4d6", "50": "#8aaac4",
+      "60": "#6691b2", "70": "#4e81a5", "80": "#426a8b", "90": "#355470", "100": "#293f56",
+      "note": "Same hex values as the 'Facultad/on-light' + 'Facultad/on-dark' accent set below."
+    },
+    "Info": {
+      "10": "#f2f8fc", "20": "#e1eef8", "30": "#bedbee", "40": "#8abfdd", "50": "#57a3c9",
+      "60": "#2386b1", "70": "#0073a0", "80": "#00628d", "90": "#004a6e", "100": "#002b41"
+    },
+    "Success": {
+      "10": "#f2fdf8", "20": "#e1f9ee", "30": "#bef1da", "40": "#8ae1ba", "50": "#57cf98",
+      "60": "#23b974", "70": "#00a85c", "80": "#00945a", "90": "#007350", "100": "#004438"
+    },
+    "Warning": {
+      "10": "#fffef2", "20": "#ffffe1", "30": "#ffffbe", "40": "#fff88a", "50": "#ffeb57",
+      "60": "#fcd923", "70": "#f4cb00", "80": "#c19a00", "90": "#836100", "100": "#452c00"
+    },
+    "Error": {
+      "10": "#fdf4f2", "20": "#fae4e1", "30": "#f4c5be", "40": "#e7978a", "50": "#d66a57",
+      "60": "#c23d23", "70": "#b22000", "80": "#9d0000", "90": "#7a0000", "100": "#450000"
+    },
+    "Transparent": "#00000000"
+  },
+  "facultadAccentSystem": {
+    "note": "NEW in USS One vs. the original USS system: a per-faculty/branding accent layer built on the blue-gray 'Facultad' base ramp, exposed as semantic 'on-light'/'on-dark' A/B/C tokens. Likely used to give each university faculty/school its own accent while reusing the same component set. 'Tono-Exito/Alerta/Error' apply the same on-light/on-dark/A-B-C pattern to feedback colors.",
+    "Facultad_base": {
+      "on-light": { "A": "#293f56", "B": "#426a8b", "C": "#4e81a5" },
+      "on-dark": { "A": "#f6f8fb", "B": "#eaeff5", "C": "#aec4d6" }
+    },
+    "bg": {
+      "on-dark": { "primary": "#0b141f", "secondary": "#f6f7f7" },
+      "on-light": { "primary": "#ffffff", "secondary": "#f6f7f7" }
+    },
+    "text": {
+      "facultad/on-light": { "primary": "#293f56", "secondary": "#58616e" },
+      "on-light": { "primary": "#0b141f", "secondary": "#58616e" },
+      "on-dark": { "primary": "#ffffff", "secondary": "#f6f7f7" }
+    },
+    "USS": {
+      "on-light": { "A": "#001370", "B": "#001eb8", "C": "#0024db" },
+      "on-dark": { "A": "#f4f5fd", "B": "#e4e8fc", "C": "#93a3f7" }
+    },
+    "Tono-Exito (Success accent)": {
+      "on-light": { "A": "#004438", "B": "#00945a", "C": "#00a85c" },
+      "on-dark": { "A": "#f2fdf8", "B": "#e1f9ee", "C": "#8ae1ba" }
+    },
+    "Tono-Alerta (Warning accent)": {
+      "on-light": { "A": "#452c00", "B": "#c19a00", "C": "#fcd923" },
+      "on-dark": { "A": "#fffef2", "B": "#ffffe1", "C": "#fff88a" }
+    },
+    "Tono-Error (Error accent)": {
+      "on-light": { "A": "#450000", "B-copy": "#9d0000", "C": "#c23d23" },
+      "on-dark": { "A": "#fdf4f2", "B": "#fae4e1", "C": "#e7978a" }
+    },
+    "elevacion/on-dark": { "1": "#1d2633", "2": "#1d2633", "3": "#1d2633", "4": "#1d2633" }
+  },
+  "vsUSSFoundations": "The prior 'USS' foundations file had ~68 semantic tokens (light/dark as true variable modes) + a smaller base palette (~92 swatches) in a single 'Figma-Color' style collection. USS One keeps a compatible 'Figma-Color' sync collection (144 vars) but promotes a much larger 'Color' collection (343 vars) as canonical, adding: a second Secondary/Facultad blue-gray ramp, the Facultad accent theming system (on-light/on-dark A/B/C), and Tono-Exito/Alerta/Error feedback accent variants."
+}

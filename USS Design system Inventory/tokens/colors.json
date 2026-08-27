@@ -1,0 +1,137 @@
+{
+  "collection": "Color",
+  "modes": ["Light mode", "Dark mode"],
+  "variableCount": 144,
+  "note": "Semantic tokens below (68) are the full alias-resolved set. Base-palette primitives are mode-invariant (identical hex in Light and Dark) and only a partial sample (Neutral, Primary) is included because the remaining scales (Secondary - Verde, Info, Success, Warning, Error) were truncated in the raw API response before every shade could be captured.",
+  "semanticTokens": {
+    "Background": {
+      "Background 1": { "light": "#ffffff", "dark": "#0b141f" },
+      "Background 2": { "light": "#f6f7f7", "dark": "#19222e" },
+      "Background 3": { "light": "#d0dde6", "dark": "#ffffff" },
+      "Background 4": { "light": "#d9dced", "dark": "#ffffff" }
+    },
+    "Surface": {
+      "Surface ghost - default": { "light": "#ffffff00", "dark": "#ffffff00" },
+      "Surface ghost - hover": { "light": "#e4e8fc", "dark": "#38424f" },
+      "Surface ghost - active": { "light": "#f4f5fd", "dark": "#283341" },
+      "Surface - default": { "light": "#e4e8fc", "dark": "#38424f" },
+      "Surface - hover": { "light": "#c5cdf9", "dark": "#283341" },
+      "Surface - active": { "light": "#f4f5fd", "dark": "#48515d" },
+      "Surface strong - default": { "light": "#001894", "dark": "#c5cdf9" },
+      "Surface strong - hover": { "light": "#0024db", "dark": "#e4e8fc" },
+      "Surface strong - active": { "light": "#001894", "dark": "#c5cdf9" },
+      "Surface disabled": { "light": "#f6f7f7", "dark": "#283341" }
+    },
+    "Border": {
+      "Strong": { "light": "#888e96", "dark": "#888e96" },
+      "Default": { "light": "#c3c5ca", "dark": "#58616e" },
+      "Subtle": { "light": "#d4d6d9", "dark": "#283341" },
+      "Interactive": { "light": "#001894", "dark": "#93a3f7" },
+      "Interactive subtle": { "light": "#c5cdf9", "dark": "#888e96" },
+      "Disabled": { "light": "#c3c5ca", "dark": "#58616e" }
+    },
+    "Text": {
+      "Strong": { "light": "#0b141f", "dark": "#dfe0e3" },
+      "Subtle": { "light": "#58616e", "dark": "#c3c5ca" },
+      "Inverse": { "light": "#ffffff", "dark": "#0b141f" }
+    },
+    "Links": {
+      "Default": { "light": "#001894", "dark": "#e4e8fc" },
+      "Hover": { "light": "#0024db", "dark": "#93a3f7" },
+      "Visited": { "light": "#5e77f8", "dark": "#5e77f8" }
+    },
+    "Text interactive": {
+      "Default": { "light": "#001894", "dark": "#e4e8fc" },
+      "Hover": { "light": "#0024db", "dark": "#93a3f7" },
+      "Active": { "light": "#001eb8", "dark": "#c5cdf9" },
+      "Subtle - default": { "light": "#58616e", "dark": "#c3c5ca" },
+      "Subtle - hover": { "light": "#001894", "dark": "#93a3f7" },
+      "Subtle - active": { "light": "#001eb8", "dark": "#c5cdf9" },
+      "Inverse - default": { "light": "#e4e8fc", "dark": "#001eb8" },
+      "Inverse - hover": { "light": "#f4f5fd", "dark": "#0024db" },
+      "Inverse - active": { "light": "#e4e8fc", "dark": "#001eb8" },
+      "Disabled": { "light": "#c3c5ca", "dark": "#58616e" }
+    },
+    "Icons": {
+      "Strong": { "light": "#0b141f", "dark": "#dfe0e3" },
+      "Subtle": { "light": "#58616e", "dark": "#c3c5ca" },
+      "Decorativo": { "light": "#5aa5a5", "dark": "#8ebfbf" },
+      "Inverse": { "light": "#ffffff", "dark": "#0b141f" }
+    },
+    "Feedback": {
+      "Text info": { "light": "#00628d", "dark": "#bedbee" },
+      "Text info strong": { "light": "#002b41", "dark": "#bedbee" },
+      "Text success": { "light": "#007350", "dark": "#57cf98" },
+      "Text success strong": { "light": "#004438", "dark": "#57cf98" },
+      "Text warning": { "light": "#836100", "dark": "#f4cb00" },
+      "Text warning strong": { "light": "#452c00", "dark": "#f4cb00" },
+      "Text error": { "light": "#9d0000", "dark": "#e7978a" },
+      "Text error strong": { "light": "#450000", "dark": "#e7978a" },
+      "Surface info": { "light": "#e1eef8", "dark": "#002b41" },
+      "Surface info strong": { "light": "#0073a0", "dark": "#002b41" },
+      "Surface success": { "light": "#e1f9ee", "dark": "#004438" },
+      "Surface success strong": { "light": "#00a85c", "dark": "#004438" },
+      "Surface warning": { "light": "#ffffe1", "dark": "#836100" },
+      "Surface warning strong": { "light": "#f4cb00", "dark": "#836100" },
+      "Surface error": { "light": "#fae4e1", "dark": "#450000" },
+      "Surface error strong": { "light": "#b22000", "dark": "#450000" },
+      "Surface neutral": { "light": "#dfe0e3", "dark": "#38424f" },
+      "Surface neutral inverse": { "light": "#38424f", "dark": "#dfe0e3" }
+    },
+    "Focus": {
+      "Focus": { "light": "#001eb8", "dark": "#e4e8fc" },
+      "Inverse": { "light": "#e4e8fc", "dark": "#001eb8" }
+    },
+    "Buttons": {
+      "Primary default": { "light": "#001894", "dark": "#c5cdf9" },
+      "Primary hover": { "light": "#0024db", "dark": "#93a3f7" },
+      "Primary active": { "light": "#001eb8", "dark": "#e4e8fc" },
+      "Secundario default": { "light": "#e4e8fc", "dark": "#38424f" },
+      "Secundario hover": { "light": "#c5cdf9", "dark": "#283341" },
+      "Secundario active": { "light": "#f4f5fd", "dark": "#48515d" }
+    },
+    "Dark mode elevation (shadow replacement)": {
+      "☾ Elevation 1": { "light": "#ffffff00", "dark": "#242f3c" },
+      "☾ Elevation 2": { "light": "#ffffff00", "dark": "#202a37" }
+    }
+  },
+  "basePalettes": {
+    "note": "Values are identical across Light and Dark mode.",
+    "Neutral": {
+      "Neutral 100": "#0b141f",
+      "Neutral 90": "#19222e",
+      "Neutral 88": "#1d2633",
+      "Neutral 85": "#202a37",
+      "Neutral 82": "#242f3c",
+      "Neutral 80": "#283341",
+      "Neutral 77": "#38424f",
+      "Neutral 73": "#48515d",
+      "Neutral 70": "#58616e",
+      "Neutral 60": "#888e96",
+      "Neutral 50": "#c3c5ca",
+      "Neutral 40": "#d4d6d9",
+      "Neutral 30": "#dfe0e3",
+      "Neutral 20": "#f6f7f7",
+      "Neutral 10 (blanco)": "#ffffff"
+    },
+    "Primary": {
+      "Primary 100": "#001370",
+      "Primary 90": "#001894",
+      "Primary 80": "#001eb8",
+      "Primary 70": "#0024db",
+      "Primary 60": "#274afb",
+      "Primary 50": "#5e77f8",
+      "Primary 40": "#93a3f7",
+      "Primary 30": "#c5cdf9",
+      "Primary 20": "#e4e8fc",
+      "Primary 10": "#f4f5fd"
+    },
+    "Secondary - Verde (partial sample)": {
+      "Secondary 100 (light)": "#071d27",
+      "Secondary 100 (dark)": "#092430",
+      "Secondary 90": "#114252",
+      "Secondary 80": "#185f6c"
+    },
+    "otherScalesNotFullyCaptured": ["Info", "Success", "Warning", "Error"]
+  }
+}

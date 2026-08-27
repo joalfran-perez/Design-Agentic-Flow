@@ -1,0 +1,75 @@
+{
+  "source": "[Extension Library] USS - Fundamentos de diseño",
+  "architectureNote": "Unlike USS and USS One, this file has NO local Color/Figma-Color variable collections at all (getLocalVariableCollectionsAsync returns only Space + Radius). All color is delivered instead through 529 local PAINT STYLES (legacy Figma styles, not variables) — consistent with this file's role as a shared 'Extension Library' that layers additional styles on top of a consumed/published core, rather than owning canonical token variables itself.",
+  "paintStyleTotals": {
+    "totalStyleObjects": 529,
+    "distinctStyleNames": 334,
+    "duplicateObjects": 195,
+    "duplicationNote": "All 195 'extra' objects live under the 'Light mode/' folder: every one of its 65 distinct semantic token names (Background/Surface/Border/Text/Links/Text interactive/Icons/Feedback/Focus/Buttons) exists as exactly 4 separate PaintStyle objects with identical names AND identical resolved hex values but different style IDs/keys. 'Dark mode' and all base-palette/accent folders have clean 1x copies. This looks like a library-hygiene artifact from repeated imports/merges rather than an intentional design choice — flagged as a cleanup opportunity."
+  },
+  "semanticTokens": {
+    "note": "65 distinct semantic tokens (one fewer than USS One's 66 — missing 'Background 4'). Category counts below reflect DISTINCT names only, with duplicates already collapsed out.",
+    "categories": {
+      "Background": 3,
+      "Surface": 10,
+      "Border": 6,
+      "Text": 3,
+      "Links": 3,
+      "TextInteractive": 10,
+      "Icons": 4,
+      "Feedback": 18,
+      "Focus": 2,
+      "Buttons": 6,
+      "note": "Sum = 65 (Light mode). Dark mode mirrors this 1:1 plus 2 extra 'Elevation (reemplazo a sombra)' tokens = 67 total dark-mode styles."
+    },
+    "sampleResolvedValues": {
+      "note": "Sampled tokens confirmed to resolve to the SAME hex values as USS/USS One — this Extension Library shares the same core brand palette, it just packages it differently (styles vs variables, with duplication).",
+      "Background 1": { "light": "#ffffff" },
+      "Surface - default": { "light": "#e4e8fc" },
+      "Buttons/Primario default": { "light": "#001894" }
+    }
+  },
+  "basePalettes": {
+    "note": "85 distinct base-palette swatches under '_Base/' (vs 92 in USS One) — all Neutral/Primary/Secondary-Verde/Info/Success/Warning/Error ramps confirmed IDENTICAL hex values to USS One. The difference is structural: this file renames the second (blue-gray) ramp '_Base/Terciary' instead of '_Base/Secondary', AND gives 'Terciary' a completely different, unrelated PURPLE ramp — while the Facultad/USS accent tokens below still resolve to the ORIGINAL blue-gray hex values via hardcoded solid colors (no alias to any local base group could be found).",
+    "Neutral": {
+      "10 (blanco)": "#ffffff", "20": "#f6f7f7", "30": "#dfe0e3", "40": "#d4d6d9", "50": "#c3c5ca",
+      "60": "#888e96", "70": "#58616e", "73": "#48515d", "77": "#38424f", "80": "#283341",
+      "82": "#242f3c", "85": "#202a37", "88": "#1d2633", "90": "#19222e", "100": "#0b141f"
+    },
+    "Primary": {
+      "10": "#f4f5fd", "20": "#e4e8fc", "30": "#c5cdf9", "40": "#93a3f7", "50": "#5e77f8",
+      "60": "#274afb", "70": "#0024db", "80": "#001eb8", "90": "#001894", "100": "#001370"
+    },
+    "Terciary (NEW — purple ramp, unrelated to Facultad blue-gray)": {
+      "10": "#f5eff9", "20": "#dfceec", "30": "#d0b6e3", "40": "#ba94d6", "50": "#ad80ce",
+      "60": "#9860c2", "70": "#8a57b1", "80": "#6c448a", "90": "#402851", "100": "#402851",
+      "note": "90 and 100 resolve to the identical hex (#402851) — likely an unfinished/duplicated ramp step."
+    },
+    "otherRamps": "Secondary - Verde, Info, Success, Warning, Error — 10 steps each, confirmed identical to USS One's basePalettes (see USS One Design System Inventory/tokens/colors.json for full values)."
+  },
+  "accentTheming": {
+    "note": "The Facultad/USS/Tono-Exito/Tono-Alerta/Tono-Error accent system from USS One is present here too, as flat paint styles (not aliased variables), with IDENTICAL resolved hex values. New here: a 'text/facultad/on-light' subgroup and 'elevacion/on-dark' tokens with a DIFFERENT dark-elevation color (#121c27) than USS One's (#1d2633).",
+    "Facultad_base": {
+      "on-light": { "A": "#293f56", "B": "#426a8b", "C": "#4e81a5" },
+      "on-dark": { "A": "#f6f8fb", "B": "#eaeff5", "C": "#aec4d6" }
+    },
+    "USS": {
+      "on-light": { "A": "#001370", "B": "#001eb8", "C": "#0024db" },
+      "on-dark": { "A": "#f4f5fd", "B": "#e4e8fc", "C": "#93a3f7" }
+    },
+    "bg": {
+      "on-dark": { "primary": "#0b141f", "secondary": "#f6f7f7" },
+      "on-light": { "primary": "#ffffff", "secondary": "#f6f7f7" }
+    },
+    "text": {
+      "facultad/on-light": { "primary": "#293f56", "secondary": "#58616e" },
+      "on-light": { "primary": "#0b141f", "secondary": "#58616e" },
+      "on-dark": { "primary": "#ffffff", "secondary": "#f6f7f7" }
+    },
+    "Tono-Exito": { "on-light": { "A": "#004438", "B": "#00945a", "C": "#00a85c" }, "on-dark": { "A": "#f2fdf8", "B": "#e1f9ee", "C": "#8ae1ba" } },
+    "Tono-Alerta": { "on-light": { "A": "#452c00", "B": "#c19a00", "C": "#fcd923" }, "on-dark": { "A": "#fffef2", "B": "#ffffe1", "C": "#fff88a" } },
+    "Tono-Error": { "on-light": { "A": "#450000", "B-copy": "#9d0000", "C": "#c23d23" }, "on-dark": { "A": "#fdf4f2", "B": "#fae4e1", "C": "#e7978a" } },
+    "elevacion/on-dark": { "1": "#121c27", "2": "#121c27", "3": "#121c27", "4": "#121c27", "note": "Flat, identical across all 4 levels — differs from USS One's #1d2633." }
+  },
+  "vsUSSOne": "Same brand color values throughout, but delivered via 529 legacy paint styles (334 distinct) instead of a 343-variable 'Color' collection — no local color VARIABLES exist in this file at all. Introduces a heavy duplication artifact (4x copies of every Light-mode semantic style) and a new unrelated purple 'Terciary' base ramp not seen in USS One."
+}

@@ -1,0 +1,14 @@
+{
+  "collections": ["Radius", "Figma-Radius"],
+  "note": "Two collections hold the same 6-step radius scale (Figma-Radius appears to be a sync/mirror collection, likely produced by a tokens-sync plugin, feeding the canonical 'Radius' collection).",
+  "source": "USS One - Fundamentos de diseño",
+  "tokenCount": 6,
+  "tokens": [
+    { "name": "Radius-1", "px": 0 },
+    { "name": "Radius-2", "px": 2 },
+    { "name": "Radius-3", "px": 4 },
+    { "name": "Radius-4", "px": 8 },
+    { "name": "Radius-5", "px": 12 },
+    { "name": "Radius-6", "px": 16 }
+  ]
+}

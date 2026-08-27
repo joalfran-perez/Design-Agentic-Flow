@@ -1,0 +1,17 @@
+{
+  "collection": "Radius",
+  "source": "[Extension Library] USS - Fundamentos de diseño",
+  "modes": ["Mode 1"],
+  "note": "8 variables (vs. 6 in USS/USS One). Adds a 'Radius-1000' pill/full-round token and a stray 'Boolean' variable that doesn't fit the radius scale — likely a leftover utility variable accidentally left in this collection.",
+  "tokenCount": 8,
+  "tokens": [
+    { "name": "Radius-1", "px": 0 },
+    { "name": "Radius-2", "px": 2 },
+    { "name": "Radius-3", "px": 4 },
+    { "name": "Radius-4", "px": 8 },
+    { "name": "Radius-5", "px": 12 },
+    { "name": "Radius-6", "px": 16 },
+    { "name": "Radius-1000", "px": 1000, "note": "New — full/pill radius token, not present in USS or USS One." },
+    { "name": "Boolean", "value": false, "note": "Anomaly: a boolean-type variable stored inside the Radius collection, unrelated to corner radius. Likely misplaced/leftover." }
+  ]
+}

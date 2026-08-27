@@ -1,0 +1,59 @@
+{
+  "source": "USS One - Fundamentos de diseño",
+  "elevationScale": {
+    "note": "USS One expands the elevation scale from 2 levels (legacy 'Elevación 1/2') to 4 levels ('Elevacion/1'..'Elevacion/4'). Both legacy and new names currently coexist as local effect styles.",
+    "legacy": [
+      {
+        "name": "Elevación 1",
+        "layers": [
+          { "color": "#0b141f", "opacity": 0.2, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 },
+          { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 2 }, "blur": 10, "spread": 0 }
+        ]
+      },
+      {
+        "name": "Elevación 2",
+        "layers": [
+          { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 },
+          { "color": "#283341", "opacity": 0.15, "offset": { "x": 0, "y": 4 }, "blur": 20, "spread": 0 }
+        ]
+      }
+    ],
+    "current": [
+      {
+        "name": "Elevacion/1",
+        "layers": [
+          { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 2 }, "blur": 10, "spread": 0 },
+          { "color": "#0b141f", "opacity": 0.2, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 }
+        ]
+      },
+      {
+        "name": "Elevacion/2",
+        "layers": [
+          { "color": "#283341", "opacity": 0.15, "offset": { "x": 0, "y": 4 }, "blur": 20, "spread": 0 },
+          { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 1 }, "blur": 2, "spread": 0 }
+        ]
+      },
+      {
+        "name": "Elevacion/3",
+        "layers": [
+          { "color": "#283341", "opacity": 0.15, "offset": { "x": 0, "y": 20 }, "blur": 40, "spread": 0 },
+          { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 1 }, "blur": 3, "spread": 0 }
+        ]
+      },
+      {
+        "name": "Elevacion/4",
+        "layers": [
+          { "color": "#283341", "opacity": 0.2, "offset": { "x": 0, "y": 40 }, "blur": 80, "spread": 0 },
+          { "color": "#283341", "opacity": 0.1, "offset": { "x": 0, "y": 2 }, "blur": 6, "spread": 0 }
+        ]
+      }
+    ]
+  },
+  "darkModeElevationReplacement": {
+    "note": "In dark mode, shadows are replaced by flat elevated-surface colors (2 tokens only, less granular than the 4-level light-mode shadow scale).",
+    "tokens": [
+      { "name": "☾ Elevation 1 (reemplazo a sombra)", "hex": "#202a37", "aliasOf": "_Base/Neutral/Neutral 85" },
+      { "name": "☾ Elevation 2 (reemplazo a sombra)", "hex": "#242f3c", "aliasOf": "_Base/Neutral/Neutral 82" }
+    ]
+  }
+}

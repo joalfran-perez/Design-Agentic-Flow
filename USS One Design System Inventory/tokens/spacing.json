@@ -1,0 +1,28 @@
+{
+  "collection": "Space",
+  "source": "USS One - Fundamentos de diseño",
+  "modes": ["Mode 1", "Space"],
+  "note": "Values are identical across both modes.",
+  "tokenCount": 19,
+  "tokens": [
+    { "name": "Espaciado/spacing-04", "px": 4 },
+    { "name": "Espaciado/spacing-08", "px": 8 },
+    { "name": "Espaciado/spacing-12", "px": 12 },
+    { "name": "Espaciado/spacing-16", "px": 16 },
+    { "name": "Espaciado/spacing-20", "px": 20 },
+    { "name": "Espaciado/spacing-24", "px": 24 },
+    { "name": "Espaciado/spacing-28", "px": 28 },
+    { "name": "Espaciado/spacing-32", "px": 32 },
+    { "name": "Espaciado/spacing-36", "px": 36 },
+    { "name": "Espaciado/spacing-44", "px": 44 },
+    { "name": "Espaciado/spacing-48", "px": 48 },
+    { "name": "Espaciado/spacing-56", "px": 56 },
+    { "name": "Espaciado/spacing-64", "px": 64 },
+    { "name": "Espaciado/spacing-80", "px": 80 },
+    { "name": "Espaciado/spacing-96", "px": 96 },
+    { "name": "Espaciado/spacing-112", "px": 112 },
+    { "name": "Espaciado/spacing-128", "px": 128 },
+    { "name": "Espaciado/spacing-160", "px": 160 },
+    { "name": "Espaciado/spacing-216", "px": 216 }
+  ]
+}

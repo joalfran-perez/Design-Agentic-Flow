@@ -1,0 +1,32 @@
+{
+  "textStyleCount": 156,
+  "note": "Each base scale below exists in up to 6 weight/style variants: Regular/Medium/SemiBold/Bold x normal/italic (naming pattern: 'Título 1', 'Título 1 (Italic)', 'Título 1 (Heavier)', 'Título 1 (Heavier Italic)', 'Título 1 (Lighter)', 'Título 1 (Lighter Italic)'). Desktop and Mobile headings share names but differ in size for responsive layouts.",
+  "desktop": {
+    "Títulos/H1": { "font": "Montserrat SemiBold", "size": 48, "lineHeight": 64, "letterSpacingPercent": 0 },
+    "Títulos/H2": { "font": "Montserrat Medium", "size": 40, "lineHeight": 56, "letterSpacingPercent": 0 },
+    "Títulos/H3": { "font": "Montserrat SemiBold", "size": 32, "lineHeight": 48, "letterSpacingPercent": 0 },
+    "Títulos/H4": { "font": "Montserrat Medium", "size": 25, "lineHeight": 40, "letterSpacingPercent": 0 },
+    "Títulos/H5": { "font": "Montserrat SemiBold", "size": 20, "lineHeight": 32, "letterSpacingPercent": 2 },
+    "Títulos/H6": { "font": "Montserrat SemiBold", "size": 16, "lineHeight": 28, "letterSpacingPercent": 0 },
+    "Contenido/Body L (P large)": { "font": "Karla Regular", "size": 20, "lineHeight": 32, "letterSpacingPercent": 0 },
+    "Contenido/Body": { "font": "Karla Regular", "size": 16, "lineHeight": 28, "letterSpacingPercent": 0 },
+    "Contenido/Body S (P small)": { "font": "Karla Regular", "size": 14, "lineHeight": 24, "letterSpacingPercent": 0 },
+    "Contenido/Link L (a Large)": { "font": "Karla Medium", "size": 20, "lineHeight": 32, "letterSpacingPercent": 0 },
+    "Contenido/Link (a)": { "font": "Karla Medium", "size": 16, "lineHeight": 28, "letterSpacingPercent": 0 },
+    "Contenido/Link S (a small)": { "font": "Karla Medium", "size": 14, "lineHeight": 24, "letterSpacingPercent": 0 },
+    "Otros/Introductorio": { "font": "Montserrat Medium", "size": 16, "lineHeight": 28, "letterSpacingPercent": 4 },
+    "Otros/Display Tittle": { "font": "Montserrat ExtraBold", "size": 60, "lineHeightPercent": 120, "letterSpacingPercent": 0 },
+    "Otros/Display Subtittle": { "font": "Montserrat ExtraBold", "size": 32, "lineHeightPercent": 150, "letterSpacingPercent": 0 },
+    "Otros/Display Content": { "font": "Montserrat Bold", "size": 20, "lineHeightPercent": 150, "letterSpacingPx": 1 },
+    "Otros/Cita": { "font": "Montserrat Medium Italic", "size": 20, "lineHeight": 32, "letterSpacingPercent": 0 },
+    "Otros/Cita destacada": { "font": "Montserrat Medium Italic", "size": 25, "lineHeight": 40, "letterSpacingPercent": 0 }
+  },
+  "mobile": {
+    "Títulos/H1": { "font": "Montserrat SemiBold", "size": 32, "lineHeight": 48, "letterSpacingPercent": 0 },
+    "Títulos/H2": { "font": "Montserrat SemiBold", "size": 25, "lineHeight": 40, "letterSpacingPercent": 0 },
+    "Títulos/H3": { "font": "Montserrat SemiBold", "size": 20, "lineHeight": 32, "letterSpacingPercent": 0 },
+    "Títulos/H4": { "font": "Montserrat SemiBold", "size": 18, "lineHeight": 32, "letterSpacingPercent": 0 },
+    "Títulos/H5": { "font": "Montserrat SemiBold", "size": 16, "lineHeight": 28, "letterSpacingPercent": 0 },
+    "Títulos/H6": { "font": "Montserrat Bold", "size": 14, "lineHeight": 24, "letterSpacingPercent": 0 }
+  }
+}

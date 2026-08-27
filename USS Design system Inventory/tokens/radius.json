@@ -1,0 +1,13 @@
+{
+  "collection": "Radius",
+  "modes": ["Mode 1"],
+  "variableCount": 6,
+  "tokens": {
+    "Radius-1": 0,
+    "Radius-2": 2,
+    "Radius-3": 4,
+    "Radius-4": 8,
+    "Radius-5": 12,
+    "Radius-6": 16
+  }
+}
