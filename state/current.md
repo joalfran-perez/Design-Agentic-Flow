@@ -7,10 +7,12 @@
 - 3 interactive canvases built, one per system, all compiling with no TypeScript errors.
 - Persistent memory system bootstrapped (`AGENTS.md`, `context/`, `decisions/`, `state/`, `skills/`,
   `gotchas/`, `logs/`).
-- Initial commit made (`236e66a`) + `.gitignore` added (`7684751`). Repo has no remote yet.
 - Definition-of-Done automated: `scripts/validate-dod.ps1` (manual) + `.cursor/hooks.json` `stop` hook
-  (automatic, nudges once per failure). All 3 inventories currently pass. See `decisions/006`,
-  `skills/dod-validation.md`.
+  (automatic, nudges once per failure). All 3 inventories currently pass with zero warnings. See
+  `decisions/006`, `skills/dod-validation.md`.
+- `USS Design system Inventory/` renamed to `USS Design System Inventory/` (casing fix). See `decisions/008`.
+- Pushed to GitHub: `origin` = https://github.com/joalfran-perez/Design-Agentic-Flow (private), `master`
+  tracks `origin/master`, working tree clean.
 
 ## Pending
 - Nothing actively requested right now.
@@ -29,6 +31,7 @@
 2. Should the flagged data-quality issues (195 duplicate paint styles, duplicate component sets, value
    drift, stray variables — all in Extension Library, some in USS One) be reported back to whoever owns
    those Figma files?
+3. Repo is private on GitHub by default (no explicit instruction on visibility) — flip to public if desired.
 
 ## Next-session bootstrap
 Read `AGENTS.md` + this file. Nothing else needed unless the task points elsewhere per the skill routing
