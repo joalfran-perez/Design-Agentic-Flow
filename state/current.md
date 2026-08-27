@@ -5,12 +5,15 @@
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
 - 3 interactive canvases built, one per system, all compiling with no TypeScript errors.
-- Persistent memory system bootstrapped this session (`AGENTS.md`, `context/`, `decisions/`, `state/`,
-  `skills/`, `gotchas/`, `logs/`).
+- Persistent memory system bootstrapped (`AGENTS.md`, `context/`, `decisions/`, `state/`, `skills/`,
+  `gotchas/`, `logs/`).
+- Initial commit made (`236e66a`) + `.gitignore` added (`7684751`). Repo has no remote yet.
+- Definition-of-Done automated: `scripts/validate-dod.ps1` (manual) + `.cursor/hooks.json` `stop` hook
+  (automatic, nudges once per failure). All 3 inventories currently pass. See `decisions/006`,
+  `skills/dod-validation.md`.
 
 ## Pending
-- Nothing actively requested. Repo has no commits yet (`git status`: all 3 inventory folders untracked,
-  no remote) — consider committing once the user confirms this memory-system pass looks right.
+- Nothing actively requested right now.
 
 ## Blockers
 - None active.
@@ -27,7 +30,11 @@
    those Figma files?
 3. Is it worth re-attempting the original USS Mobile file extraction with different Figma access to close
    that historical gap?
-4. Repo has no git remote — commit/push strategy not yet decided.
+4. Repo has no git remote — commit/push strategy not yet decided (commits are local-only so far).
+5. `USS Design system Inventory/` has a casing inconsistency ("system" vs. "System" in the other two
+   folders) — flagged by `scripts/validate-dod.ps1` as a non-blocking lint. Rename it? Would require
+   updating references in `AGENTS.md`, `context/design.md`, `state/inventories.md`, and the canvas skill's
+   folder-name assumptions — not done automatically, needs your go-ahead.
 
 ## Next-session bootstrap
 Read `AGENTS.md` + this file. Nothing else needed unless the task points elsewhere per the skill routing

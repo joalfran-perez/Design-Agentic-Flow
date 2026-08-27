@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .cursor/hooks/validate-inventories-hook.ps1",
+        "timeout": 15,
+        "loop_limit": 1
+      }
+    ]
+  }
+}

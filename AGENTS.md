@@ -54,6 +54,7 @@ Figma every session.
 |---|---|
 | Extract a new/updated Figma file-set | `skills/figma-inventory-extraction.md` + external `figma-use` skill |
 | Create/update an inventory's canvas | `skills/canvas-creation.md` + external `canvas` skill |
+| Check/verify an inventory folder is complete | `skills/dod-validation.md` (`scripts/validate-dod.ps1`) |
 | Cross-system comparison | `context/design.md` pre-computed tables — don't recompute from raw JSON |
 | Diagnose a Figma/MCP tool error | `gotchas/*.md` first, then the external skill's own error table |
 | Record a new architectural/process decision | New `decisions/NNN-slug.md` (date, context, decision,
@@ -69,6 +70,9 @@ Figma every session.
   consistency with existing inventory docs, except `context/decisiones.md` which is Spanish by request.
 
 ## 6. Definition of Done (per inventory extraction/update)
+Run `powershell -File scripts/validate-dod.ps1` to check items 1-2 automatically (structure + valid JSON +
+`state/inventories.md` reference). A `stop` hook (`.cursor/hooks.json`) also runs this after every agent
+response and nudges once if it fails — see `skills/dod-validation.md`.
 - [ ] `README.md`: sources table, key-metrics table, "what's new vs. prior system" section, contents list.
 - [ ] All 5 `tokens/*.json` present, values resolved, anomalies flagged with a `note`.
 - [ ] `components/desktop-components.md` + `mobile-components.md`: page-by-page, counts verified by sum.
@@ -96,5 +100,7 @@ state/         current.md (status/blockers), inventories.md (per-system complete
 skills/        reusable step-by-step procedures specific to this repo
 gotchas/       known Figma/Canvas API failures + fixes, one file per symptom
 logs/          compressed per-session summaries, numbered chronologically
+scripts/       validate-dod.ps1 — automated Definition-of-Done checker
+.cursor/       hooks.json + hooks/ — runs validate-dod.ps1 on every agent stop
 USS*/          the actual inventory deliverables — data, not memory
 ```
