@@ -8,7 +8,7 @@ Desktop components, Mobile components):
 
 | System | Folder | Status |
 |---|---|---|
-| USS (original) | `USS Design system Inventory/` | Done, Mobile access-limited |
+| USS (original) | `USS Design System Inventory/` | Done, Mobile access-limited |
 | USS One (evolution) | `USS One Design System Inventory/` | Done |
 | USS Extension Library | `USS Extension Library Design System Inventory/` | Done |
 

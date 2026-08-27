@@ -1,6 +1,6 @@
 # USS One — Design System Inventory
 
-Unified inventory of variables, styles, and components extracted from the three **USS One** Figma files (the successor/evolution of the original "USS" system — see `USS Design system Inventory/` for that prior audit).
+Unified inventory of variables, styles, and components extracted from the three **USS One** Figma files (the successor/evolution of the original "USS" system — see `USS Design System Inventory/` for that prior audit).
 
 ## Source files
 

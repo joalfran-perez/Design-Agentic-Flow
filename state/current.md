@@ -17,10 +17,11 @@
 
 ## Blockers
 - None active.
-- Historical (not currently blocking): the original `USS Design system Inventory/` Mobile file only
-  exposes its "Comenzar" index page under the account used for that session — per-component Mobile pages
-  (Buttons, Cards, Tags, etc.) were never enumerated. Would need re-extraction with broader Figma access
-  to close this gap. See `state/inventories.md` row 1 and `gotchas/figma-read-only-access.md`.
+- Historical, deferred by user decision (2026-08-27): the original `USS Design System Inventory/` Mobile
+  file only exposes its "Comenzar" index page under the account used for that session — per-component
+  Mobile pages (Buttons, Cards, Tags, etc.) were never enumerated. User decided **not to retry** this
+  extraction for now. Re-open only if the user asks again or Figma access to that file changes. See
+  `state/inventories.md` row 1 and `gotchas/figma-read-only-access.md`.
 
 ## Open questions for the user (not yet decided)
 1. Should USS / USS One / Extension Library be reconciled into one canonical token set, or are they
@@ -28,13 +29,6 @@
 2. Should the flagged data-quality issues (195 duplicate paint styles, duplicate component sets, value
    drift, stray variables — all in Extension Library, some in USS One) be reported back to whoever owns
    those Figma files?
-3. Is it worth re-attempting the original USS Mobile file extraction with different Figma access to close
-   that historical gap?
-4. Repo has no git remote — commit/push strategy not yet decided (commits are local-only so far).
-5. `USS Design system Inventory/` has a casing inconsistency ("system" vs. "System" in the other two
-   folders) — flagged by `scripts/validate-dod.ps1` as a non-blocking lint. Rename it? Would require
-   updating references in `AGENTS.md`, `context/design.md`, `state/inventories.md`, and the canvas skill's
-   folder-name assumptions — not done automatically, needs your go-ahead.
 
 ## Next-session bootstrap
 Read `AGENTS.md` + this file. Nothing else needed unless the task points elsewhere per the skill routing

@@ -1,6 +1,6 @@
 # [Extension Library] USS — Design System Inventory
 
-Unified inventory of variables, styles, and components extracted from the three **"[Extension Library] USS"** Figma files — a third branch/packaging of the same underlying USS design system, alongside `USS Design system Inventory/` (original) and `USS One Design System Inventory/` (successor).
+Unified inventory of variables, styles, and components extracted from the three **"[Extension Library] USS"** Figma files — a third branch/packaging of the same underlying USS design system, alongside `USS Design System Inventory/` (original) and `USS One Design System Inventory/` (successor).
 
 ## Source files
 
