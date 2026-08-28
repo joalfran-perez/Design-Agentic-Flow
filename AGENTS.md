@@ -16,6 +16,11 @@ Job of this repo: keep a low-noise, resolved (no unresolved aliases), machine+hu
 actually exists in each Figma file-set and the deltas between systems — without re-deriving everything from
 Figma every session.
 
+Since 2026-08-28, a pinned local reference copy of the published code implementation
+(`@ussebastian/kitdigital-react` + `@ussebastian/kitdigital`) is also kept in `node_modules/` (gitignored)
+for code↔design gap analysis — see `decisions/009` and `context/code-design-mapping.md`. This does not
+make ModUSS an app-code repo: nothing here is built, run, or shipped.
+
 ## 2. Hard Rules (never break)
 1. **Context is expensive and volatile.** Real memory lives in files under `state/`, `decisions/`, `gotchas/`,
    `logs/`, `context/`. Never assume chat history survives across sessions.
@@ -59,6 +64,7 @@ Figma every session.
 | Check/verify an inventory folder is complete | `skills/dod-validation.md` (`scripts/validate-dod.ps1`) |
 | `logs/` has grown large | `skills/logs-archival.md` (`scripts/archive-logs.ps1`) |
 | Cross-system comparison | `context/design.md` pre-computed tables — don't recompute from raw JSON |
+| "Does the published code match the Figma inventory?" | `context/code-design-mapping.md` — don't re-scan `node_modules` from scratch |
 | Diagnose a Figma/MCP tool error | `gotchas/*.md` first, then the external skill's own error table |
 | Record a new architectural/process decision | New `decisions/NNN-slug.md` (date, context, decision,
   consequence) + update the index in `context/decisiones.md` |

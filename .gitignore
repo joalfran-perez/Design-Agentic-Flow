@@ -16,3 +16,4 @@ desktop.ini
 # Local-only Figma extraction scratch (never commit raw unprocessed dumps)
 /scratch/
 *.scratch.json
+node_modules
