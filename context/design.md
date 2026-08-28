@@ -1,28 +1,37 @@
-# Design Reference — Cross-System Architecture
+# Design Reference — Main System + Local Libraries Architecture
 
-Dense reference for all 3 USS Figma systems. Read this instead of opening raw `tokens/*.json` across
-multiple inventories. Full detail always lives in the respective inventory folder.
+Dense reference for the USS design system hierarchy: one **main/core system** (`USS Design System
+Inventory/`) plus two **local libraries connected to it** (`USS One Design System Inventory/`,
+`USS Extension Library Design System Inventory/`) — see `decisions/010`. Read this instead of opening raw
+`tokens/*.json` across multiple inventories. Full detail always lives in the respective inventory folder.
 
-## Sources (9 Figma files, 3 per system)
+This is an organizational/reference model: each local library still has its own separate Figma Foundations
+file and its own genuinely different token-delivery architecture (`decisions/004`) — "connected to" reflects
+shared lineage (see page-ID evidence below), not a literal shared Figma library asset. Don't assert a literal
+technical link without new Figma evidence.
 
-| System | File | Key | Access |
-|---|---|---|---|
-| USS | Fundamentos de diseño | `16PDlIOKg8kb176dMz0Ckg` | edit |
-| USS | Componentes Desktop | `nCGtIjrJLW6v4ZMvzTsOAd` | view |
-| USS | Componentes Mobile | `uH4MBdFSPYvfxwXcrdFic9` | view (Comenzar page only) |
-| USS One | Fundamentos de diseño | `w2FNtlyzRgJtrzkw7ywZHj` | edit |
-| USS One | Componentes Desktop | `5XVuReA8as6xhPa0jUzVOg` | edit |
-| USS One | Componentes Mobile | `joO68kJ8XUJ8NepohniIRC` | edit |
-| Extension Library | Fundamentos de diseño | `sDv64Fnh1bMxJXMOlTTZf8` | edit |
-| Extension Library | Componentes Desktop | `DSOeWAXEvG2O18rQLMSqAf` | edit |
-| Extension Library | Componentes Mobile | `mVPBqzhfGqQkBJSrpLwEGV` | edit |
+## Sources (9 Figma files — 1 main system + 2 local libraries, 3 files each)
 
-Desktop/Mobile files across all 3 systems reuse the **same page IDs** for shared pages (Badges, Buttons,
-Divider, Image/video, Tags, Cards) — confirms common lineage/branching, not independent rebuilds.
+| Role | System | File | Key | Access |
+|---|---|---|---|---|---|
+| **Main / core** | USS | Fundamentos de diseño | `16PDlIOKg8kb176dMz0Ckg` | edit |
+| **Main / core** | USS | Componentes Desktop | `nCGtIjrJLW6v4ZMvzTsOAd` | view |
+| **Main / core** | USS | Componentes Mobile | `uH4MBdFSPYvfxwXcrdFic9` | view (Comenzar page only) |
+| Local library | USS One | Fundamentos de diseño | `w2FNtlyzRgJtrzkw7ywZHj` | edit |
+| Local library | USS One | Componentes Desktop | `5XVuReA8as6xhPa0jUzVOg` | edit |
+| Local library | USS One | Componentes Mobile | `joO68kJ8XUJ8NepohniIRC` | edit |
+| Local library | Extension Library | Fundamentos de diseño | `sDv64Fnh1bMxJXMOlTTZf8` | edit |
+| Local library | Extension Library | Componentes Desktop | `DSOeWAXEvG2O18rQLMSqAf` | edit |
+| Local library | Extension Library | Componentes Mobile | `mVPBqzhfGqQkBJSrpLwEGV` | edit |
 
-## Token architecture per system
+Desktop/Mobile files across the main system and both local libraries reuse the **same page IDs** for shared
+pages (Badges, Buttons, Divider, Image/video, Tags, Cards) — confirms common lineage/branching, not
+independent rebuilds. This shared lineage is the evidence behind modeling USS One and Extension Library as
+libraries *connected to* the main system rather than unrelated rebuilds.
 
-| Aspect | USS (original) | USS One | Extension Library |
+## Token architecture: main system vs. each local library
+
+| Aspect | USS (main / core) | USS One (local library) | Extension Library (local library) |
 |---|---|---|---|
 | Color delivery | 144 variables, 2 modes (Light/Dark) | 343 canonical + 144 sync vars; light/dark encoded in NAMES not modes | **0 variables** — 529 paint styles (334 distinct) |
 | Typography delivery | 156 text styles, no type variables | 235 vars (incl. 205 per-style line-heights) + text styles | 191 text styles, no type variables |
@@ -40,15 +49,21 @@ color.
 
 ## Component library completeness
 
-| System | Desktop pages/sets/variants | Mobile pages/sets/variants | Notes |
-|---|---|---|---|
-| USS | 6 pages, ~40 named components | 1 accessible page (Comenzar index only) | Mobile per-component pages blocked by permissions |
-| USS One | 6/33/323 | 27 core (of 48 total)/77/576 | Desktop's Buttons page marked "Testing 🟡" |
-| Extension Library | 6/41/383 | 22 core (of ~48 total)/54/550 | Desktop's Cards page "Testing 🟡"; Mobile Buttons/Modals core (opposite of USS One) |
+| Role | System | Desktop pages/sets/variants | Mobile pages/sets/variants | Notes |
+|---|---|---|---|---|
+| Main / core | USS | 6 pages, ~40 named components | 1 accessible page (Comenzar index only) | Mobile per-component pages blocked by permissions |
+| Local library | USS One | 6/33/323 | 27 core (of 48 total)/77/576 | Desktop's Buttons page marked "Testing 🟡" |
+| Local library | Extension Library | 6/41/383 | 22 core (of ~48 total)/54/550 | Desktop's Cards page "Testing 🟡"; Mobile Buttons/Modals core (opposite of USS One) |
 
-USS One and Extension Library are **not strictly sequential** — they're sibling branches with different
-components promoted from Testing to core (see `gotchas/duplicate-styles-components.md` and each system's
-README "What's different" section for the full component-maturity matrix).
+USS One and Extension Library, as the two local libraries, are **not strictly sequential relative to each
+other** — they're both connected to the main system but have different components promoted from Testing to
+core independently of one another (see `gotchas/duplicate-styles-components.md` and each library's README
+"What's different" section for the full component-maturity matrix). `context/code-design-mapping.md` adds a
+third data point: the published code library implements several components (Accordion, AlertMessage,
+Banner, Breadcrumb, Carousel, Footer, Header, Hero, Link, LinkedList, Pagination, Stepper, Table, Tabs,
+Toast, Tooltip, Form) that only exist in the USS One local library's catalog, not the main system's
+narrower Desktop/Mobile capture — a concrete example of a local library carrying components the main
+system's own Figma capture doesn't (yet) expose.
 
 ## Naming conventions observed in Figma
 - Semantic color tokens: `<Category>/<Token name>` e.g. `Surface/Surface - default`, folded under
@@ -60,7 +75,11 @@ README "What's different" section for the full component-maturity matrix).
 - `📱` suffix marks Mobile-specific component names; `(solo Desktop)` marks Desktop-only variants of a
   shared component.
 
-## Open cross-system question (not yet answered)
-Should these three systems be reconciled into one canonical token set, or are USS One / Extension Library
-intentionally divergent branches (e.g. per-product or per-faculty customization layers)? Not decided —
-flag to the user before attempting any consolidation work.
+## Hierarchy decided; token reconciliation still open
+`decisions/010` (2026-08-28) settled the *organizational* question: USS is the main/core system, USS One and
+Extension Library are local libraries connected to it. Still **not decided**: whether their token sets
+should ever be technically reconciled into one canonical schema, or are intentionally divergent per-library
+customization layers (e.g. per-product or per-faculty branding — see the `--custom-secondary-*` CSS
+override evidence in `context/code-design-mapping.md`, which supports the "intentional divergence" reading).
+Flag to the user before attempting any consolidation work; `decisions/004` already forbids normalizing the
+per-file data silently.

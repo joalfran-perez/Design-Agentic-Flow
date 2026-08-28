@@ -1,6 +1,11 @@
 # [Extension Library] USS — Design System Inventory
 
-Unified inventory of variables, styles, and components extracted from the three **"[Extension Library] USS"** Figma files — a third branch/packaging of the same underlying USS design system, alongside `USS Design System Inventory/` (original) and `USS One Design System Inventory/` (successor).
+**Role: local library, connected to the main system.** Unified inventory of variables, styles, and
+components extracted from the three **"[Extension Library] USS"** Figma files. This is a local library
+connected to the main [`USS Design System Inventory/`](../USS%20Design%20System%20Inventory/README.md) —
+see `decisions/010` for the hierarchy and `context/design.md` for the full cross-library comparison. The
+other local library, alongside this one, is
+[`USS One Design System Inventory/`](../USS%20One%20Design%20System%20Inventory/README.md).
 
 ## Source files
 

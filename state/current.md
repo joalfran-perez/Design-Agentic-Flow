@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-08-27
+**Last updated:** 2026-08-28
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -20,6 +20,10 @@
   code components matched to USS One instead. See `context/code-design-mapping.md`, `decisions/009`.
   `package.json`/`package-lock.json` are committed as a permanent pinned reference; `node_modules/` stays
   gitignored.
+- Architecture redefined: USS (original) is now the **main/core system**; USS One and Extension Library are
+  **local libraries connected to it** (was: 3 flat/independent systems). Updated `AGENTS.md`,
+  `context/design.md`, `context/decisiones.md`, `state/inventories.md`, and all 3 inventories' `README.md`.
+  See `decisions/010`.
 
 ## Pending
 - Nothing actively requested right now.
@@ -33,8 +37,11 @@
   `state/inventories.md` row 1 and `gotchas/figma-read-only-access.md`.
 
 ## Open questions for the user (not yet decided)
-1. Should USS / USS One / Extension Library be reconciled into one canonical token set, or are they
-   intentionally divergent branches (e.g. per-faculty customization)? See `context/design.md` bottom.
+1. ~~Should USS / USS One / Extension Library be reconciled into one canonical token set, or are they
+   intentionally divergent branches?~~ **Partly decided (2026-08-28):** hierarchy is now main system +
+   2 local libraries (`decisions/010`). Still open: should their *token sets* ever be technically
+   reconciled, or are they intentionally divergent per-library customization (e.g. per-faculty)? See
+   `context/design.md` bottom.
 2. Should the flagged data-quality issues (195 duplicate paint styles, duplicate component sets, value
    drift, stray variables — all in Extension Library, some in USS One) be reported back to whoever owns
    those Figma files?
@@ -53,7 +60,9 @@ re-summarize past sessions; it lives on disk.
 
 What that unlocks, by task type:
 - New Figma extraction request → agent loads `skills/figma-inventory-extraction.md`.
-- "How do the 3 systems differ?" → agent reads `context/design.md`'s diff tables, not raw JSON.
+- "How does the main system differ from its local libraries?" → agent reads `context/design.md`'s diff
+  tables, not raw JSON (hierarchy: USS = main/core, USS One + Extension Library = local libraries, per
+  `decisions/010`).
 - A Figma/MCP tool call fails → agent checks `gotchas/` before retrying blind.
 - Canvas create/update → agent loads `skills/canvas-creation.md`.
 - Checking an inventory folder is complete → agent runs `scripts/validate-dod.ps1`

@@ -1,5 +1,10 @@
 # USS Design System — Unified Inventory
 
+**Role: main / core system.** This is the canonical USS design system. Two local libraries are connected
+to it — [`USS One Design System Inventory/`](../USS%20One%20Design%20System%20Inventory/README.md) and
+[`USS Extension Library Design System Inventory/`](../USS%20Extension%20Library%20Design%20System%20Inventory/README.md)
+— see `decisions/010` for the hierarchy and `context/design.md` for the full cross-library comparison.
+
 Variables, components, and styles extracted from the three USS Figma files. Color values are resolved
 through their alias chains to final hex. See the `tokens/` folder for machine-readable design tokens and
 `components/` for the component/variant inventory.

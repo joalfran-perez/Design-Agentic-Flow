@@ -1,6 +1,11 @@
 # USS One — Design System Inventory
 
-Unified inventory of variables, styles, and components extracted from the three **USS One** Figma files (the successor/evolution of the original "USS" system — see `USS Design System Inventory/` for that prior audit).
+**Role: local library, connected to the main system.** Unified inventory of variables, styles, and
+components extracted from the three **USS One** Figma files. USS One is a local library connected to the
+main [`USS Design System Inventory/`](../USS%20Design%20System%20Inventory/README.md) (the
+successor/evolution of that original system) — see `decisions/010` for the hierarchy and `context/design.md`
+for the full cross-library comparison. The other local library, alongside this one, is
+[`USS Extension Library Design System Inventory/`](../USS%20Extension%20Library%20Design%20System%20Inventory/README.md).
 
 ## Source files
 
@@ -10,7 +15,7 @@ Unified inventory of variables, styles, and components extracted from the three 
 | Componentes Desktop | https://www.figma.com/design/5XVuReA8as6xhPa0jUzVOg/USS-One---Componentes-Desktop | Edit (Plugin API) |
 | Componentes Mobile | https://www.figma.com/design/joO68kJ8XUJ8NepohniIRC/USS-One---Componentes-Mobile | Edit (Plugin API) |
 
-All three files use identical page IDs to the original "USS" files, and Mobile/Desktop consume tokens from the Foundations file as a shared library (no local token collections other than a couple of component-internal utility variables).
+All three files use identical page IDs to the main system's "USS" files, and Mobile/Desktop consume tokens from this library's own Foundations file as a shared library (no local token collections other than a couple of component-internal utility variables).
 
 ## Key metrics
 
@@ -26,7 +31,7 @@ All three files use identical page IDs to the original "USS" files, and Mobile/D
 | Desktop: pages / component sets / variants | 6 / 33 / 323 |
 | Mobile: pages / component sets / variants (core pages only) | 27 / 77 / 576 |
 
-## What's new vs. the original USS system
+## What's new vs. the main USS system
 
 - **Facultad accent theming**: a new blue-gray "Facultad" base ramp plus `on-light`/`on-dark` A/B/C semantic tokens, extended to `Tono-Exito`/`Tono-Alerta`/`Tono-Error` feedback accents — likely powers per-faculty/school branding on top of the shared component set. See `tokens/colors.json` → `facultadAccentSystem`.
 - **Expanded elevation scale**: 4 shadow levels (`Elevacion/1`-`4`) replacing the legacy 2-level `Elevación 1/2`, plus flat dark-mode "replacement" surface colors.

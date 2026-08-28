@@ -3,14 +3,17 @@
 ## 1. Identity & Purpose
 ModUSS is a **documentation/data repo** (no app code) that maintains audited inventories of design-system
 tokens, styles, and components extracted from Figma for the USS (Universidad San Sebastián) brand family.
-Three parallel Figma file-sets are tracked as independent "systems", each with 3 Figma files (Foundations,
-Desktop components, Mobile components):
 
-| System | Folder | Status |
-|---|---|---|
-| USS (original) | `USS Design System Inventory/` | Done, Mobile access-limited |
-| USS One (evolution) | `USS One Design System Inventory/` | Done |
-| USS Extension Library | `USS Extension Library Design System Inventory/` | Done |
+**Hierarchy (see `decisions/010`):** one **main/core system** plus two **local libraries** connected to it —
+not three flat, independent systems. Each still has its own 3 Figma files (Foundations, Desktop components,
+Mobile components) and its own genuinely different token architecture (`decisions/004`); the hierarchy
+changes how this repo *frames* the relationship, not the underlying per-file data.
+
+| Role | System | Folder | Status |
+|---|---|---|---|
+| **Main / core** | USS (original) | `USS Design System Inventory/` | Done, Mobile access-limited |
+| Local library | USS One | `USS One Design System Inventory/` | Done |
+| Local library | USS Extension Library | `USS Extension Library Design System Inventory/` | Done |
 
 Job of this repo: keep a low-noise, resolved (no unresolved aliases), machine+human-readable record of what
 actually exists in each Figma file-set and the deltas between systems — without re-deriving everything from
@@ -50,7 +53,7 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
 3. Task-specific, only as needed:
    - New/updated Figma extraction → `skills/figma-inventory-extraction.md`
    - Canvas create/edit → `skills/canvas-creation.md`
-   - "How does X differ across USS/USS One/Extension Library" → `context/design.md`
+   - "How does X differ between the main system and its local libraries" → `context/design.md`
    - A `use_figma`/MCP call fails → `gotchas/` (match by symptom) before retrying blind
    - "What did we decide / why is it built this way" → `context/decisiones.md` index → the specific
      `decisions/NNN-*.md`

@@ -13,6 +13,8 @@ No dupliques contenido aquí — solo referencia.
 | 006 | Automatizar el Definition of Done: script + hook `stop` | Evitar que la estructura se rompa sin que nadie lo note | `decisions/006-automate-dod-validation.md` |
 | 007 | Archivar `logs/` cuando supere 15 entradas (manual, sin hook) | Mantener `logs/` corto y barato de leer | `decisions/007-logs-archival-policy.md` |
 | 008 | Renombrar `USS Design system Inventory` → `...System Inventory` | Consistencia de casing con los otros 2 sistemas | `decisions/008-rename-original-folder-casing.md` |
+| 009 | Fijar `@ussebastian/kitdigital-react` como dependencia de referencia local | Permite auditorías código↔diseño reproducibles sin volver a escanear `node_modules` | `decisions/009-pin-code-library-reference.md` |
+| 010 | Modelar USS One y Extension Library como librerías locales conectadas al sistema principal (USS original) | Jerarquía hub + extensiones en vez de 3 sistemas paralelos independientes; no cambia los datos por archivo, solo el framing | `decisions/010-main-plus-local-libraries-hierarchy.md` |
 
 ## Cómo añadir una decisión nueva
 1. Crear `decisions/NNN-slug-en-ingles.md` con: fecha, contexto, decisión, consecuencia.
