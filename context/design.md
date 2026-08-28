@@ -75,11 +75,13 @@ system's own Figma capture doesn't (yet) expose.
 - `📱` suffix marks Mobile-specific component names; `(solo Desktop)` marks Desktop-only variants of a
   shared component.
 
-## Hierarchy decided; token reconciliation still open
-`decisions/010` (2026-08-28) settled the *organizational* question: USS is the main/core system, USS One and
-Extension Library are local libraries connected to it. Still **not decided**: whether their token sets
-should ever be technically reconciled into one canonical schema, or are intentionally divergent per-library
-customization layers (e.g. per-product or per-faculty branding — see the `--custom-secondary-*` CSS
-override evidence in `context/code-design-mapping.md`, which supports the "intentional divergence" reading).
-Flag to the user before attempting any consolidation work; `decisions/004` already forbids normalizing the
-per-file data silently.
+## Hierarchy and reconciliation: both decided (2026-08-28)
+`decisions/010` settled the *organizational* question: USS is the main/core system, USS One and Extension
+Library are local libraries connected to it. `decisions/011` settled the *reconciliation* question: yes,
+build a canonical target schema — see `context/canonical-tokens.md` (a proposal/target, not a live change
+to any system's own `tokens/*.json`; `decisions/004` still forbids normalizing the per-file data itself).
+
+**Per-faculty theming: confirmed, not just hypothesized.** The Facultad accent system is a deliberate
+per-faculty/tenant customization layer — confirmed by the shipped code's `--custom-secondary-*` CSS
+custom-property override pattern in `context/code-design-mapping.md`, which exists specifically so a
+consumer can override the Secondary ramp per brand/faculty. This is no longer an open question.

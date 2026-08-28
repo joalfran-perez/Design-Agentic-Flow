@@ -68,6 +68,8 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
 | `logs/` has grown large | `skills/logs-archival.md` (`scripts/archive-logs.ps1`) |
 | Cross-system comparison | `context/design.md` pre-computed tables — don't recompute from raw JSON |
 | "Does the published code match the Figma inventory?" | `context/code-design-mapping.md` — don't re-scan `node_modules` from scratch |
+| "What should token X be, going forward?" (target/canonical value) | `context/canonical-tokens.md` (`decisions/011`) — a proposal, not a live change to any system's `tokens/*.json` |
+| Need a data-quality issue written up for the Figma file owners | `reports/figma-data-quality-issues.md` — append new items, don't duplicate existing ones |
 | Diagnose a Figma/MCP tool error | `gotchas/*.md` first, then the external skill's own error table |
 | Record a new architectural/process decision | New `decisions/NNN-slug.md` (date, context, decision,
   consequence) + update the index in `context/decisiones.md` |
@@ -106,12 +108,15 @@ response and nudges once if it fails — see `skills/dod-validation.md`.
 ## 8. Memory Map
 ```
 AGENTS.md      you are here — control file
-context/       synthesized cross-system reference: design.md (architecture+diffs), decisiones.md (index, ES)
+context/       synthesized cross-system reference: design.md (architecture+diffs), canonical-tokens.md
+               (proposed unified schema, decisions/011), decisiones.md (index, ES), code-design-mapping.md
 decisions/     dated ADR-style entries, one file per decision
 state/         current.md (status/blockers), inventories.md (per-system completeness table)
 skills/        reusable step-by-step procedures specific to this repo
 gotchas/       known Figma/Canvas API failures + fixes, one file per symptom
 logs/          compressed per-session summaries, numbered chronologically
+reports/       external-facing deliverables meant to leave this repo (e.g. figma-data-quality-issues.md) —
+               distinct from context/decisions/, which are internal memory
 scripts/       validate-dod.ps1 (DoD checker), archive-logs.ps1 (logs/ pruning, decisions/007)
 .cursor/       hooks.json + hooks/ — runs validate-dod.ps1 on every agent stop
 USS*/          the actual inventory deliverables — data, not memory

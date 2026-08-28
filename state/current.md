@@ -24,9 +24,20 @@
   **local libraries connected to it** (was: 3 flat/independent systems). Updated `AGENTS.md`,
   `context/design.md`, `context/decisiones.md`, `state/inventories.md`, and all 3 inventories' `README.md`.
   See `decisions/010`.
+- Reviewed all 5 prior open questions with the user (2026-08-28) and resolved 4/5:
+  - Token reconciliation → **start it.** Added `context/canonical-tokens.md` (proposed canonical schema,
+    per-category) + `decisions/011`. Surfaced a new, previously-undocumented anomaly while building it
+    (main system vs. USS One dark-mode elevation colors are inverted).
+  - Data-quality issues → **write a report.** Added `reports/figma-data-quality-issues.md` (8 items,
+    severity-tagged) for whoever owns the Figma files.
+  - GitHub repo visibility → **flipped to public** (`gh repo edit --visibility public`).
+  - Per-faculty theming hypothesis → **confirmed** in `context/design.md` (code's `--custom-secondary-*`
+    override pattern is the evidence).
+  - Accordion/Modal Testing-page follow-up → **deferred**, per user decision (item 5 below).
 
 ## Pending
-- Nothing actively requested right now.
+- Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is
+  written but has not been sent anywhere — up to the user to route it to the actual Figma file owners.
 
 ## Blockers
 - None active.
@@ -36,20 +47,47 @@
   extraction for now. Re-open only if the user asks again or Figma access to that file changes. See
   `state/inventories.md` row 1 and `gotchas/figma-read-only-access.md`.
 
-## Open questions for the user (not yet decided)
-1. ~~Should USS / USS One / Extension Library be reconciled into one canonical token set, or are they
-   intentionally divergent branches?~~ **Partly decided (2026-08-28):** hierarchy is now main system +
-   2 local libraries (`decisions/010`). Still open: should their *token sets* ever be technically
-   reconciled, or are they intentionally divergent per-library customization (e.g. per-faculty)? See
-   `context/design.md` bottom.
-2. Should the flagged data-quality issues (195 duplicate paint styles, duplicate component sets, value
-   drift, stray variables — all in Extension Library, some in USS One) be reported back to whoever owns
-   those Figma files?
-3. Repo is private on GitHub by default (no explicit instruction on visibility) — flip to public if desired.
-4. The code's `--custom-secondary-*` theming-override pattern is evidence toward open question #1
-   (per-faculty customization) — worth reconciling with `context/design.md`.
+## Open questions for the user (resolved 2026-08-28, kept for history)
+1. ~~Should USS / USS One / Extension Library be reconciled into one canonical token set?~~ **Decided:**
+   hierarchy = main system + 2 local libraries (`decisions/010`); token sets **should be reconciled** —
+   see the proposed schema in `context/canonical-tokens.md` (`decisions/011`). Note: this is a *proposal*,
+   not a live edit to any Figma file — implementing it there is a separate initiative for the file owners.
+2. ~~Should the flagged data-quality issues be reported back to whoever owns those Figma files?~~
+   **Decided: yes** — written up in `reports/figma-data-quality-issues.md` (8 items). Not yet sent to
+   anyone outside this repo; that's on the user.
+3. ~~Repo is private on GitHub by default — flip to public?~~ **Decided: made public**
+   (`gh repo edit --visibility public`, 2026-08-28).
+4. ~~The code's `--custom-secondary-*` theming-override pattern — worth confirming per-faculty
+   customization?~~ **Decided: confirmed.** Updated in `context/design.md`.
 5. Accordion and Modal in code only trace back to unfinished "Testing 🟡" pages in USS One's Figma —
-   worth a follow-up check once/if those Testing pages are promoted to core pages.
+   **deferred** per user decision (2026-08-28): revisit only once/if those Testing pages are promoted to
+   core pages, no action needed now.
+
+## New open questions (surfaced 2026-08-28)
+1. ~~Radius "full" canonical value — `1000px` (Extension Library Figma) vs. `9999px` (shipped code)?~~
+   **Decided: `9999px`, the published code's value** (rationale: code is what's actually shipped/running;
+   Figma should be corrected to match, not the reverse). Updated `context/canonical-tokens.md` and
+   `reports/figma-data-quality-issues.md` item 6 accordingly — Extension Library's `Radius-1000` now needs
+   renaming/updating to `Radius-Full = 9999px`, and USS/USS One each need that token added (neither has one
+   today).
+2. ~~Should Extension Library's orphaned purple `Terciary` ramp be deleted or wired up as a real third
+   accent?~~ **Decided: wired up.** Formalized as `Themes/Amatista` (new top-level `Themes/` group,
+   replacing `_Base/Terciary`), with its duplicate-step bug fixed (step 100: `#402851` → `#2f1d3c`, step 90
+   unchanged). See `context/canonical-tokens.md` "Accent / per-faculty theming" and
+   `reports/figma-data-quality-issues.md` item 4.
+2b. Follow-up decided the same day: freeing the `Terciary` slot left Extension Library's Facultad
+    blue-gray values with no formal `_Base/Secondary` ramp (hardcoded only). **Decision: keep the values
+    unchanged, add creating that ramp as a pending task** — tracked in the `uss-extension-library-
+    inventory` canvas and `reports/figma-data-quality-issues.md` item 9.
+3. Still open — 1 remaining item from `context/canonical-tokens.md`'s "Open follow-ups": which pairing of
+   the main-system/USS-One dark-mode elevation colors is correct — they're inverted relative to each other
+   (`reports/...` item 5). **Explicitly reviewed and deferred by the user (2026-08-28)**, not just
+   unaddressed — kept as-is for the design team to answer. Context for next time: USS One's pairing
+   (Elevation 1 = darker `#202a37`, Elevation 2 = lighter `#242f3c`) follows the common "higher elevation =
+   lighter in dark mode" convention; the main system's is the reverse. Not confirmed as "correct," just the
+   more conventional-looking option if this needs a tie-breaker later.
+4. Should `reports/figma-data-quality-issues.md` actually be sent/shared with the Figma file owners now, or
+   is writing it enough for this session?
 
 ## Next-session bootstrap
 

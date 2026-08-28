@@ -15,6 +15,7 @@ No dupliques contenido aquí — solo referencia.
 | 008 | Renombrar `USS Design system Inventory` → `...System Inventory` | Consistencia de casing con los otros 2 sistemas | `decisions/008-rename-original-folder-casing.md` |
 | 009 | Fijar `@ussebastian/kitdigital-react` como dependencia de referencia local | Permite auditorías código↔diseño reproducibles sin volver a escanear `node_modules` | `decisions/009-pin-code-library-reference.md` |
 | 010 | Modelar USS One y Extension Library como librerías locales conectadas al sistema principal (USS original) | Jerarquía hub + extensiones en vez de 3 sistemas paralelos independientes; no cambia los datos por archivo, solo el framing | `decisions/010-main-plus-local-libraries-hierarchy.md` |
+| 011 | Iniciar reconciliación de tokens: proponer un esquema canónico | El usuario decidió reconciliar en vez de mantener divergencia; se documenta como propuesta/objetivo, no se edita Figma ni los `tokens/*.json` por sistema | `decisions/011-begin-token-reconciliation.md` |
 
 ## Cómo añadir una decisión nueva
 1. Crear `decisions/NNN-slug-en-ingles.md` con: fecha, contexto, decisión, consecuencia.
