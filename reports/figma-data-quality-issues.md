@@ -133,6 +133,28 @@ it instead of hardcoding. This is a **pending task**, not yet done in Figma; als
 **Suggested fix:** create `_Base/Secondary` in this file with USS One's 10-step values, then re-point the
 Facultad accent tokens to alias it.
 
+## 10. Two typographic values disagree between Figma and shipped code
+**Where:** USS (main) → `tokens/typography.json` (desktop) `Títulos/H4` and `Otros/Display Tittle`, vs. the
+published `@ussebastian/kitdigital` code's compiled `h4`/`.uss-h4` and `.uss-display` CSS rules.
+**Found:**
+- **H4 weight:** Figma's `Títulos/H4` (desktop) is `Montserrat Medium` (font-weight 500). The shipped code's
+  `.uss-h4` at its desktop breakpoint (`≥1010px`) compiles to `font-weight: var(--font-weight-600)` — one
+  step heavier. Every other heading level's weight (H1, H2, H3, H5, H6) matches its Figma counterpart
+  exactly at both breakpoints; H4 is the only mismatch.
+- **Display title size:** Figma's `Otros/Display Tittle` is 60px. The shipped code's `.uss-display` at
+  desktop compiles to `font-size: var(--font-size-56)` (56px). Notably, the Kit's own SCSS source carries
+  an inline comment directly above that line — `// antes era 60` ("used to be 60") — meaning this looks
+  like an **intentional code-side change** that was never ported back to the Figma file, not a compilation
+  accident.
+**Impact:** Low-medium — a component/page built to the Figma spec for either style will render slightly
+bolder (H4) or smaller (Display title) than what ships in production. Low risk of layout breakage, but a
+real visual mismatch between "what the design system says" and "what actually renders."
+**Suggested fix:** Confirm with whoever owns the shipped code whether these were deliberate. If yes (the
+`// antes era 60` comment suggests so for the Display title), update Figma's `Títulos/H4` weight to
+SemiBold (600) and `Otros/Display Tittle` size to 56px to match the code — per this repo's existing
+precedent (item 6) that the shipped code is treated as canonical over Figma where the two disagree, unless
+the design team says otherwise.
+
 ---
 
 ## Summary table
@@ -148,6 +170,7 @@ Facultad accent tokens to alias it.
 | 7 | Duplicate component sets (2 names) | Extension Library | Bug |
 | 8 | Inconsistent Testing→core promotion order | USS One vs. Extension Library | Informational |
 | 9 | Facultad blue-gray values have no formal `_Base/Secondary` ramp | Extension Library | Pending task: create the ramp, values unchanged |
+| 10 | H4 weight (500 vs. 600) and Display title size (60px vs. 56px) disagree between Figma and shipped code | USS (main) vs. shipped code | Needs confirmation — code likely canonical (has an "antes era 60" comment) |
 
 Full source data for every row above lives in this repo's `context/design.md`, `context/canonical-tokens.md`,
 and the individual `tokens/*.json` files under each system's inventory folder, if more detail is needed

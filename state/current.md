@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-08-31
+**Last updated:** 2026-08-31 (color consolidated onto Kit-native CSS in `kitdigital-v2.md`)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -55,6 +55,48 @@
   drift. No new gaps or anomalies — corroborates `decisions/009`'s color-match finding via a second,
   differently-packaged consumer (`@ussebastian/kitdigital` CSS-only, not `kitdigital-react`). See
   `decisions/013`, `context/code-design-mapping.md` "Real-world consumers" section.
+- **2026-08-31:** First *authored* (not just audited) deliverable produced: `deliverables/kitdigital.md`, a
+  v2 Kiro steering file for ModUSS Planner, synthesizing the confirmed token bridge + the spec-vs-as-built
+  drift found by comparing that app's original steering rule against its post-hoc verified norm doc (icon
+  `!important` sizing, unplanned CSS adapter layer, Tailwind/Kit spacing-utility name collision, etc.). New
+  `deliverables/` folder (distinct from `reports/`) added to `AGENTS.md`'s Memory Map + routing table. See
+  `decisions/014`. Point-in-time snapshot — no auto-sync mechanism to ModUSS Planner's real code.
+- **2026-08-31:** Second deliverable variant produced: `deliverables/kitdigital-v2.md`, a Bootstrap-native
+  alternative to the Tailwind-first `-v1.md` (renamed for explicit versioning). Instead of an adapter
+  fighting the Kit's utility-name collisions, v2 adopts the Kit's native Bootstrap 5 utilities directly for
+  spacing + structural grid, with Tailwind's colliding core plugins (`padding`/`margin`/`gap`/`width`/
+  `height`) disabled in config so the collision becomes structurally impossible rather than patched after
+  the fact. Required inspecting the pinned package's SCSS **source** and — critically — verifying every
+  claim against its **compiled** `dist/css/main.css` (source ≠ shipped output turned out to matter: a whole
+  Tailwind-clone utility file in source is dead code, never compiled). Surfaced several previously-
+  undocumented native-architecture facts (Bootstrap 5 real, utility categories deliberately stripped, a
+  second icon-sizing utility system, a 3-way width-scale mismatch, spacing/radius scale gaps vs. the Figma
+  canonical scale) — persisted in `context/code-design-mapping.md`'s new "Kit Digital native architecture"
+  section before writing the deliverable, since future tasks will need this too. See `decisions/015`.
+- **2026-08-31:** Typography section of `deliverables/kitdigital-v2.md` rewritten to consolidate fully onto
+  the Kit's native CSS, reversing the part of `decisions/015`'s scope that had left typography on Tailwind.
+  The Kit ships a complete responsive semantic type system (`h1..h6`, `.uss-display`, `.uss-intro`, `p`,
+  `blockquote`, `.overline`, `code`) whose font-size scale has **zero drift** against the Figma canonical
+  scale (first scale in this whole investigation to match exactly — spacing/radius both diverge). Confirmed
+  no JS/React typography API exists in `kitdigital-react` (no `Typography`/`Heading`/`Text` export) — the
+  only method is a semantic tag or Kit class, no imperative equivalent. Found a new cascade risk specific to
+  typography: its rules carry no `!important`, so Tailwind's Preflight (loaded after the Kit's CSS per the
+  documented order) would silently erase heading styles on any tag with no explicit class — fixed by a rule
+  requiring the Kit class on every heading/paragraph/blockquote, not by reordering imports. Flagged two
+  Figma-vs-code drifts (`.uss-h4` desktop weight, `.uss-display` desktop size — the latter has an explicit
+  `// antes era 60` comment in the Kit's own source). See `decisions/016`,
+  `context/code-design-mapping.md` "Kit Digital native typography" section.
+- **2026-08-31:** Color section of `deliverables/kitdigital-v2.md` rewritten to consolidate onto the Kit's
+  native CSS variables — full 7×10 base-ramp table plus a category-grouped ~60-token-per-mode semantic
+  catalogue (light + dark), both confirmed with zero drift against the Figma-audited hex/category shape.
+  Confirmed no JS/React color or theme API exists in `kitdigital-react` — light/dark switching is a plain
+  DOM class toggle, same "CSS-only, no imperative API" pattern already found for typography. Found the
+  Tailwind-collision fix here is structurally different from spacing/typography: the `colors` core plugin
+  must stay enabled (still needed for `bg-*`/`text-*`), so the fix is **replacing** `theme.colors` (not
+  extending it) with only Kit-mapped names, removing Tailwind's stock palette as a class entirely.
+  Explicitly scoped out an exhaustive token-by-token Figma cross-check (would require bulk-loading all
+  three systems' `colors.json`, against `AGENTS.md` rule 2) — only the category-level shape was confirmed.
+  See `decisions/017`, `context/code-design-mapping.md` "Kit Digital native color architecture" section.
 
 ## Pending
 - Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is

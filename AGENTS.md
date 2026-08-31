@@ -80,6 +80,7 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
 | "What should token X be, going forward?" (target/canonical value) | `context/canonical-tokens.md` (`decisions/011`) — a proposal, not a live change to any system's `tokens/*.json` |
 | "What's the plan to harmonize the 2 local libraries?" | `context/consolidation-plan.md` (`decisions/012`) — phased roadmap, not yet executed |
 | Need a data-quality issue written up for the Figma file owners | `reports/figma-data-quality-issues.md` — append new items, don't duplicate existing ones |
+| Produce an authored guidance artifact for an external consumer's dev workflow (not a Figma-owner report) | `deliverables/` (`decisions/014`) — plan first (sources, structure, diff vs. any prior version), confirm scope/location with the user, then write. Synthesis of already-captured context only, never invented rules |
 | Diagnose a Figma/MCP tool error | `gotchas/*.md` first, then the external skill's own error table |
 | Record a new architectural/process decision | New `decisions/NNN-slug.md` (date, context, decision,
   consequence) + update the index in `context/decisiones.md` |
@@ -129,6 +130,10 @@ gotchas/       known Figma/Canvas API failures + fixes, one file per symptom
 logs/          compressed per-session summaries, numbered chronologically
 reports/       external-facing deliverables meant to leave this repo (e.g. figma-data-quality-issues.md) —
                distinct from context/decisions/, which are internal memory
+deliverables/  authored guidance artifacts for an external consumer's own dev workflow (e.g. kitdigital-v1.md
+               /-v2.md, decisions/014, 015) — point-in-time snapshots, not auto-synced; distinct from
+               reports/ (Figma-owner-facing, not consumer-dev-workflow-facing). Alternative approaches for
+               the same consumer get a new `-vN.md` suffix, never overwrite an existing one
 scripts/       validate-dod.ps1 (DoD checker), archive-logs.ps1 (logs/ pruning, decisions/007)
 .cursor/       hooks.json + hooks/ — runs validate-dod.ps1 on every agent stop
 USS*/          the actual inventory deliverables — data, not memory
