@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-08-31 (color consolidated onto Kit-native CSS in `kitdigital-v2.md`)
+**Last updated:** 2026-08-31 (Jira-ready v0→v2 summary report added for ModUSS Planner's dev team)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -97,6 +97,12 @@
   Explicitly scoped out an exhaustive token-by-token Figma cross-check (would require bulk-loading all
   three systems' `colors.json`, against `AGENTS.md` rule 2) — only the category-level shape was confirmed.
   See `decisions/017`, `context/code-design-mapping.md` "Kit Digital native color architecture" section.
+- **2026-08-31:** Wrote `reports/kitdigital-v0-to-v2-jira-summary.md` — a dev-facing (not internal-audit)
+  summary of everything that changed between the original seed rules file used for ModUSS Planner's
+  vibe-coding (`kit-digital.md`, out of this repo's scope) and `deliverables/kitdigital-v2.md`, framed as
+  Jira-ticket-ready content: a per-area before/after table plus 5 concrete technical findings (icon
+  `!important` sizing bug, the Preflight typography-cascade risk, removed Bootstrap color/border utilities,
+  percentage-based width/height, 2 Figma-vs-code drifts). See `logs/015`.
 
 ## Pending
 - Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is
