@@ -8,7 +8,10 @@ files — this repo only proposes the target.
 
 **Hierarchy reminder (`decisions/010`):** USS = main/core, USS One + Extension Library = local libraries.
 Canonical defaults to the main system's naming wherever all three agree; deviations are called out
-explicitly with a recommendation.
+explicitly with a recommendation. **The main/core system is read-only as of 2026-08-28 (`decisions/012`)**
+— it cannot receive any of the canonical additions proposed below. Every actionable recommendation in this
+file applies only to USS One and/or Extension Library; the core system's captured values stay frozen as a
+reference, never edited.
 
 ## Spacing (19 steps)
 
@@ -38,8 +41,9 @@ already implements a "full" radius as `--border-radius-full: 9999px`. User decis
 is the canonical source of truth** for this token — 9999px, not Extension Library's `Radius-1000` (1000px).
 Rationale: the code is what's actually running in production; Figma should catch up to it, not the other
 way around. Extension Library's `Radius-1000` token is therefore a value that needs correcting to 9999 (see
-`reports/figma-data-quality-issues.md` item 6, updated), and USS/USS One should each add a matching
-`Radius-Full = 9999px` token since neither has one yet.
+`reports/figma-data-quality-issues.md` item 6, updated). **Correction (2026-08-28, `decisions/012`):** the
+main/core system is now read-only and cannot receive this token — only **USS One** should add a matching
+`Radius-Full = 9999px` variable; the earlier version of this note incorrectly included the core system.
 
 ## Color — base palettes
 

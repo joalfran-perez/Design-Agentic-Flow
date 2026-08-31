@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-08-28
+**Last updated:** 2026-08-31
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -35,9 +35,33 @@
     override pattern is the evidence).
   - Accordion/Modal Testing-page follow-up → **deferred**, per user decision (item 5 below).
 
+- Built a cross-system canvas, `consolidation-status-report`, summarizing hierarchy, token-consolidation
+  status per category, all 9 data-quality issues, component-consolidation stats, and a 2-track next-steps
+  list (Figma file owners vs. this repo). Compiles with no TypeScript errors.
+- **New facts confirmed by the user (2026-08-28), changing scope going forward:** USS One and Extension
+  Library are actual branches of the core (not just circumstantially similar); both are actively consumed
+  by real downstream projects (unknown to this repo); the main/core system's Figma files are now
+  **permanently read-only** — no future session should propose editing them. See `decisions/012`.
+- Built `context/consolidation-plan.md`: a 6-phase (0-5) roadmap to **harmonize** (not merge) USS One and
+  Extension Library toward a shared Figma-Variables-based token architecture, with a risk register,
+  definition of done, and an explicit note on what ModUSS can/cannot do (can't identify real consumers or
+  execute any Figma edit). Corrected `context/canonical-tokens.md` and
+  `reports/figma-data-quality-issues.md` to remove now-invalid "add to USS main" recommendations. Extended
+  the `consolidation-status-report` canvas with a phase-by-phase table and re-tagged the Figma-owner todo
+  list by phase.
+- **2026-08-31:** First confirmed real downstream consumer found (for the main/core system specifically) —
+  "ModUSS Planner" app, via an external visual-norm doc the user shared. Token-bridge hex fallbacks
+  cross-checked byte-for-byte against `USS Design System Inventory/tokens/colors.json`: 100% match, no
+  drift. No new gaps or anomalies — corroborates `decisions/009`'s color-match finding via a second,
+  differently-packaged consumer (`@ussebastian/kitdigital` CSS-only, not `kitdigital-react`). See
+  `decisions/013`, `context/code-design-mapping.md` "Real-world consumers" section.
+
 ## Pending
 - Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is
   written but has not been sent anywhere — up to the user to route it to the actual Figma file owners.
+- `context/consolidation-plan.md` Phase 0 (identify real downstream consumers, confirm edit ownership) is a
+  **blocking prerequisite** the library owners need to close before Phases 1+ can safely proceed — this
+  repo cannot do that step itself.
 
 ## Blockers
 - None active.

@@ -4,10 +4,19 @@
 ModUSS is a **documentation/data repo** (no app code) that maintains audited inventories of design-system
 tokens, styles, and components extracted from Figma for the USS (Universidad San Sebastián) brand family.
 
-**Hierarchy (see `decisions/010`):** one **main/core system** plus two **local libraries** connected to it —
-not three flat, independent systems. Each still has its own 3 Figma files (Foundations, Desktop components,
-Mobile components) and its own genuinely different token architecture (`decisions/004`); the hierarchy
-changes how this repo *frames* the relationship, not the underlying per-file data.
+**Hierarchy (see `decisions/010`):** one **main/core system** plus two **local libraries** — confirmed
+(2026-08-28) to be actual branches of the core, not independent builds — connected to it. Each still has
+its own 3 Figma files (Foundations, Desktop components, Mobile components) and its own genuinely different
+token architecture (`decisions/004`, though this is now being actively harmonized, see below).
+
+**The main/core system's Figma files are READ-ONLY as of 2026-08-28 (`decisions/012`).** Never propose or
+imply an edit to `USS Design System Inventory/`'s underlying Figma files in any future session — all
+canonical additions/fixes land only in USS One and/or Extension Library.
+
+**Consolidation in progress:** the 2 local libraries are being harmonized (not merged — each stays
+independently consumable) toward a shared Figma-Variables-based token architecture. See
+`context/consolidation-plan.md` (phased roadmap) and `decisions/012` (scope decisions) before proposing any
+token/component change to either local library.
 
 | Role | System | Folder | Status |
 |---|---|---|---|
@@ -69,6 +78,7 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
 | Cross-system comparison | `context/design.md` pre-computed tables — don't recompute from raw JSON |
 | "Does the published code match the Figma inventory?" | `context/code-design-mapping.md` — don't re-scan `node_modules` from scratch |
 | "What should token X be, going forward?" (target/canonical value) | `context/canonical-tokens.md` (`decisions/011`) — a proposal, not a live change to any system's `tokens/*.json` |
+| "What's the plan to harmonize the 2 local libraries?" | `context/consolidation-plan.md` (`decisions/012`) — phased roadmap, not yet executed |
 | Need a data-quality issue written up for the Figma file owners | `reports/figma-data-quality-issues.md` — append new items, don't duplicate existing ones |
 | Diagnose a Figma/MCP tool error | `gotchas/*.md` first, then the external skill's own error table |
 | Record a new architectural/process decision | New `decisions/NNN-slug.md` (date, context, decision,
@@ -76,7 +86,9 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
 
 ## 5. Conventions
 - Canvases: `~/.cursor/projects/c-Users-Genesys-ModUSS/canvases/<kebab-name>.canvas.tsx`. Existing:
-  `uss-design-system-inventory`, `uss-one-design-system-inventory`, `uss-extension-library-inventory`.
+  `uss-design-system-inventory`, `uss-one-design-system-inventory`, `uss-extension-library-inventory` (one
+  per file-set, rule 6), plus `consolidation-status-report` (cross-system status report, not tied to a
+  single inventory — refresh it, don't duplicate, if asked for an updated consolidation report).
 - Figma file keys/URLs/access levels for all 9 files are catalogued once in `context/design.md` §Sources —
   copy from there, don't re-derive from URLs each time.
 - All color values in this repo are **resolved** (final hex), never a raw `VARIABLE_ALIAS`.

@@ -16,6 +16,8 @@ No dupliques contenido aquí — solo referencia.
 | 009 | Fijar `@ussebastian/kitdigital-react` como dependencia de referencia local | Permite auditorías código↔diseño reproducibles sin volver a escanear `node_modules` | `decisions/009-pin-code-library-reference.md` |
 | 010 | Modelar USS One y Extension Library como librerías locales conectadas al sistema principal (USS original) | Jerarquía hub + extensiones en vez de 3 sistemas paralelos independientes; no cambia los datos por archivo, solo el framing | `decisions/010-main-plus-local-libraries-hierarchy.md` |
 | 011 | Iniciar reconciliación de tokens: proponer un esquema canónico | El usuario decidió reconciliar en vez de mantener divergencia; se documenta como propuesta/objetivo, no se edita Figma ni los `tokens/*.json` por sistema | `decisions/011-begin-token-reconciliation.md` |
+| 012 | Alcance del plan de consolidación: armonizar (no fusionar) las 2 librerías locales, objetivo = Variables de Figma, migración por fases | El sistema core queda de solo lectura de forma permanente; ambas librerías locales tienen consumidores reales desconocidos para este repo | `decisions/012-local-library-consolidation-scope.md` |
+| 013 | Tratar "ModUSS Planner" como primer consumidor real confirmado del sistema principal | Doc externo compartido por el usuario; cruce de hex 100% coincidente contra `colors.json`, corrobora `decisions/009` con un segundo consumidor | `decisions/013-real-downstream-consumer-moduss-planner.md` |
 
 ## Cómo añadir una decisión nueva
 1. Crear `decisions/NNN-slug-en-ingles.md` con: fecha, contexto, decisión, consecuencia.

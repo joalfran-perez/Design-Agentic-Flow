@@ -8,6 +8,11 @@ not edit these files, so every item below still needs a human decision/fix in Fi
 Each item lists: what was found, exactly where, why it matters, and a suggested next step. Full technical
 detail and raw values live in `context/design.md` and `context/canonical-tokens.md` if needed.
 
+**Constraint added 2026-08-28 (`decisions/012`):** the main/core USS system is now **read-only** — every
+fix below applies only to the 2 local libraries (USS One, Extension Library), never to the core system's
+files, even where an item's ideal fix would logically also touch the core. See
+`context/consolidation-plan.md` for the full phased plan these items feed into.
+
 ---
 
 ## 1. Extension Library: `spacing-216` resolves to 220px, not 216px
@@ -71,7 +76,10 @@ sombra)" — compared against USS One's `☾ Elevation 1/2 (reemplazo a sombra)`
 
 **Impact:** Low-medium — a component built against "Elevation 1" in one file will render a visibly
 different dark-mode surface tone than the "same" component in the other file.
-**Suggested fix:** Confirm which pairing is correct and align the other file to match.
+**Suggested fix:** Confirm which pairing is correct. **Note (2026-08-28, `decisions/012`):** the main/core
+system is read-only, so in practice this can only be resolved by changing **USS One's** pairing to match
+the core system's (not the reverse) — unless the design team decides the core's pairing was wrong all
+along, in which case USS One's current pairing becomes the documented target and nothing changes there.
 
 ## 6. Radius "full/pill" value disagrees between Figma and shipped code — DECIDED
 **Where:** Extension Library's `Radius-1000` variable (= 1000px) vs. the published
@@ -84,7 +92,9 @@ but the discrepancy means Figma and code aren't sourced from the same literal va
 **Decision (2026-08-28):** the published code is canonical here — **9999px**, not 1000px. Code is what's
 actually running in production; Figma should be corrected to match it, not the reverse.
 **Fix needed:** rename/update Extension Library's `Radius-1000` → `Radius-Full` = **9999px**, and add a
-matching `Radius-Full = 9999px` token to USS and USS One's Figma files (neither has one today).
+matching `Radius-Full = 9999px` variable to **USS One** (it has no equivalent today). **Note (2026-08-28,
+`decisions/012`):** the main/core USS system is now read-only and out of scope for this fix — only the 2
+local libraries (USS One, Extension Library) can receive it.
 
 ## 7. Duplicate component sets with identical names
 **Where:** Extension Library → "Button icon 📱" (Mobile) and "Card Persona S horizontal" (Desktop) — each
