@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-08-31 (Jira-ready v0→v2 summary report added for ModUSS Planner's dev team)
+**Last updated:** 2026-08-31 (ModUSS Planner UI review session analyzed; desktop component gap found)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -103,10 +103,32 @@
   Jira-ticket-ready content: a per-area before/after table plus 5 concrete technical findings (icon
   `!important` sizing bug, the Preflight typography-cascade risk, removed Bootstrap color/border utilities,
   percentage-based width/height, 2 Figma-vs-code drifts). See `logs/015`.
+- **2026-08-31:** First direct observation of a real consumer's **running UI**: analyzed a 1h01m product-review
+  call (2026-08-27) between ModUSS Planner's developer (Javier Teillier) and the design area (Joalfran Pérez).
+  Produced a full findings inventory — 15 defects seen live, 10 UX gaps, 4 undefined business rules — plus the
+  app's functional model (7 roles, two parallel planning tracks sharing one data shape, convenio confirmation,
+  Excel import/export bridge, read-only Ellucian Banner sync, admin module). **New gap for this repo:** ModUSS
+  Planner is a desktop app, and 11 of the 12 UI patterns the review asks for have no specification in any
+  captured Desktop file of any of the three systems — Toast, Modal, Alert, Empty state, Stepper, Select,
+  searchable Dropdown, Tooltip, Tabs, Table and the Filters/Forms patterns all live only in the local
+  libraries' Mobile files. Badge is the only recommended pattern with a Desktop spec. First **component**-level
+  (not token-level) gap traced to a named real consumer. Source `.docx` not copied into the repo. New canvas
+  `moduss-planner-review-session`. See `decisions/018`, `logs/016`.
 
 ## Pending
 - Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is
   written but has not been sent anywhere — up to the user to route it to the actual Figma file owners.
+- `reports/moduss-planner-review-findings.md` is written but has not been sent to Javier's team — up to the
+  user to route it. A `deliverables/` spec for the design side (the patterns U2/U3/U5/U9 ask for) was
+  explicitly **not** requested this session; revisit only if asked.
+- That report's video timestamps are now **clickable deep links** (59 reference definitions, 64 links) into the
+  OneDrive-hosted recording. Two things a future session should know: (a) the `nav` time parameter is
+  undocumented by Microsoft and may break — fallback variant noted in `decisions/018`; (b) **nobody has yet
+  clicked one to confirm it positions correctly** — it couldn't be tested from this repo (tenant auth). If the
+  user reports it lands at 0:00, swap `playbackOptions`/`startTimeInSeconds` for
+  `playlistOptions`/`startTimes` across the generated block.
+- The share token for that recording is now embedded in a **public** GitHub repo, with the user's explicit
+  consent (see `decisions/018`). Flag for review if the repo's visibility policy is ever reconsidered.
 - `context/consolidation-plan.md` Phase 0 (identify real downstream consumers, confirm edit ownership) is a
   **blocking prerequisite** the library owners need to close before Phases 1+ can safely proceed — this
   repo cannot do that step itself.
@@ -133,7 +155,9 @@
    customization?~~ **Decided: confirmed.** Updated in `context/design.md`.
 5. Accordion and Modal in code only trace back to unfinished "Testing 🟡" pages in USS One's Figma —
    **deferred** per user decision (2026-08-28): revisit only once/if those Testing pages are promoted to
-   core pages, no action needed now.
+   core pages, no action needed now. **Reopened 2026-08-31** (`decisions/018`): the ModUSS Planner review
+   session asks for Modal *and* Empty state, both still in Testing staging in the local libraries. A named
+   real consumer needing them now is new information the 2026-08-28 deferral did not have.
 
 ## New open questions (surfaced 2026-08-28)
 1. ~~Radius "full" canonical value — `1000px` (Extension Library Figma) vs. `9999px` (shipped code)?~~
