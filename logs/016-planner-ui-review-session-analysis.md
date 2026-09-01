@@ -67,3 +67,7 @@ intact (229 lines, clean UTF-8, no BOM/NUL/`0x1A`, consistent CRLF, byte-identic
 accidental deletion in the **unsaved editor buffer**, undone by the user. Useful lesson for future sessions:
 the file-read tool sees unsaved editor state while the shell sees disk, so a disagreement between the two is a
 signal of unsaved changes, not of corruption.
+
+Follow-up 2026-09-01: a parallel session's Markdown formatter stripped the 59 reference definitions and the
+64 clickable marks from the report (timestamps survived as plain backticks). Restored both from `81ae5ad`.
+Log numbering collision with that session was resolved on their side (`logs/017-two-tier-deliverable-scope.md`).
