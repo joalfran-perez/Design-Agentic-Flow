@@ -18,6 +18,13 @@ CSS). Nunca se usan emojis en la interfaz.
 > muerto (ver nota en "Espaciado y grid" más abajo). Si algo aquí diverge del código en `develop`, repórtalo
 > de vuelta a ModUSS — puede ser una decisión de diseño nueva que ModUSS todavía no capturó.
 > `decisions/015`.
+>
+> **Alcance definitivo (`decisions/019`, 2026-09-01):** esta es la variante para entornos **nuevos, o
+> existentes que puedan migrar** a las utilidades nativas del Kit — reglas de espaciado, color y tipografía
+> sin excepciones (`corePlugins` de Tailwind desactivados donde colisionan). `deliverables/kitdigital-v1.md`
+> comparte el mismo catálogo de color/tipografía pero con más flexibilidad para entornos Tailwind existentes
+> (p. ej. ModUSS Planner) — en particular, no exige desactivar los core plugins de texto de Tailwind.
+> **Ambas variantes se mantienen indefinidamente.**
 
 ## La regla de fondo: dos autoridades separadas
 

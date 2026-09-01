@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-08-31 (ModUSS Planner UI review session analyzed; desktop component gap found)
+**Last updated:** 2026-09-01 (kitdigital-v1/-v2 permanent scope split formalized; color/typography ported into v1)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -114,6 +114,15 @@
   libraries' Mobile files. Badge is the only recommended pattern with a Desktop spec. First **component**-level
   (not token-level) gap traced to a named real consumer. Source `.docx` not copied into the repo. New canvas
   `moduss-planner-review-session`. See `decisions/018`, `logs/016`.
+- **2026-09-01:** Formalized `deliverables/kitdigital-v1.md` (Tailwind-coexistence, existing environments
+  like ModUSS Planner) and `-v2.md` (native Bootstrap, no exceptions) as a **permanent scope split**, not
+  two drafts of the same idea — both files' banners now cross-reference each other and this decision. Ported
+  v2's color and typography audits (`decisions/016`/`017`) into v1: color unchanged (full base ramps,
+  semantic catalogue, non-negotiable `theme.colors` replacement — this risk isn't spacing-dependent);
+  typography with one deliberate flexibility delta (v1 does not mandate disabling Tailwind's text
+  `corePlugins`; Kit classes are required only where a Figma-audited equivalent exists, Tailwind text
+  utilities stay enabled for the rest — the Preflight cascade-risk warning itself still ports unchanged).
+  Also added the native `icon-size-{xs..xxxl}` utility note to v1. See `decisions/019`, `logs/017`.
 
 ## Pending
 - Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is
@@ -121,12 +130,12 @@
 - `reports/moduss-planner-review-findings.md` is written but has not been sent to Javier's team — up to the
   user to route it. A `deliverables/` spec for the design side (the patterns U2/U3/U5/U9 ask for) was
   explicitly **not** requested this session; revisit only if asked.
-- That report's video timestamps are now **clickable deep links** (59 reference definitions, 64 links) into the
-  OneDrive-hosted recording. Two things a future session should know: (a) the `nav` time parameter is
-  undocumented by Microsoft and may break — fallback variant noted in `decisions/018`; (b) **nobody has yet
-  clicked one to confirm it positions correctly** — it couldn't be tested from this repo (tenant auth). If the
-  user reports it lands at 0:00, swap `playbackOptions`/`startTimeInSeconds` for
-  `playlistOptions`/`startTimes` across the generated block.
+- That report's video timestamps are **clickable deep links** (59 reference definitions, 64 links) into the
+  OneDrive-hosted recording, and the user **confirmed on 2026-09-01 that they position exactly** — the
+  `playbackOptions`/`startTimeInSeconds` variant is the one that works on this tenant. Nothing pending here.
+  One durable caveat for a future session: that `nav` parameter is undocumented by Microsoft and can break
+  without notice, so if the links ever start landing at 0:00, swap in the `playlistOptions`/`startTimes`
+  variant across the generated block (see `decisions/018`). The `mm:ss` marks stay valid either way.
 - The share token for that recording is now embedded in a **public** GitHub repo, with the user's explicit
   consent (see `decisions/018`). Flag for review if the repo's visibility policy is ever reconsidered.
 - `context/consolidation-plan.md` Phase 0 (identify real downstream consumers, confirm edit ownership) is a
