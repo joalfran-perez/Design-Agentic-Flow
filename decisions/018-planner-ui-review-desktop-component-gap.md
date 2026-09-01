@@ -70,7 +70,9 @@ new and worth recording — every prior gap finding was token-level, this is the
   Microsoft** — verified as working practice, not spec; it fails in embedded views and can break without
   notice. A competing variant (`{"playlistOptions":{"startTimes":N}}`) is what Stream's own "copy link at
   current time" emits, and is the fallback if `playbackOptions` stops working. Could not be tested from here
-  (tenant auth required) — the user verifies.
+  (tenant auth required), so the user verified it: **confirmed working 2026-09-01**, the link positions at the
+  exact second. So `playbackOptions`/`startTimeInSeconds` is the correct form for this tenant, and
+  `playlistOptions` stays documented only as the fallback if Microsoft changes the parameter.
   Implemented as **Markdown reference-style links**: 59 definitions in a generated block at the end of the
   file, 64 usages in the tables, so rows stay readable and diffable instead of carrying 200-char inline URLs.
   Both the window start **and** the `clave` mark are linked (the user chose both over start-only); secondary
