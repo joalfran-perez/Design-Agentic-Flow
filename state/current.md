@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-09-01 (kitdigital-v1/-v2 permanent scope split formalized; color/typography ported into v1)
+**Last updated:** 2026-09-03 (ModUSS Planner visual Kit-compliance review added)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -123,13 +123,21 @@
   `corePlugins`; Kit classes are required only where a Figma-audited equivalent exists, Tailwind text
   utilities stay enabled for the rest — the Preflight cascade-risk warning itself still ports unchanged).
   Also added the native `icon-size-{xs..xxxl}` utility note to v1. See `decisions/019`, `logs/017`.
+- **2026-09-03:** Second direct observation of ModUSS Planner's running UI — a 1h07m **visual** walkthrough
+  (2026-09-02, Joalfran Pérez solo) against Kit Digital USS, distinct from the 2026-08-27 functional review.
+  33 findings (`V1`–`V33`), 3 blocks judged correct (tabs, likely-Kit icons, Gantt/gestión layout). Header is
+  one problem seen five times (dark chrome, non-USS logo, inverted select, ad-hoc avatar, orange admin chip).
+  Import result is a modal stacked on a modal — visual face of D3/U3. Teams flattened the transcript to a
+  single `0:04` mark, so per-finding video windows are not possible. New report
+  `reports/moduss-planner-visual-review-findings.md`, canvas `moduss-planner-visual-review`. Applicable fix
+  spec remains `deliverables/kitdigital-v1.md`. See `decisions/020`, `logs/018`.
 
 ## Pending
 - Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is
   written but has not been sent anywhere — up to the user to route it to the actual Figma file owners.
-- `reports/moduss-planner-review-findings.md` is written but has not been sent to Javier's team — up to the
-  user to route it. A `deliverables/` spec for the design side (the patterns U2/U3/U5/U9 ask for) was
-  explicitly **not** requested this session; revisit only if asked.
+- `reports/moduss-planner-review-findings.md` (functional, 2026-08-27) and
+  `reports/moduss-planner-visual-review-findings.md` (Kit compliance, 2026-09-02) are written but have not
+  been sent to Javier's team — up to the user to route them.
 - That report's video timestamps are **clickable deep links** (59 reference definitions, 64 links) into the
   OneDrive-hosted recording, and the user **confirmed on 2026-09-01 that they position exactly** — the
   `playbackOptions`/`startTimeInSeconds` variant is the one that works on this tenant. Nothing pending here.
