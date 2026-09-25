@@ -143,10 +143,10 @@ Facultad accent tokens to alias it.
 **Where:** USS (main) → `tokens/typography.json` (desktop) `Títulos/H4` and `Otros/Display Tittle`, vs. the
 published `@ussebastian/kitdigital` code's compiled `h4`/`.uss-h4` and `.uss-display` CSS rules.
 **Found:**
-- **H4 weight:** Figma's `Títulos/H4` (desktop) is `Montserrat Medium` (font-weight 500). The shipped code's
-  `.uss-h4` at its desktop breakpoint (`≥1010px`) compiles to `font-weight: var(--font-weight-600)` — one
-  step heavier. Every other heading level's weight (H1, H2, H3, H5, H6) matches its Figma counterpart
-  exactly at both breakpoints; H4 is the only mismatch.
+- **H4 weight (updated 2026-09-25):** the pairing is **inverted across breakpoints**, not a desktop-only
+  miss. Figma desktop H4 is Medium **500**; Figma mobile H4 is SemiBold **600**. Compiled CSS is the
+  opposite: weight **500** at the base (mobile) rule and **600** from 1010px. Item 10 originally
+  recorded only the desktop half.
 - **Display title size:** Figma's `Otros/Display Tittle` is 60px. The shipped code's `.uss-display` at
   desktop compiles to `font-size: var(--font-size-56)` (56px). Notably, the Kit's own SCSS source carries
   an inline comment directly above that line — `// antes era 60` ("used to be 60") — meaning this looks
@@ -266,6 +266,23 @@ navigation-vs-toggle distinction on the same named component.
 
 **Suggested next step:** restore the `type` axis, or document the intentional narrowing.
 
+## 18. Main-system inventory records `spacing-216` as 220px
+
+**Where:** `USS Design System Inventory/tokens/spacing.json` → `Espaciado/spacing-216`: **220**.
+
+**Found:** Item 1 said this name/value bug existed only in Extension Library, and that USS + USS One
+correctly resolve to 216px. The on-disk main inventory now stores 220. This session did **not**
+re-extract Foundations (`decisions/024`); a live `use_figma` read of that file also threw
+read-only, so the Figma source was not re-confirmed. Either the inventory write is stale/wrong, or
+the core Space token drifted since item 1.
+
+**Impact:** Medium for anyone treating this repo's JSON as the main-system source of truth — they
+will ship 220 and think it is named 216. The Kit CSS still has **no** `--spacing-216` (nor 220).
+
+**Suggested next step:** one targeted Foundations Space read (not a full re-extract) when
+`use_figma` is available on that file; then either correct the inventory `note` or update item 1.
+Do not silently change the JSON without that read (`decisions/005`).
+
 ## Summary table
 
 | # | Issue | File(s) | Severity |
@@ -279,7 +296,7 @@ navigation-vs-toggle distinction on the same named component.
 | 7 | Duplicate component sets (2 names) | Extension Library | Bug |
 | 8 | Inconsistent Testing→core promotion order | USS One vs. Extension Library | Informational |
 | 9 | Facultad blue-gray values have no formal `_Base/Secondary` ramp | Extension Library | Pending task: create the ramp, values unchanged |
-| 10 | H4 weight (500 vs. 600) and Display title size (60px vs. 56px) disagree between Figma and shipped code | USS (main) vs. shipped code | Needs confirmation — code likely canonical (has an "antes era 60" comment) |
+| 10 | H4 weights inverted across breakpoints (Figma Desk 500/Mob 600 vs code Mob 500/Desk 600); Display 60 vs 56 | USS (main) vs. shipped code | Needs confirmation — code likely canonical for Display (`// antes era 60`) |
 | 11 | `Assets/Item dropdown menu 📱` is a broken component set (Figma reports errors) | USS (main), Mobile | Bug |
 | 12 | `Card ghost 📱` has 2 auto-generated junk variant options | USS (main), Mobile | Bug |
 | 13 | Dark-mode property naming/casing drift, `Tittle` misspelling, 1 single-option axis | USS (main), Mobile | Cosmetic, batch fix |
@@ -287,6 +304,7 @@ navigation-vs-toggle distinction on the same named component.
 | 15 | Desktop `Card ghost` is a broken component set | USS (main), Desktop | Bug |
 | 16 | Desktop `Card ghost` Dark-mode axis has junk options `Dark mode3/4` | USS One, Desktop | Bug |
 | 17 | `Tag secondary` missing `type=navigation/toggle` axis (10 vs 20 variants) | Extension Library, Desktop | Bug |
+| 18 | Main inventory `spacing-216` = 220px (contradicts item 1) | USS (main) on-disk JSON; Figma not re-read | Needs confirmation |
 
 Full source data for every row above lives in this repo's `context/design.md`, `context/canonical-tokens.md`,
 and the individual `tokens/*.json` files under each system's inventory folder, if more detail is needed

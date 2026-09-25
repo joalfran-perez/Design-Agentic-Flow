@@ -38,6 +38,12 @@ genuine read-only error even though every other page in the same view-only file 
 to `get_metadata` with that `nodeId` recovered the structure (Bottom sheet 4 + side sheet 8). So the
 read-only throw can be **page-scoped**, not only file-scoped.
 
+**Session variance (2026-09-25 parity pass):** the same main Desktop file, plus Foundations
+(`16PDlIOKg8kb176dMz0Ckg`, historically *edit*), threw file-level read-only on a page-list
+`use_figma` script. Mobile still listed pages; Mobile **Tabs** (`1393:10823`) then threw on a
+per-page sample. Fall back to `get_metadata` / `get_variable_defs` for that session — do not treat
+a prior session's successful Plugin API walk as a guarantee.
+
 Distinguishing the two symptoms:
 
 | Observation | Meaning |

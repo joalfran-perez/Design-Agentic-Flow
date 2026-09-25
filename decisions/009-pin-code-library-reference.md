@@ -19,5 +19,5 @@ not treated as scratch. Anyone cloning this repo and running `npm install` repro
 version this analysis was run against.
 
 **If code↔design analysis becomes a recurring task**, promote it to a proper skill
-(`skills/code-design-audit.md`) the way Figma extraction and canvas creation already are — not done yet
-since this was a single ad hoc request.
+(`skills/code-design-audit.md`) the way Figma extraction and canvas creation already are — **done
+2026-09-25** (`decisions/024`).

@@ -66,6 +66,7 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
    - A `use_figma`/MCP call fails → `gotchas/` (match by symptom) before retrying blind
    - "What did we decide / why is it built this way" → `context/decisiones.md` index → the specific
      `decisions/NNN-*.md`
+   - Resume a queued implementation plan → `plans/README.md` index → the specific `plans/NNN-*.md`
 4. Only then, the specific inventory file the task needs. Never open an entire inventory folder at once.
 
 ## 4. Skill Routing
@@ -76,9 +77,10 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
 | Check/verify an inventory folder is complete | `skills/dod-validation.md` (`scripts/validate-dod.ps1`) |
 | `logs/` has grown large | `skills/logs-archival.md` (`scripts/archive-logs.ps1`) |
 | Cross-system comparison | `context/design.md` pre-computed tables — don't recompute from raw JSON |
-| "Does the published code match the Figma inventory?" | `context/code-design-mapping.md` — don't re-scan `node_modules` from scratch |
+| "Does the published code match the Figma inventory?" | `reports/uss-kit-figma-component-parity.md` + `skills/code-design-audit.md`; short pointer in `context/code-design-mapping.md` — don't re-scan `node_modules` from scratch |
 | "What should token X be, going forward?" (target/canonical value) | `context/canonical-tokens.md` (`decisions/011`) — a proposal, not a live change to any system's `tokens/*.json` |
 | "What's the plan to harmonize the 2 local libraries?" | `context/consolidation-plan.md` (`decisions/012`) — phased roadmap, not yet executed |
+| Resume a queued, not-yet-run implementation plan | `plans/` (`decisions/023`) — execute only if the user explicitly asks |
 | Need a data-quality issue written up for the Figma file owners | `reports/figma-data-quality-issues.md` — append new items, don't duplicate existing ones |
 | Produce an authored guidance artifact for an external consumer's dev workflow (not a Figma-owner report) | `deliverables/` (`decisions/014`) — plan first (sources, structure, diff vs. any prior version), confirm scope/location with the user, then write. Synthesis of already-captured context only, never invented rules |
 | Diagnose a Figma/MCP tool error | `gotchas/*.md` first, then the external skill's own error table |
@@ -87,9 +89,9 @@ make ModUSS an app-code repo: nothing here is built, run, or shipped.
 
 ## 5. Conventions
 - Canvases: `~/.cursor/projects/c-Users-Genesys-ModUSS/canvases/<kebab-name>.canvas.tsx`. Existing:
-  `uss-design-system-inventory`, `uss-one-design-system-inventory`, `uss-extension-library-inventory` (one
-  per file-set, rule 6), plus `consolidation-status-report` (cross-system status report, not tied to a
-  single inventory — refresh it, don't duplicate, if asked for an updated consolidation report).
+ `uss-design-system-inventory`, `uss-one-design-system-inventory`, `uss-extension-library-inventory` (one
+ per file-set, rule 6), plus `consolidation-status-report` and `uss-kit-figma-parity` (cross-system
+ artifacts — refresh, don't duplicate).
 - Figma file keys/URLs/access levels for all 9 files are catalogued once in `context/design.md` §Sources —
   copy from there, don't re-derive from URLs each time.
 - All color values in this repo are **resolved** (final hex), never a raw `VARIABLE_ALIAS`.
@@ -134,6 +136,8 @@ deliverables/  authored guidance artifacts for an external consumer's own dev wo
                /-v2.md, decisions/014, 015) — point-in-time snapshots, not auto-synced; distinct from
                reports/ (Figma-owner-facing, not consumer-dev-workflow-facing). Alternative approaches for
                the same consumer get a new `-vN.md` suffix, never overwrite an existing one
+plans/         queued implementation plans (`decisions/023`); 001 Kit↔Figma parity is **done**
+               (`decisions/024`). Distinct from context/ roadmaps and from Cursor's local .cursor/plans/
 scripts/       validate-dod.ps1 (DoD checker), archive-logs.ps1 (logs/ pruning, decisions/007)
 .cursor/       hooks.json + hooks/ — runs validate-dod.ps1 on every agent stop
 USS*/          the actual inventory deliverables — data, not memory

@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-09-25 (all three Desktop files extracted in full — 6-page catalog retracted)
+**Last updated:** 2026-09-25 (`plans/001` executed; Kit↔Figma parity report written)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -162,9 +162,17 @@
   920 variants, no Testing**, plus Navigation stack and Sheets vs Mobile. USS One: 28/88/676 (6
   Testing). Extension: 24/55/620 (9 Testing). 23/26 code components now match the main system on
   **Desktop and Mobile**. New data-quality items 15–17. See `decisions/022`, `logs/020`.
+- **2026-09-25: Kit 0.21.0 ↔ main Figma component parity report executed** (`plans/001` → done).
+  Presence unchanged (23/26). New: Navigation stack + Sheets are Figma-only; H4 weights inverted
+  across breakpoints; dark elevation pairing swapped vs `.shadow-1`/`.shadow-2`; Alert padding and
+  Tag radius drift; on-disk main `spacing-216` = 220 (item 18). Report
+  `reports/uss-kit-figma-component-parity.md`, canvas `uss-kit-figma-parity`, skill
+  `skills/code-design-audit.md`. See `decisions/024`, `logs/022`.
 
 ## Pending
-- Nothing actively requested by the user right now. Data-quality report
+- `reports/uss-kit-figma-component-parity.md` is written (`decisions/024`) but has not been sent
+  to kit/Figma owners — up to the user to route it.
+- Nothing else actively requested by the user right now. Data-quality report
   (`reports/figma-data-quality-issues.md`) is
   written but has not been sent anywhere — up to the user to route it to the actual Figma file owners.
 - `reports/moduss-planner-review-findings.md` (functional, 2026-08-27) and
