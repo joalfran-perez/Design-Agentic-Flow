@@ -38,11 +38,11 @@ rather than unrelated rebuilds.
 | Color delivery | 144 variables, 2 modes (Light/Dark) | 343 canonical + 144 sync vars; light/dark encoded in NAMES not modes | **0 variables** — 529 paint styles (334 distinct) |
 | Typography delivery | 156 text styles, no type variables | 235 vars (incl. 205 per-style line-heights) + text styles | 191 text styles, no type variables |
 | Effect styles | 2 (Elevación 1/2) | 6 (2 legacy + 4-level `Elevacion/1-4`) | 6 (same as USS One) |
-| Space tokens | 19, 1 mode | 19, 2 modes (same values) | 19, 1 mode ("Mobile"); `spacing-216`→220px drift |
+| Space tokens | 19, 1 mode; on-disk `spacing-216` = 220 (item 18, Figma not re-read) | 19, 2 modes (same values) | 19, 1 mode ("Mobile"); `spacing-216`→220px drift |
 | Radius tokens | 6 | 6 (2 collections, 1 sync mirror) | 8 — adds `Radius-1000` pill + stray `Boolean` var |
 | Accent theming | none | **Facultad system** (on-light/on-dark A/B/C + Tono-Exito/Alerta/Error) | Facultad values present but hardcoded, not aliased; base ramp renamed `Terciary` with unrelated purple hex |
 | Base palette size | ~92 swatches | ~92 swatches (adds Facultad ramp) | 85 distinct paint-style swatches |
-| Known data-quality issues | Card ghost broken (Desktop+Mobile); Mobile button Hover inconsistency | Buttons/Tags/Accordion/Modals/Empty state still Testing on Desktop | 195 duplicate paint styles; Tag secondary missing `type` axis; extra Button Multi-Purpose / Modal Extended |
+| Known data-quality issues | Card ghost broken (D+M); Mobile button Hover; H4 weights inverted vs code (item 10); `spacing-216` on-disk 220 (item 18) | Buttons/Tags/Accordion/Modals/Empty state still Testing on Desktop | 195 duplicate paint styles; Tag secondary missing `type` axis; extra Button Multi-Purpose / Modal Extended |
 
 All three systems share the **same brand hex values** where directly comparable (e.g. `Primary 90 =
 #001894`, `Neutral 100 = #0b141f`) — confirmed by spot-checks across all three color deliveries. The

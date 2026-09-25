@@ -25,7 +25,8 @@ consolidation track like items 1–9.
 **Where:** Extension Library → Fundamentos de diseño → `Space` variable collection → `Espaciado/spacing-216`.
 **Found:** Every other spacing token's name matches its pixel value (`spacing-04` = 4px, etc.) in all three
 files. This one token alone breaks that pattern — named "216" but set to 220px. The same-named token in USS
-and USS One both correctly resolve to 216px.
+and USS One both correctly resolved to 216px when item 1 was written. **See item 18:** the main
+inventory JSON now stores 220; live Foundations was not re-read. Canonical target stays 216.
 **Impact:** Low-medium — anyone trusting the token name over its resolved value will get a 4px layout
 discrepancy specifically in the Extension Library file.
 **Suggested fix:** Correct the value to 216px, or rename the token to `spacing-220` if 220 was actually
@@ -86,6 +87,8 @@ different dark-mode surface tone than the "same" component in the other file.
 system is read-only, so in practice this can only be resolved by changing **USS One's** pairing to match
 the core system's (not the reverse) — unless the design team decides the core's pairing was wrong all
 along, in which case USS One's current pairing becomes the documented target and nothing changes there.
+**2026-09-25:** compiled Kit `.shadow-1` / `.shadow-2` dark surfaces (`--neutral-85` `#202a37` /
+`--neutral-82` `#242f3c`) match **USS One**, not the core. Third data point; item 5 stays deferred.
 
 ## 6. Radius "full/pill" value disagrees between Figma and shipped code — DECIDED
 **Where:** Extension Library's `Radius-1000` variable (= 1000px) vs. the published
@@ -155,11 +158,11 @@ published `@ussebastian/kitdigital` code's compiled `h4`/`.uss-h4` and `.uss-dis
 **Impact:** Low-medium — a component/page built to the Figma spec for either style will render slightly
 bolder (H4) or smaller (Display title) than what ships in production. Low risk of layout breakage, but a
 real visual mismatch between "what the design system says" and "what actually renders."
-**Suggested fix:** Confirm with whoever owns the shipped code whether these were deliberate. If yes (the
-`// antes era 60` comment suggests so for the Display title), update Figma's `Títulos/H4` weight to
-SemiBold (600) and `Otros/Display Tittle` size to 56px to match the code — per this repo's existing
-precedent (item 6) that the shipped code is treated as canonical over Figma where the two disagree, unless
-the design team says otherwise.
+**Suggested fix:** Pick **one H4 pairing** (Figma’s Desk 500 / Mob 600, or the Kit’s Mob 500 / Desk 600)
+and apply it on both sides — do not “fix” only desktop to 600, which would leave mobile inverted.
+Display title: if the `// antes era 60` comment is still intended, update Figma to 56px (item 6
+precedent: shipped code canonical unless the design team says otherwise). Core Figma is read-only
+(`decisions/012`), so any Figma-side change is for whoever still holds edit rights.
 
 ---
 

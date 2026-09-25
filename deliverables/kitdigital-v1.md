@@ -286,7 +286,7 @@ desvíos encontrados — se marcan, no se corrigen en silencio** (`decisions/005
 
 | Clase del Kit | Figma (`typography.json`) | Desvío |
 |---|---|---|
-| `.uss-h4` escritorio: peso `600` | `Títulos/H4` escritorio: Montserrat **Medium (500)** | Peso no coincide en este único nivel de encabezado |
+| `.uss-h4` móvil `500` / escritorio `600` | Figma H4 desktop Medium **500** / mobile SemiBold **600** | Pesos **invertidos** entre breakpoints (ítem 10) — no “arreglar” solo el escritorio |
 | `.uss-display` escritorio: `--font-size-56` (56px) | `Otros/Display Tittle`: **60px** | El SCSS fuente trae el comentario `// antes era 60` — cambio de código intencional que Figma todavía no capturó |
 
 ### Modificadores confirmados en el CSS compilado

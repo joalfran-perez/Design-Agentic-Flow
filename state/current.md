@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-09-25 (`plans/001` executed; Kit↔Figma parity report written)
+**Last updated:** 2026-09-25 (parity-doc drift: stale references aligned; canonical 216 + item 5 still deferred)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -13,13 +13,13 @@
 - `USS Design system Inventory/` renamed to `USS Design System Inventory/` (casing fix). See `decisions/008`.
 - Pushed to GitHub: `origin` = https://github.com/joalfran-perez/Design-Agentic-Flow (private), `master`
   tracks `origin/master`, working tree clean.
-- Code↔design mapping done for `@ussebastian/kitdigital-react` (published npm library) vs.
-  `USS Design System Inventory/` and, for the 21 components with no counterpart there, cross-checked
-  against `USS One Design System Inventory/` too. Token-level exact match confirmed for colors + font
-  sizes, divergence found in radius/spacing, component consolidation pattern documented, 16/21 "extra"
-  code components matched to USS One instead. See `context/code-design-mapping.md`, `decisions/009`.
-  `package.json`/`package-lock.json` are committed as a permanent pinned reference; `node_modules/` stays
-  gitignored.
+- Code↔design mapping started for `@ussebastian/kitdigital-react` (published npm library) vs.
+  `USS Design System Inventory/` (`decisions/009`). Token-level match confirmed for colors + font
+  sizes; radius/spacing diverge. `package.json`/`package-lock.json` are the pinned reference;
+  `node_modules/` stays gitignored.
+  **Retracted 2026-09-25 (`decisions/021`, `022`):** the “16/21 extra code components matched to
+  USS One instead” reading was an artifact of unread Mobile/Desktop pages. Presence is **23/26**
+  in the main system; see `reports/uss-kit-figma-component-parity.md` (`decisions/024`).
 - Architecture redefined: USS (original) is now the **main/core system**; USS One and Extension Library are
   **local libraries connected to it** (was: 3 flat/independent systems). Updated `AGENTS.md`,
   `context/design.md`, `context/decisiones.md`, `state/inventories.md`, and all 3 inventories' `README.md`.
@@ -162,6 +162,10 @@
   920 variants, no Testing**, plus Navigation stack and Sheets vs Mobile. USS One: 28/88/676 (6
   Testing). Extension: 24/55/620 (9 Testing). 23/26 code components now match the main system on
   **Desktop and Mobile**. New data-quality items 15–17. See `decisions/022`, `logs/020`.
+- **2026-09-25: stale references after the parity pass aligned** (canonical 216 and item 5 stay
+  deferred). Retracted the leftover “16/21 matched USS One” line in this file; noted Kit dark
+  elevation = USS One pairing; item 18 caveat on spacing docs; H4 suggested-fix is now “pick a
+  pairing.” See `logs/023`.
 - **2026-09-25: Kit 0.21.0 ↔ main Figma component parity report executed** (`plans/001` → done).
   Presence unchanged (23/26). New: Navigation stack + Sheets are Figma-only; H4 weights inverted
   across breakpoints; dark elevation pairing swapped vs `.shadow-1`/`.shadow-2`; Alert padding and
@@ -249,8 +253,9 @@
    (`reports/...` item 5). **Explicitly reviewed and deferred by the user (2026-08-28)**, not just
    unaddressed — kept as-is for the design team to answer. Context for next time: USS One's pairing
    (Elevation 1 = darker `#202a37`, Elevation 2 = lighter `#242f3c`) follows the common "higher elevation =
-   lighter in dark mode" convention; the main system's is the reverse. Not confirmed as "correct," just the
-   more conventional-looking option if this needs a tie-breaker later.
+   lighter in dark mode" convention; the main system's is the reverse. **2026-09-25:** compiled Kit
+   `.shadow-1` / `.shadow-2` dark surfaces use that same USS One pairing (`--neutral-85` / `--neutral-82`).
+   That is a third data point, not a decision — do not close item 5 without an explicit ask.
 4. Should `reports/figma-data-quality-issues.md` actually be sent/shared with the Figma file owners now, or
    is writing it enough for this session?
 

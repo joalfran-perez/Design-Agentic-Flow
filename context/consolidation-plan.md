@@ -26,7 +26,7 @@ Extension Library files; ModUSS's role is limited to defining the plan and track
 |---|---|---|---|
 | Color delivery | 343 canonical + 144 sync variables | 0 variables — 529 paint styles (334 distinct, 195 dup.) | Build an equivalent variable collection in Extension Library |
 | Dark/light mechanism | `Color` collection encodes mode in variable NAMES; `Figma-Color` sync collection uses true Figma modes | Folder-prefixed paint style names (`Light mode/`, `☾ Dark mode/`) | New variables must bind through a true-mode collection (see Phase 3 note) to keep dark-mode toggling automatic |
-| Spacing | 19 steps, values correct | 19 steps, `spacing-216` = 220px (bug) | 1-value fix |
+| Spacing | 19 steps, values treated as correct in Figma (item 1); on-disk main inventory also records `spacing-216` = 220 (item 18 — confirm, do not “fix” the read-only core) | 19 steps, `spacing-216` = 220px (bug) | 1-value fix **in Extension Library only** |
 | Radius | 6 steps, no "full" token | 8 entries: 6 steps + `Radius-1000` (should be 9999) + stray `Boolean` var | Fix value, discard stray var, add `Radius-Full` to USS One too |
 | Accent/Facultad base ramp | `_Base/Secondary`, real 10-step ramp, aliased by Facultad tokens | No formal ramp — Facultad values hardcoded; ramp slot repurposed as unrelated `Terciary` purple (duplicate-step bug) | Add `_Base/Secondary` ramp; rename `Terciary`→`Themes/Amatista`, fix duplicate step |
 | Component sets | Clean (no known duplicates) | 2 duplicate-named sets (`Button icon 📱`, `Card Persona S horizontal`) | De-duplicate |
@@ -64,7 +64,8 @@ repo's data.*
 ### Phase 1 — Zero-risk hygiene fixes (no mechanism change, no consumer-facing schema change)
 Low risk: every fix here corrects a value to what was already the *intended* meaning, so any consumer
 relying on the token's name already expects the corrected behavior.
-- Extension Library: `spacing-216` → 216px.
+- Extension Library: `spacing-216` → 216px. (Main inventory JSON also stores 220 — item 18.
+  Do not schedule a core Figma edit. Confirm with a targeted Foundations Space read first.)
 - Extension Library: remove/relocate the stray `Boolean` variable from the Radius collection.
 - Extension Library: `Radius-1000` → `Radius-Full` = 9999px (visually identical at any real component size;
   no regression).

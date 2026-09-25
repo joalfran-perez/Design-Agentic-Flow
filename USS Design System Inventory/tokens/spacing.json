@@ -2,6 +2,7 @@
   "collection": "Space",
   "modes": ["Mode 1"],
   "variableCount": 19,
+  "note": "Espaciado/spacing-216 is named 216 but the captured value is 220. Live Foundations was not re-read in the 2026-09-25 parity pass (use_figma threw read-only). Canonical target stays 216px (items 1 and 18). Flagged, not silently corrected.",
   "tokens": {
     "Espaciado/spacing-04": 4,
     "Espaciado/spacing-08": 8,

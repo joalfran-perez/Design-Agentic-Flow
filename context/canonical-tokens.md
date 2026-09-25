@@ -20,10 +20,13 @@ All three systems define the identical 19-step scale, **except one drift**:
 | Token | Canonical px | USS (main) | USS One | Extension Library |
 |---|---|---|---|---|
 | spacing-04 … spacing-160 (17 steps) | 4,8,12,16,20,24,28,32,36,44,48,56,64,80,96,112,128,160 | ✅ match | ✅ match | ✅ match |
-| spacing-216 | **216** | 216 | 216 | **220** ⚠️ |
+| spacing-216 | **216** | 216 (Figma as of item 1); on-disk inventory = **220** — item 18, not re-read | 216 | **220** ⚠️ |
 
-**Canonical value: 216px** (2 of 3 systems agree; name literally says "216"). Extension Library's 220px is a
-data-quality bug, not an intentional variant — see `reports/figma-data-quality-issues.md` item 1.
+**Canonical value: 216px** (name literally says "216"; do not move the target to 220). Extension
+Library's 220px is a data-quality bug (item 1). The main inventory JSON now also stores 220
+(`USS Design System Inventory/tokens/spacing.json`) — item 18; live Foundations was not re-confirmed
+in the 2026-09-25 parity pass. Until that read happens, treat on-disk 220 as unconfirmed capture
+drift, not a new canonical.
 
 ## Radius
 
@@ -138,6 +141,9 @@ entirely with a single flat `#121c27` across all 4 levels (a third, different va
 2. Elevation 1/2 dark-mode replacement color pairing: main system's mapping vs. USS One's inverted mapping
    — which is correct? **Explicitly deferred by the user (2026-08-28)** — see `state/current.md` for
    context on which pairing looks more conventional, kept as a tie-breaker hint, not a decision.
+   **2026-09-25:** compiled `@ussebastian/kitdigital` `.shadow-1` / `.shadow-2` dark backgrounds
+   (`--neutral-85` `#202a37` / `--neutral-82` `#242f3c`) match **USS One**, not the core. Third
+   data point only — still not a close.
 3. ~~Should Extension Library's orphaned purple `Terciary` ramp be deleted, or wired up as a real third
    accent?~~ **Decided (2026-08-28): wired up as a real accent.** See "Accent / per-faculty theming"
    section above — renamed `Themes/Amatista`, duplicate step fixed.
