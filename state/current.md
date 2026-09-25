@@ -1,6 +1,6 @@
 # Current State
 
-**Last updated:** 2026-09-03 (ModUSS Planner visual Kit-compliance review added)
+**Last updated:** 2026-09-25 (all three Desktop files extracted in full — 6-page catalog retracted)
 
 ## Done
 - 3/3 requested Figma file-sets fully inventoried: USS (original), USS One, USS Extension Library.
@@ -108,11 +108,11 @@
   Produced a full findings inventory — 15 defects seen live, 10 UX gaps, 4 undefined business rules — plus the
   app's functional model (7 roles, two parallel planning tracks sharing one data shape, convenio confirmation,
   Excel import/export bridge, read-only Ellucian Banner sync, admin module). **New gap for this repo:** ModUSS
-  Planner is a desktop app, and 11 of the 12 UI patterns the review asks for have no specification in any
-  captured Desktop file of any of the three systems — Toast, Modal, Alert, Empty state, Stepper, Select,
-  searchable Dropdown, Tooltip, Tabs, Table and the Filters/Forms patterns all live only in the local
-  libraries' Mobile files. Badge is the only recommended pattern with a Desktop spec. First **component**-level
-  (not token-level) gap traced to a named real consumer. Source `.docx` not copied into the repo. New canvas
+  Planner is a desktop app, and 11 of the 12 UI patterns the review asks for appeared to have no
+  specification in any captured Desktop file. **Retracted 2026-09-25 (`decisions/022`):** that was a
+  `get_metadata` under-count; those patterns except Empty state are core on the main Desktop file.
+  First **component**-level (not token-level) gap traced to a named real consumer — the surviving
+  gap is Empty state only. Source `.docx` not copied into the repo. New canvas
   `moduss-planner-review-session`. See `decisions/018`, `logs/016`.
 - **2026-09-01:** Formalized `deliverables/kitdigital-v1.md` (Tailwind-coexistence, existing environments
   like ModUSS Planner) and `-v2.md` (native Bootstrap, no exceptions) as a **permanent scope split**, not
@@ -131,9 +131,41 @@
   single `0:04` mark, so per-finding video windows are not possible. New report
   `reports/moduss-planner-visual-review-findings.md`, canvas `moduss-planner-visual-review`. Applicable fix
   spec remains `deliverables/kitdigital-v1.md`. See `decisions/020`, `logs/018`.
+- **2026-09-25:** Re-tested Figma MCP access across all 9 files (read-only, nothing written). **All 9 are
+  fully readable**, zero auth/permission errors, as `ext.joalfran.perez@uss.cl` (guest on the `DX USS` pro
+  plan). Two consequences:
+  1. **The main/core Mobile blocker is resolved — and was never a permissions problem.** It is a
+     *channel* difference: `get_metadata` enumerates only the `Comenzar` page on all 3 Mobile files (even
+     with every file open in the desktop app), while a read-only `use_figma` script returns the full page
+     list. The same under-count hits Desktop: `get_metadata` lists 7 pages, `use_figma` lists 46–51.
+     Recorded in `state/inventories.md` § MCP channel note — read that before ever concluding a file
+     is inaccessible or "narrow" again.
+  2. **The "Accordion + Modal are ahead of what Figma shipped" conclusion is void.** It was derived with
+     the main/core Mobile file unreadable, so only USS One was compared. With real access: **Accordion is
+     core in the main/core system** (Testing in both local libraries), and **Modals is core in the
+     main/core system and in Extension Library** (Testing only in USS One).
+- **2026-09-25 (same session): main/core Mobile file extracted in full and the correction propagated.**
+  **93 component sets / 776 variants across 30 core pages, no Testing section** — the largest and most
+  mature Mobile library of the three, which reverses the standing "the main system's capture is the
+  narrowest" assumption. The leftover "true only of its Desktop file" caveat was itself voided the
+  same day (`decisions/022`). Required **retracting**, not just updating, the
+  code↔design component conclusion: **23 of 26** published code components have a counterpart in the
+  main/core system, not 5; the 3 that don't (`AspectRatio`, `OpacityLayer`, `Icon`) are modelled as
+  properties or instance-swap slots, so none is a gap. New `components/mobile-components.md`
+  (`mobile-notes.md` deleted); README, canvas, `context/design.md`, `context/code-design-mapping.md`
+  (dangling pointer also fixed), `gotchas/figma-read-only-access.md` (rewritten with a
+  symptom-discrimination table), `decisions/018`, and both reports updated. 4 new data-quality items
+  (11–14), one a real broken component set. `context/decisiones.md` backfilled — it was missing rows for
+  decisions 014–020. See `decisions/021`, `logs/019`.
+- **2026-09-25 (same session): all three Desktop files extracted in full.** The "6-page Desktop
+  catalog" was the same `get_metadata` under-count as Mobile. Main: **32 core of 46 / 106 sets /
+  920 variants, no Testing**, plus Navigation stack and Sheets vs Mobile. USS One: 28/88/676 (6
+  Testing). Extension: 24/55/620 (9 Testing). 23/26 code components now match the main system on
+  **Desktop and Mobile**. New data-quality items 15–17. See `decisions/022`, `logs/020`.
 
 ## Pending
-- Nothing actively requested right now. Data-quality report (`reports/figma-data-quality-issues.md`) is
+- Nothing actively requested by the user right now. Data-quality report
+  (`reports/figma-data-quality-issues.md`) is
   written but has not been sent anywhere — up to the user to route it to the actual Figma file owners.
 - `reports/moduss-planner-review-findings.md` (functional, 2026-08-27) and
   `reports/moduss-planner-visual-review-findings.md` (Kit compliance, 2026-09-02) are written but have not
@@ -149,14 +181,22 @@
 - `context/consolidation-plan.md` Phase 0 (identify real downstream consumers, confirm edit ownership) is a
   **blocking prerequisite** the library owners need to close before Phases 1+ can safely proceed — this
   repo cannot do that step itself.
+- **Empty state** is the one component a named real consumer (ModUSS Planner, U5) needs that genuinely has
+  no specification: Testing-only in USS One (Desktop + Mobile) and Extension Library (Mobile), absent
+  from the main/core system. Everything else that thread flagged exists as core on the main Desktop
+  file — see `decisions/021` and `decisions/022`.
+- Data-quality items **11–15** sit in the **read-only core** (Mobile 11–14, Desktop `Card ghost` = 15),
+  so they cannot be routed through the local-library consolidation track. Items 16–17 sit in the
+  local libraries (USS One Card ghost junk options; Extension Tag secondary missing `type`).
 
 ## Blockers
 - None active.
-- Historical, deferred by user decision (2026-08-27): the original `USS Design System Inventory/` Mobile
-  file only exposes its "Comenzar" index page under the account used for that session — per-component
-  Mobile pages (Buttons, Cards, Tags, etc.) were never enumerated. User decided **not to retry** this
-  extraction for now. Re-open only if the user asks again or Figma access to that file changes. See
-  `state/inventories.md` row 1 and `gotchas/figma-read-only-access.md`.
+- **Resolved and closed 2026-09-25** (was: historical, deferred by user decision 2026-08-27): the
+  main/core `USS Design System Inventory/` Mobile file was believed to expose only its "Comenzar" index
+  page. Direct re-test proved this was a **read-channel artifact, not a permissions limit** — the file is
+  fully readable via a read-only `use_figma` script. It has since been extracted in full and
+  `gotchas/figma-read-only-access.md` rewritten so the two failure modes can't be conflated again.
+  See `decisions/021`.
 
 ## Open questions for the user (resolved 2026-08-28, kept for history)
 1. ~~Should USS / USS One / Extension Library be reconciled into one canonical token set?~~ **Decided:**
@@ -170,11 +210,15 @@
    (`gh repo edit --visibility public`, 2026-08-28).
 4. ~~The code's `--custom-secondary-*` theming-override pattern — worth confirming per-faculty
    customization?~~ **Decided: confirmed.** Updated in `context/design.md`.
-5. Accordion and Modal in code only trace back to unfinished "Testing 🟡" pages in USS One's Figma —
-   **deferred** per user decision (2026-08-28): revisit only once/if those Testing pages are promoted to
-   core pages, no action needed now. **Reopened 2026-08-31** (`decisions/018`): the ModUSS Planner review
-   session asks for Modal *and* Empty state, both still in Testing staging in the local libraries. A named
-   real consumer needing them now is new information the 2026-08-28 deferral did not have.
+5. ~~Accordion and Modal in code only trace back to unfinished "Testing 🟡" pages in USS One's Figma~~ —
+   deferred 2026-08-28, reopened 2026-08-31 (`decisions/018`, ModUSS Planner needs Modal + Empty state).
+   **Premise disproved 2026-09-25**: both were only ever compared against USS One, because the main/core
+   Mobile file was unreadable at the time. With access restored, **Accordion and Modals are both core
+   pages in the main/core system's Mobile file** (which has no Testing section at all); Modals is also
+   core in Extension Library. Only in USS One are they Testing-staged. So neither component is "ahead of
+   what Figma shipped" — the spec exists, it was simply never captured by this repo.
+   Still genuinely Testing-staged everywhere it appears: **Empty state** (USS One + Extension Library),
+   which is the one ModUSS Planner item this correction does *not* resolve.
 
 ## New open questions (surfaced 2026-08-28)
 1. ~~Radius "full" canonical value — `1000px` (Extension Library Figma) vs. `9999px` (shipped code)?~~
@@ -214,7 +258,9 @@ What that unlocks, by task type:
 - "How does the main system differ from its local libraries?" → agent reads `context/design.md`'s diff
   tables, not raw JSON (hierarchy: USS = main/core, USS One + Extension Library = local libraries, per
   `decisions/010`).
-- A Figma/MCP tool call fails → agent checks `gotchas/` before retrying blind.
+- A Figma/MCP tool call fails, or a file looks empty/inaccessible → agent checks `gotchas/` before retrying
+  blind, **but** read `state/inventories.md` § MCP channel note first: `get_metadata` under-reports pages on
+  large files, and `gotchas/figma-read-only-access.md` still carries the pre-2026-09-25 wrong diagnosis.
 - Canvas create/update → agent loads `skills/canvas-creation.md`.
 - Checking an inventory folder is complete → agent runs `scripts/validate-dod.ps1`
   (`skills/dod-validation.md`); also runs automatically via the `stop` hook.

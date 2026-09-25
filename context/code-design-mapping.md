@@ -14,11 +14,42 @@ styles live. `node_modules/@ussebastian/kitdigital`.
 - Docs site (consumption conventions, imperative vs. declarative API):
 [Kit Digital USS React docs](https://pre-dev--cl-uss-kitdigital-docs.netlify.app/desarrollo/componentes-react-intro).
 - Design counterpart used for comparison (per user): `USS Design System Inventory/` — the **main/core
-  system** in this repo's hierarchy (`decisions/010`). Where a code component has no counterpart there, it
-  was cross-checked against the **local library** `USS One Design System Inventory/` instead (see follow-up
-  section below).
+  system** in this repo's hierarchy (`decisions/010`). See "Component-level cross-reference" below for the
+  full component-by-component result.
 
+## Component-level cross-reference
 
+**Rewritten 2026-09-25 (`decisions/021`).** The original version of this cross-check ran while the
+main/core system's **Mobile** Figma file was believed inaccessible, so it compared the 26 published code
+components against that system's Desktop capture alone and then fell back to USS One. It concluded that
+only 5 components matched the main system and 16 more "existed only in USS One." Both numbers were
+artifacts of the missing file. With the Mobile file extracted (93 sets / 776 variants across 30 core
+pages), the result is:
+
+**23 of 26 code components have a counterpart in the main/core system itself.**
+
+| Code component | Counterpart in main/core system | Where |
+|---|---|---|
+| Badge, Button, Card, Divider, Tag | yes | Desktop **and** Mobile |
+| Accordion, AlertMessage, Banner, Breadcrumb, Carousel, Footer, Header, Hero, Link, LinkedList, Modal, Pagination, Stepper, Table, Tabs, Toast, Tooltip | yes | Desktop **and** Mobile |
+| Form | yes, many-to-one | Desktop **and** Mobile: Checkbox, Dropdown list, Radio button, Select, Select date, Switch toggle, Text field (7 pages) |
+| AspectRatio | no standalone component | exists as a **variant property** — `Aspect ratio` on `Imagen frame img 📱` / `Video frame📱` |
+| OpacityLayer | no standalone component | exists as a **boolean property** — `Opacity` on `Page hero`'s background-image and slider variants |
+| Icon | no standalone component | consumed via `INSTANCE_SWAP` slots on ~15 sets; only `Assets/Icon help` is a named icon component |
+
+So the three "code-only utilities" finding survives, but with a sharper reading: none of them is a gap.
+Two are modelled as *properties* rather than components — a packaging difference between a CSS/React API
+and a Figma variant model, not a missing spec — and the third is an instance-swap slot, which is the
+normal Figma idiom for icons.
+
+**What this changes about the direction of the gap.** The earlier conclusion, that the code library ran
+ahead of the main system and matched a local library instead, does not hold. The main/core system is
+the *most* complete of the three on **both** Mobile (`decisions/021`) and Desktop (`decisions/022`).
+The "Desktop is a 6-page stub, so desktop consumers must adapt from Mobile" claim is void — it was
+the same `get_metadata` under-count already seen on Mobile. All 23 matched code components have a
+Desktop counterpart in the main system as well. Two extra Desktop-only pages (Navigation stack,
+Sheets) have no code export. Empty state remains the only requested consumer pattern without a core
+spec. See `decisions/018` (second correction) and `decisions/022`.
 
 ## Architecture
 
@@ -58,9 +89,10 @@ an external doc the user shared (not from Figma or `node_modules`) — see `deci
   Independently corroborates, for a second and differently-packaged consumer, the exact color-token match
   `decisions/009` already found for `kitdigital-react`.
 - **No new gap found:** the norm doc also references `.uss-form__input`, `.uss-table`, `.uss-modal`, and
-  `.uss-tabs__*` CSS classes, none of which have a counterpart in USS main's captured desktop pages
-  (Badges/Buttons/Cards/Divider/Image-video/Tags only) — this matches the already-documented "16/21 extra
-  code components matched to USS One instead" pattern from `decisions/009`, not a newly discovered gap.
+  `.uss-tabs__*` CSS classes. The 2026-08-31 note that these had no Desktop counterpart was a
+  `get_metadata` under-count (`decisions/022`). All four are core on the main Desktop file (Text field /
+  Select / Checkbox, Table, Modals, Tabs) as well as Mobile. The original phrasing also pointed at the
+  since-retracted "matched to USS One instead" pattern — see "Component-level cross-reference" above.
 - App-specific colors with **no Kit/Figma equivalent by design** (out of scope for this repo's inventories):
   `gold` (`#C9852A`, activity/share accent) and seven `ind.*` colors (one per MODUSS Planner indicator).
 

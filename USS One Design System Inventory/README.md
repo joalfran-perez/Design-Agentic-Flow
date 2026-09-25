@@ -28,7 +28,7 @@ All three files use identical page IDs to the main system's "USS" files, and Mob
 | Typography variables ("Tipografia" collection, incl. 205 per-style line-heights) | 235 |
 | Effect styles (elevation) | 6 (2 legacy + 4 current + dark-mode flat replacements) |
 | Local text styles (verbose + compact ramps, Desktop + Mobile) | ~200+ |
-| Desktop: pages / component sets / variants | 6 / 33 / 323 |
+| Desktop: pages / component sets / variants (core pages only) | 28 / 88 / 676 |
 | Mobile: pages / component sets / variants (core pages only) | 27 / 77 / 576 |
 
 ## What's new vs. the main USS system
@@ -38,8 +38,8 @@ All three files use identical page IDs to the main system's "USS" files, and Mob
 - **Much larger color system**: 343 canonical color variables (vs. ~68 semantic + ~92 base in the original), including a second Secondary/blue-gray palette ramp.
 - **Tokens-sync pipeline**: parallel `Figma-Color` / `Figma-Typography` collections with true Figma modes mirror the canonical `Color` / `Tipografia` collections — consistent with an external tokens-sync tool (e.g. Tokens Studio) now driving the design tokens.
 - **Full edit access** on all three files (the original USS Desktop/Mobile files were read-only), which enabled direct Plugin API extraction instead of the REST metadata workarounds used previously.
-- **Mobile component library is far more complete**: 27 core pages / 77 component sets vs. the original Mobile file, which only exposed a single "Comenzar" landing page under read-only access. It now covers the full component catalog (alerts, banners, breadcrumbs, cards, carousel, checkbox, dropdowns, footer, header/nav, links, pagination, radio, selects, steppers, switches, table, tabs, tags, text fields, toast, tooltip) plus Testing/Patterns/Sections/Templates staging pages.
-- **Desktop is comparatively behind**: only 6 pages / 33 component sets ported so far, with the Buttons page explicitly marked "Buttons - Testing 🟡" — Desktop porting of USS One appears to be in progress.
+- **Mobile component library is complete on core pages**: 27 core / 77 sets / 576 variants, plus a Testing/Patterns/Sections staging area. The earlier claim that the main system's Mobile file only exposed "Comenzar" was a channel artifact (`decisions/021`) — the main Mobile file is now known to be larger (30/93/776) and has no Testing section.
+- **Desktop is a near-complete catalog, not a 6-page stub** (re-extracted 2026-09-25, `decisions/022`): 28 core pages / 88 sets / 676 variants out of 51 total. What is actually behind the main system: Buttons, Tags, Accordion, and Modals are still `Testing 🟡` here (they are core on the main Desktop file). Empty State is Testing-only here and absent from the main system.
 
 ## Contents
 

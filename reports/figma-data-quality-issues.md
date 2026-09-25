@@ -13,6 +13,12 @@ fix below applies only to the 2 local libraries (USS One, Extension Library), ne
 files, even where an item's ideal fix would logically also touch the core. See
 `context/consolidation-plan.md` for the full phased plan these items feed into.
 
+**Update 2026-09-25 (`decisions/021`):** items **11–14 are new and sit in the core system's Mobile file**,
+which had never been audited because it was wrongly believed inaccessible. They are reported here for
+completeness and because item 11 is a genuine broken-set bug, but the read-only constraint means they
+need whoever still holds edit rights on the core files — they cannot be routed through the local-library
+consolidation track like items 1–9.
+
 ---
 
 ## 1. Extension Library: `spacing-216` resolves to 220px, not 216px
@@ -157,6 +163,109 @@ the design team says otherwise.
 
 ---
 
+## 11. Main system (Mobile): `Assets/Item dropdown menu 📱` is a broken component set
+
+**Where:** USS — Componentes Mobile → Header menu page → `Assets/Item dropdown menu 📱` (24 variants).
+
+Figma itself reports this set as invalid: reading its component-property definitions throws
+`Component set has existing errors`. The variant count is readable, the property axes are not. This is
+usually a duplicate variant-name combination or a variant missing a required property value — Figma shows
+it in-canvas as a red error banner on the set. It is the **only** broken set across all 30 core Mobile
+pages of that file.
+
+**Why it matters:** a set in this state can't be reliably instanced or swapped, and tooling (including
+this repo's extraction, and any Code Connect or token-export pipeline) can't read its API.
+
+**Suggested next step:** open the set in Figma and resolve the reported conflict. Note the read-only
+constraint above applies — this one is in the core system, so it needs whoever still holds edit rights on
+that file.
+
+## 12. Main system (Mobile): `Card ghost 📱` has two auto-generated junk variant options
+
+**Where:** USS — Componentes Mobile → Cards page → `Card ghost 📱`.
+
+Its dark-mode axis reads `[False | True | ☾ Dark mode3 | ☾ Dark mode4]`. The last two are Figma's
+placeholder names generated when a variant is added without setting its property values — they are not
+real states. Every other set in the file uses a clean two-option boolean.
+
+**Suggested next step:** delete the two stray variants, or assign them real property values if they were
+meant to be something.
+
+## 13. Main system (Mobile): inconsistent property naming across sets
+
+**Where:** USS — Componentes Mobile, multiple pages. Three separate inconsistencies, all cosmetic in
+isolation but jointly hostile to any automated cross-set matching:
+
+- **Dark-mode property name** varies: `☾ Dark mode` (majority), `☾ Dark Mode` (`Button full width 📱`),
+  and plain `Dark mode` with no moon glyph (`_Focus element`, `card icono 📱`, `card interactivo 📱`,
+  `grid cards`). Option casing also varies (`False|True` vs `false|true`).
+- **`Tittle`**, a misspelling of "Title", is the property name in `Assets/Group row📱`,
+  `Card carousel📱`, `Card icono carousel📱`, `Assets/Table head cell 📱` and `Toast 📱` — while the same
+  slot is `Título` or `Title` elsewhere. Three spellings for one concept.
+- **`Card S📱` has a single-option variant property** (`Estado=[Default]`), an axis with no choices.
+
+**Why it matters:** the consolidation plan (`context/consolidation-plan.md`) depends on matching
+equivalent components across systems by property shape. Name/casing drift makes that matching manual.
+
+**Suggested next step:** normalize during the next component pass; low individual priority, worth batching.
+
+## 14. Main system: Mobile button states are narrower than Desktop's, inconsistently
+
+**Where:** USS — Componentes Mobile → Buttons page.
+
+Every Mobile button set uses `Estado = Default/Active/Focus/Disabled` (4) — except `Button full width 📱`,
+which uses `Default/Hover/Active/Focus/Disabled` (5). The Desktop inventory records **all** buttons as
+having the 5-state axis including Hover.
+
+**Why it matters:** either Hover is intentionally dropped on touch targets (in which case
+`Button full width 📱` is the outlier and should lose it) or it was missed on the other five sets. Both
+readings are plausible from the file alone; this needs the design team's intent.
+
+**Suggested next step:** confirm the intended rule for hover on mobile, then align all six sets.
+Confirmed unchanged by the 2026-09-25 Desktop re-read: every Desktop button set still uses the
+5-state axis including Hover.
+
+## 15. Main system: Desktop `Card ghost` is a broken component set
+
+**Where:** USS — Componentes Desktop → Cards page.
+
+`componentPropertyDefinitions` throws `Component set has existing errors`. 4 child variants are
+still present. Same class of bug as item 11 (Mobile `Assets/Item dropdown menu 📱`). The USS One
+Desktop sibling of this set is readable but polluted (item 16).
+
+**Why it matters:** a published component set that Figma itself flags as errored cannot be inspected
+or consumed cleanly. Sits in the read-only core, so it cannot be routed through the local-library
+consolidation track.
+
+**Suggested next step:** whoever still holds edit rights on the core files should open the set and
+clear the existing errors.
+
+## 16. USS One Desktop: `Card ghost` Dark-mode axis has junk options
+
+**Where:** USS One — Componentes Desktop → Cards page → `Card ghost`.
+
+Variant axis is `☾ Dark mode=False|True|☾ Dark mode3|☾ Dark mode4` — two auto-generated leftover
+options, same class as Mobile item 12. The set is otherwise readable (unlike the main Desktop
+sibling in item 15).
+
+**Why it matters:** publishing a component with phantom mode options will generate unused variants
+and confuse token binding.
+
+**Suggested next step:** delete the two junk options on the next USS One Desktop pass.
+
+## 17. Extension Library Desktop: `Tag secondary` missing the `type` axis
+
+**Where:** Extension Library — Componentes Desktop → Tags page.
+
+Main system and USS One Desktop `Tag secondary` is 20 variants (`Estado` × `type=navigation/selection|toggle`
+× Dark mode). Extension Library's set is 10 variants — Dark mode × Estado only. The `type` axis is
+absent.
+
+**Why it matters:** a consumer switching from the main library to Extension Library loses the
+navigation-vs-toggle distinction on the same named component.
+
+**Suggested next step:** restore the `type` axis, or document the intentional narrowing.
+
 ## Summary table
 
 | # | Issue | File(s) | Severity |
@@ -171,6 +280,13 @@ the design team says otherwise.
 | 8 | Inconsistent Testing→core promotion order | USS One vs. Extension Library | Informational |
 | 9 | Facultad blue-gray values have no formal `_Base/Secondary` ramp | Extension Library | Pending task: create the ramp, values unchanged |
 | 10 | H4 weight (500 vs. 600) and Display title size (60px vs. 56px) disagree between Figma and shipped code | USS (main) vs. shipped code | Needs confirmation — code likely canonical (has an "antes era 60" comment) |
+| 11 | `Assets/Item dropdown menu 📱` is a broken component set (Figma reports errors) | USS (main), Mobile | Bug |
+| 12 | `Card ghost 📱` has 2 auto-generated junk variant options | USS (main), Mobile | Bug |
+| 13 | Dark-mode property naming/casing drift, `Tittle` misspelling, 1 single-option axis | USS (main), Mobile | Cosmetic, batch fix |
+| 14 | Mobile buttons: 4 states, except `Button full width 📱` with 5 (Desktop has 5 for all) | USS (main) | Needs decision on hover-on-mobile rule |
+| 15 | Desktop `Card ghost` is a broken component set | USS (main), Desktop | Bug |
+| 16 | Desktop `Card ghost` Dark-mode axis has junk options `Dark mode3/4` | USS One, Desktop | Bug |
+| 17 | `Tag secondary` missing `type=navigation/toggle` axis (10 vs 20 variants) | Extension Library, Desktop | Bug |
 
 Full source data for every row above lives in this repo's `context/design.md`, `context/canonical-tokens.md`,
 and the individual `tokens/*.json` files under each system's inventory folder, if more detail is needed

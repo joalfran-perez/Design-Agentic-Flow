@@ -27,13 +27,28 @@ a visual component. The `.docx` is **not** copied into this repo, per `AGENTS.md
    dashboard, and of the 12 UI patterns the review asks for, **11 have no specification in any captured
    Desktop file** of any of the three systems. All three Desktop captures hold only Badges, Buttons, Cards,
    Divider, Image/video and Tags; Toast, Modal, Alert message, Empty state, Stepper, Select, Select date
-   range, searchable Dropdown, Tooltip, Tabs, Table and the Filters/Forms patterns exist **only in the
-   Mobile files of the two local libraries**. Badge is the sole recommended pattern with a Desktop spec.
+   range, searchable Dropdown, Tooltip, Tabs, Table and the Filters/Forms patterns exist **only in Mobile
+   files**. Badge is the sole recommended pattern with a Desktop spec.
 
 Stated honestly: this repo's Desktop captures are known-narrow (`decisions/009`), so the correct reading is
 "absent from the captured Desktop pages", not "absent from Figma". Even under that caveat the asymmetry is
 new and worth recording — every prior gap finding was token-level, this is the first
 **component-specification** gap traced to a named real consumer.
+
+> **Correction, 2026-09-25 (`decisions/021`).** Point 3 originally said those patterns live "only in the
+> Mobile files of the **two local libraries**." With the main/core Mobile file now extracted, they also
+> live in the **main/core system's own Mobile file** — which turns out to be the largest of the three
+> (93 sets / 776 variants) and the only one with no Testing staging area. At the time, the Desktop gap
+> itself was left standing: 11 of 12 patterns still appeared to have no Desktop spec.
+>
+> **Second correction, 2026-09-25 (`decisions/022`).** The remaining Desktop gap was the same channel
+> artifact. All three Desktop files are full catalogs (main 32/106/920, USS One 28/88/676, Extension
+> 24/55/620). Toast, Modal, Alert, Stepper, Select, Select date, Dropdown, Tooltip, Tabs, Table, Header,
+> Breadcrumb and the form pages are **core on the main Desktop file**. Point 3 of the Decision is
+> **void** except for **Empty state**, which is still Testing-only in USS One (Desktop + Mobile) and
+> Extension Library (Mobile) and absent from the main system. A desktop consumer of the main system
+> does not have to adapt those 11 patterns from Mobile. Filters/Forms exist as Pattern pages (not
+> deep-scanned) on all three Desktop files.
 
 **Consequence:**
 - Reopens open question 5 in `state/current.md` (Accordion + Modal deferred 2026-08-28 because they only

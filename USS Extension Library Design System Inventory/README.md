@@ -27,7 +27,7 @@ All three files reuse the same page IDs as USS/USS One where pages are shared (e
 | Local paint styles | 529 total / **334 distinct** (195 are exact duplicates, all in "Light mode") |
 | Local text styles | 191 (no local typography variables at all) |
 | Effect styles | 6 (2 legacy + 4 current elevation, same math as USS One) |
-| Desktop: pages / component sets / variants | 6 / 41 / 383 |
+| Desktop: pages / component sets / variants (core pages only) | 24 / 55 / 620 |
 | Mobile: pages / component sets / variants (core pages only) | 22 / 54 / 550 |
 
 ## What's different vs. USS One
@@ -37,7 +37,7 @@ All three files reuse the same page IDs as USS/USS One where pages are shared (e
 - **A new, unrelated purple "Terciary" base ramp** (`_Base/Terciary/10-100`, `#f5eff9`→`#402851`) replaces where USS One kept a blue-gray "Secondary"/"Facultad" base ramp — yet the Facultad/USS accent tokens still resolve to the ORIGINAL blue-gray hex values, suggesting they're now hardcoded rather than aliased to any local base group.
 - **Different dark-mode elevation replacement color** (`#121c27`, flat across all 4 levels) vs. USS One's 2-tone `#202a37`/`#242f3c`.
 - **New `Radius-1000`** pill/full-round token and a **new `Mobile/Navigation Label`** text style group (4 styles) for bottom-nav labels — both absent from USS One.
-- **Inverted component maturity vs. USS One**: Desktop's Buttons page is stable/core here (it was "Testing 🟡" in USS One) while Desktop's Cards page is now the one marked "Testing 🟡" (it was core in USS One). On Mobile, Buttons and Modals are core here but were Testing-only in USS One, while Alert message/Badges/Cards/Carousel/Header menu/Page hero — core in USS One — are still Testing here.
+- **Inverted component maturity vs. USS One, now visible on the full Desktop catalog** (re-extracted 2026-09-25, `decisions/022`): Desktop is 24 core pages / 55 sets / 620 variants out of 46 total — not a 6-page stub. Buttons and Tags are core here (Testing in USS One). Cards, Header, Carousel, Footer, Page hero, Alert, and Table are still `Testing 🟡` here (core in the main system and, except Table/Alert, in USS One). Extra sets that the main system does not have: `Button Multi-Purpose`, `Modal Extended`. `Tag secondary` is missing the `type` axis (10 variants vs. 20).
 - **Component-set duplication**: "Button icon 📱" (Mobile) and "Card Persona S horizontal" (Desktop) each exist as two separate, identically-named component sets.
 
 ## Contents

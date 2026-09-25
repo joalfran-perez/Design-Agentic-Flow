@@ -29,20 +29,23 @@ An interactive version of this same inventory is also available as a Cursor canv
 | Text styles | 156 |
 | Effect styles | 2 |
 | Legacy paint styles | 208 |
-| Named components (Desktop library) | ~40 |
+| Desktop component sets / variants | 106 / 920 (32 core pages) |
+| Mobile component sets / variants | 93 / 776 (30 core pages) |
 
 ## Access scope for this inventory
 
 The account used has **edit access** to the Fundamentos de diseño (Foundations) file, so its full variable
-collections and styles were read live via the Figma Plugin API. The two component-library files (Desktop,
-Mobile) are **view-only** for this account: their component/variant structure was captured from Figma's
-metadata and variable-usage endpoints instead.
+collections and styles were read live via the Figma Plugin API. The Desktop and Mobile component files are
+**view-only** for this account; both were extracted via read-only Plugin API scripts.
 
-The Mobile file currently exposes only its "👋🏼 Comenzar" index page to this account — its dedicated
-component pages (Buttons, Cards, Tags, etc., mirrored from Desktop at ≤575px) are not listed by the
-document's page index under current permissions. Variable sampling on the Comenzar frame confirms it
-resolves the same token set as Desktop and Foundations, so the mobile component set is built on the
-identical design-token foundation — only page-level access differs.
+**Correction (2026-09-25):** this inventory previously stated that Mobile exposed only its
+"👋🏼 Comenzar" page and that Desktop held only 6 component pages. Both were **read-channel
+artifacts**, not permissions limits — `get_metadata` under-counts pages on both files, while a
+read-only Plugin API script returns the full list (Mobile 44, Desktop 46). Both files are now
+extracted in full; see [`components/desktop-components.md`](components/desktop-components.md),
+[`components/mobile-components.md`](components/mobile-components.md), `decisions/021`, and
+`decisions/022`. Nothing was written to any Figma file — the main/core system stays read-only per
+`decisions/012`.
 
 ## 1 · Fundamentos de diseño (Foundations)
 
@@ -68,20 +71,26 @@ indirection is what implements theming.
 
 ## 2 · Componentes Desktop
 
-**Pages:** "👋🏼 Comenzar" · Badges · Buttons · Cards · Divider · Image / video · Tags
+**46 pages; 32 core component pages deep-scanned** (the same 30 as Mobile, plus Navigation stack and
+Sheets). No Testing section. **106 sets / 920 variants — the largest Desktop library of the three.**
 
 Full per-page component/variant breakdown: [`components/desktop-components.md`](components/desktop-components.md).
 
-Sampling `get_variable_defs` across these pages confirms they consume the exact same semantic tokens as the
-Foundations file (e.g. `Color Tokens/Text/Strong`, `Light mode/Surface/Interactive default`, `Elevación 1`) —
-one shared design-token library published across all three files, not three independent palettes.
+Sampling across these pages confirms they consume the exact same semantic tokens as the Foundations
+file — one shared design-token library published across all three files, not three independent palettes.
 
 ## 3 · Componentes Mobile
 
-**Accessible page:** "👋🏼 Comenzar" (index)
+**44 pages; 30 core component pages deep-scanned** (Accordion, Alert message, Badges, Banners, Breadcrumbs,
+Buttons, Cards, Carousel, Checkbox, Divider, Dropdown list, Footer, Header menu, Image/video, Link, Linked
+list, Modals, Page hero, Pagination, Radio button, Select, Select date, Steppers, Switch toggle, Table,
+Tabs, Tags, Text field, Toast, Tooltip). Built for viewports up to 575px wide.
 
-Notes: [`components/mobile-notes.md`](components/mobile-notes.md).
+Full per-page component/variant breakdown:
+[`components/mobile-components.md`](components/mobile-components.md).
 
-The Comenzar page is a scrolling index of ~30 `Card M` link-cards grouped under implicit sections ending in
-dividers labeled `Patterns` and `Templates` — the same structure as the Desktop file's own landing page, just
-organized for viewports up to 575px wide.
+**93 component sets, 776 variants — the largest Mobile library of the three systems** (USS One: 77/576;
+Extension Library: 54/550), and the only one with **no "Testing 🟡" staging section**: every component page
+here is core. Combined with the Desktop re-extraction the same day (106/920 across 32 core pages, also
+no Testing), the main/core system is the most complete catalog on **both** channels — the "narrowest
+capture" assumption does not survive.

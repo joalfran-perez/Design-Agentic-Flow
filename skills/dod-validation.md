@@ -14,8 +14,9 @@ never fail the run.
 ## What it checks per inventory folder
 1. `README.md` present and non-empty.
 2. `components/desktop-components.md` present and non-empty.
-3. `components/mobile-components.md` present and non-empty, OR the documented exception
-   `components/mobile-notes.md` (see `decisions/002-inventory-folder-structure.md`).
+3. `components/mobile-components.md` present and non-empty. (The script also accepts a legacy
+   `components/mobile-notes.md` fallback, but that exception was closed on 2026-09-25 — all three
+   inventories now have a real Mobile breakdown. See `decisions/002` and `decisions/021`.)
 4. All 5 `tokens/{spacing,radius,colors,typography,effects}.json` present, valid JSON, non-empty.
 5. The folder is referenced by name in `state/inventories.md`.
 6. (Lint only) folder name ends in `Design System Inventory` (capital S) per `decisions/002`.

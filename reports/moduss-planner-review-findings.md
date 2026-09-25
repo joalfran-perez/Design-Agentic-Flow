@@ -165,21 +165,28 @@ Este repositorio audita el sistema de diseño USS del que ModUSS Planner ya cons
 `decisions/013`). Cruzamos cada patrón que la revisión pide contra lo inventariado, y el resultado es
 relevante para estimar:
 
-- **Ya existen especificados** (en los archivos Mobile de las librerías locales USS One y Extension Library):
-Toast, Modal, Alert message, Stepper, Select, Select date range, Dropdown con búsqueda, Tooltip y Tabs.
-Es decir, el toast de U2, el modal de confirmación de U2/U3, el stepper de la previsualización de
-importación y los selects de D8 **no hay que inventarlos**, hay que adaptarlos.
-- **Existen pero sin promover**: Empty state (U5) y Table siguen en páginas de staging "Testing" de las
-librerías locales. Modal está en core en Extension Library pero todavía en Testing en USS One.
-- **Advertencia de alcance**: ModUSS Planner es una aplicación **desktop**, y de estos 12 patrones **solo el
-badge de estado** (U4, U6) tiene especificación en un archivo Desktop capturado. Todo el resto está
-especificado únicamente para Mobile. Al implementar habrá que adaptar de Mobile a Desktop sin una
-referencia canónica, lo cual conviene tener presente al estimar y al decidir si vale la pena pedirle al
-equipo dueño del sistema de diseño que especifique la variante Desktop.
+> **Actualización 2026-09-25.** Esta sección se escribió cuando el archivo Mobile del sistema
+> principal USS no se podía leer. Ya se extrajo completo (30 páginas core, 93 sets, 776 variantes) y
+> resulta ser **la biblioteca de componentes más completa de las tres**. Eso mejora la situación para el
+> equipo: la fuente de referencia deja de ser una librería local y pasa a ser el sistema canónico.
 
-Salvedad honesta: las capturas Desktop de este repositorio son conocidamente estrechas
-(`decisions/009`), así que lo correcto es leer "ausente de las páginas Desktop capturadas", no "no existe en
-Figma". Vale la pena confirmarlo con el equipo del sistema de diseño antes de asumir que hay que crear algo.
+- **Ya existen especificados en el sistema principal USS** (archivo Mobile, todos en páginas core — no en
+staging): Toast, Modal, Alert message, Stepper, Select, Select date (simple y range), Dropdown list con
+búsqueda, Tooltip, Tabs, Table, Accordion, y las 7 páginas de formulario (Text field, Text area, Checkbox,
+Radio button, Switch toggle, Select, Dropdown list). Es decir, el toast de U2, el modal de confirmación de
+U2/U3, el stepper de la previsualización de importación y los selects de D8 **no hay que inventarlos**,
+hay que adaptarlos — y conviene adaptarlos desde el sistema principal, no desde una librería local.
+- **Único patrón realmente sin especificación: Empty state (U5).** Está en staging "Testing" en USS One y
+en Extension Library (ahí con dos variantes, incluida una de fondo sólido), y no existe en el sistema
+principal. Es el que sí habría que definir o promover.
+- **Advertencia de alcance, retractada 2026-09-25 (`decisions/022`).** La frase anterior —que de estos
+12 patrones solo el badge tenía spec Desktop, y que los tres archivos Desktop solo llevaban
+Badges/Buttons/Cards/Divider/Image-video/Tags— era el mismo artefacto de canal que ya se corrigió en
+Mobile. El Desktop del sistema principal tiene **32 páginas core / 106 sets / 920 variantes**, con
+paridad de catálogo frente a Mobile más Navigation stack y Sheets. Toast, Modal, Alert, Stepper,
+Select, Select date, Dropdown, Tooltip, Tabs, Table, Header, Breadcrumb y las páginas de formulario
+están en core en Desktop. **Empty state (U5) sigue siendo el único patrón sin spec core.**
+Filters/Forms existen como páginas de Patterns (no deep-scanned) en los tres Desktop.
 
 ---
 

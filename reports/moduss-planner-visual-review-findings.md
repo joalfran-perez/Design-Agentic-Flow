@@ -58,7 +58,7 @@ el `D*` / `U*` correspondiente.
 
 | ID | Hallazgo | Qué usar del Kit | Recurre en |
 |---|---|---|---|
-| V1 | El encabezado lleva el logo de ModUSS Planner. Debe ser el **logo USS**, en la variante de **doble fila**: tope (`top`) + bloque principal de navegación | Header institucional del Kit (no está en las páginas Desktop capturadas de este repo) | Todas |
+| V1 | El encabezado lleva el logo de ModUSS Planner. Debe ser el **logo USS**, en la variante de **doble fila**: tope (`top`) + bloque principal de navegación | Header institucional del Kit (`Header menu - standard` / `- CTA`, core en el Desktop del sistema principal; `decisions/022`) | Todas |
 | V2 | Menú de **alto contraste** (fondo azul oscuro, texto claro). No está definido en el Kit para este producto; hay que pasar a **positivo / light** | Tema light del Kit; no usar las variantes dark del select/botón sobre ese fondo | Todas |
 | V3 | El select de cambio de rol está en **negativo** (línea y texto blancos) porque hereda el chrome oscuro. Al pasar el menú a light, el select debe volver a su estado light | `.uss-form__input` en modo claro; no la variante dark | Todas |
 | V4 | Avatar del usuario no coincide con el del Kit (iniciales, color de fondo, tipografía, tamaño). El mismo avatar reaparece en breadcrumb | Avatar del Kit | Header + detalle de plan |
@@ -67,7 +67,7 @@ el `D*` / `U*` correspondiente.
 | V7 | Títulos de página en **color primario**, no definido para ese uso. Deben usar el color de texto **strong** (oscuro) | Clase semántica de encabezado del Kit (`uss-h1`…`uss-h4`) + token strong. Encaja con el riesgo Preflight de v1: la etiqueta de heading **sin** clase Kit se ve mal | Todas las pantallas con título |
 | V8 | Texto de apoyo bajo el título con **contraste insuficiente** sobre el fondo gris de página. Subir un paso en la rampa del token que se esté usando | Token de texto secundario un paso más oscuro de la rampa semántica | Todas |
 | V9 | Emoji usado como indicador de notificación. El Kit tiene badge para eso. Además, v1 prohíbe emojis en JSX renderizado | `.uss-badge--*` | Home / header |
-| V12 | Breadcrumb (pantalla de detalle de plan) sin color, tipo ni comportamiento del Kit | Breadcrumb del Kit (solo especificado en Mobile en este repo) | Detalle de indicador / plan |
+| V12 | Breadcrumb (pantalla de detalle de plan) sin color, tipo ni comportamiento del Kit | Breadcrumb del Kit (core en Desktop y Mobile del sistema principal; `decisions/022`) | Detalle de indicador / plan |
 
 ### Login
 
@@ -124,7 +124,7 @@ el `D*` / `U*` correspondiente.
 |---|---|---|
 | V11 | Ícono dropdown del select **roza el borde derecho** del campo. Recurre en header y en el modal de agregar práctica | Ajuste de padding del `.uss-form__input`; no un ícono Tailwind a pelo |
 | V13 | Lista desplegada: hover azul **distinto** al del dropdown del Kit | Estados del item de dropdown kit |
-| V33 | Calendario de fecha inicio/fin: **pedir a diseño** la referencia Figma de un calendario ya implementado con el Kit en otro proyecto. No hay especificación Desktop de date picker en los inventarios de este repo | Select date (solo Mobile capturado) |
+| V33 | Calendario de fecha inicio/fin: **pedir a diseño** la referencia Figma de un calendario ya implementado con el Kit en otro proyecto. Había quedado como "solo Mobile" por una captura incompleta; `Select date simple` y `Select date range` son core en el Desktop del sistema principal (`decisions/022`) | Select date (Desktop + Mobile) |
 
 ---
 
@@ -145,13 +145,13 @@ Varios síntomas visuales son la cara de hallazgos ya ticketizados:
 
 ## Implicancia para el sistema de diseño (este repo)
 
-La sesión **nombra** componentes que este repo ya había marcado como ausentes de las capturas Desktop
-(`decisions/018`): Header, Avatar, Breadcrumb, Modal, Alert, Select, Dropdown, Table, Tabs (estos últimos
-sí se vieron bien), Tag, Badge, Button icon, Button full-width, KPI card, Date picker.
-
-No cambia el inventario Figma: sigue siendo “ausente de las páginas Desktop **capturadas**”. Lo que cambia es
-el **volumen de evidencia de un consumidor real pidiendo esas piezas en desktop**. Tabs es el único bloque
-que esta sesión da por alineado.
+La sesión **nombra** componentes que `decisions/018` había marcado como ausentes de las capturas Desktop:
+Header, Avatar, Breadcrumb, Modal, Alert, Select, Dropdown, Table, Tabs, Tag, Badge, Button icon,
+Button full-width, KPI card, Date picker. Esa ausencia era un subconteo de `get_metadata`
+(`decisions/022`): todos esos patrones excepto **Avatar** y **Empty state** son core en el Desktop
+del sistema principal. Avatar es Testing-only en Extension Library Desktop; Empty state es
+Testing-only en USS One. Tabs sigue siendo el único bloque que esta sesión da por alineado *en la
+app* — el gap ya no es "Figma no tiene la spec Desktop".
 
 La norma aplicable al arreglo en código es `deliverables/kitdigital-v1.md`, no v2: ModUSS Planner sigue en
 el régimen Tailwind-coexistente.

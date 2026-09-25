@@ -8,8 +8,11 @@ repo-specific workflow layered on top of it.
 
 1. **Extract file keys** from the 3 provided URLs: `figma.com/design/<fileKey>/<name>`.
 
-2. **Discover pages** — `get_metadata` with no `nodeId` on each file (returns top-level page list). Do
-   this for all 3 files in parallel (independent calls, one message).
+2. **Discover pages** — do **not** trust `get_metadata` with no `nodeId` as the page list. On all 3
+   Mobile files it returns only `Comenzar`; on all 3 Desktop files it returns Comenzar + the same 6
+   component pages (`decisions/021`, `022`). Always confirm with a read-only `use_figma` script:
+   `return figma.root.children.map(p => ({ id: p.id, name: p.name }));`. `get_metadata` is still
+   useful as a parallel signal, not as the catalog.
 
 3. **Check access + get style/variable overview** — one `use_figma` call per file, in parallel:
    ```js

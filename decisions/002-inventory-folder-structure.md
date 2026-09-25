@@ -9,11 +9,13 @@ context/output constraints, and (b) lets later sessions diff systems without re-
 radius,colors,typography,effects}.json, components/{desktop,mobile}-components.md}`. No inventory-specific
 extra top-level files.
 
-**Known exception:** the original `USS Design System Inventory/components/` uses `mobile-notes.md` instead
-of `mobile-components.md`, because that Figma file was view-only and only exposed one index page — there
-was no per-component breakdown to tabulate, just access-limitation notes. Treat this as intentional, not a
-bug to fix retroactively unless the Mobile file's access is upgraded and a real component audit becomes
-possible.
+**~~Known exception~~ (closed 2026-09-25):** `USS Design System Inventory/components/` used
+`mobile-notes.md` instead of `mobile-components.md`, on the belief that the Mobile Figma file was
+view-only and exposed a single index page. That belief was wrong — the limitation was a read-channel
+artifact (`decisions/021`). The file has been extracted in full and `mobile-notes.md` deleted, so **all
+three inventories now use the standard shape with no exception**. `scripts/validate-dod.ps1` still
+accepts `mobile-notes.md` as a fallback, but nothing uses it; treat a new one as a smell, not a
+sanctioned pattern.
 
 **Consequence:** `state/inventories.md` and `context/design.md` can present per-system rows/columns
 mechanically. Any new system extraction must match this shape before being marked done.
